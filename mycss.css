@@ -1,0 +1,41 @@
+.title {
+  margin: 20px auto;
+  padding: 5px;
+}
+
+.dropzone {
+  background-color: #ccc;
+  height: 600px;
+  border: dashed 2px grey;
+}
+
+.draggable{
+  padding:0 20px;
+  text-align: center;
+  max-height: 160px;
+}
+
+.draggable > img{
+  width: 100%;
+}
+
+.resize-drag > img{
+  width: 100%;
+}
+
+/*.draggable {
+  height: 100px;
+  
+}
+/*
+.drop-active {
+  border-color: #aaa;
+}
+
+.drop-target {
+  background-color: #000;
+  color: #FFF;
+  border-color: #fff;
+  border-style: solid;
+}*/
+
