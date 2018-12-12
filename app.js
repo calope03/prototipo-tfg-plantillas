@@ -1,11 +1,37 @@
-var picto = document.getElementById("box-one1");
-console.log();
+//(function(){
+  var myWidth = window.innerWidth;
+  var myHeight = window.innerHeight; 
+  var body = document.querySelector('body');
+  body.style.width = myWidth+"px";
+  body.style.height = myHeight+"px";
+//})();
+
+
+console.log("width:",myWidth,"height",myHeight);
+
+var pictogramas = Array.prototype.slice.call(document.querySelectorAll('.pictograma'));
+
+pictogramas.forEach(function(element){
+  element.style.height = alturaPictograma(element) +"px";
+  console.log(element.style.height);
+});
+
+function alturaPictograma(picto){
+  var elemsPicto = Array.prototype.slice.call(picto.children);
+  var altura = 0;
+  for (var i = 0; i<elemsPicto.length; i++) {
+    altura += elemsPicto[i].clientHeight;
+  }
+  return altura;
+}
+
+
 
 interact('.draggable')  
   .draggable({
     // enable inertial throwing
     //inertia: true,
-    snap: {
+    /*snap: {
             targets: [
                 interact.createSnapGrid({
                     x: 30,
@@ -22,15 +48,8 @@ interact('.draggable')
             relativePoints: [
             	{ x: 0, y: 0 }
             ]
-        },
+        },*/
     
-    // keep the element within the area of it's parent
-   /* restrict: {
-      //restriction: "parent",
-      endOnly: true,
-      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-    },*/
-    // enable autoScroll
     autoScroll: true,
     // call this function on every dragmove event
     onmove: dragMoveListener,
@@ -40,13 +59,7 @@ interact('.draggable')
       if(!event.dropzone){
         console.log("no deberias moverte");
         // translate the element
-        event.target.style.webkitTransform =
-        event.target.style.transform =
-          'translate(' + 0 + 'px, ' + 0 + 'px)';
-    
-        // update the posiion attributes
-        event.target.setAttribute('data-x', 0);
-        event.target.setAttribute('data-y', 0);
+        noMover(event.target);
       }
       
     }
@@ -70,12 +83,10 @@ interact('.draggable')
 
 
 
-// enable draggables to be dropped into this
+
 interact('.dropzone').dropzone({  
   // Require a 50% element overlap for a drop to be possible
   overlap: 0.50,
-
-  // listen for drop related events:
 
   ondropactivate: function (event) {
     // add active dropzone feedback
@@ -94,8 +105,10 @@ interact('.dropzone').dropzone({
   },
   ondrop: function (event) {
     //event.relatedTarget.textContent = 'Dropped';
-    event.relatedTarget.classList.add('resize-drag');
+    //event.relatedTarget.classList.add('resize-drag');
     console.log(event);
+    creaPicto(event);
+    noMover(event.relatedTarget);
   },
   ondropdeactivate: function (event) {
     // remove active dropzone feedback
@@ -103,3 +116,45 @@ interact('.dropzone').dropzone({
     event.target.classList.remove('drop-target');
   }
 });
+
+
+
+function creaPicto(event){
+  var pictograma = event.relatedTarget;
+  var posX = event.interaction.curCoords.client.x;
+  var posY = event.interaction.curCoords.client.y;
+  var dropZone = event.target;
+  
+  console.log("posx:",posX,"posy:",posY);
+  var pictoclonado = pictograma.cloneNode(true); 
+  pictoclonado.classList.remove('col-md-4');
+  var anchoPicto = pictograma.clientWidth;
+  var altoPicto = pictograma.clientHeight;
+  pictoclonado.style.width = anchoPicto+"px";
+  pictoclonado.style.height = altoPicto+"px";
+  var posicionZone = dropZone.getBoundingClientRect();
+  
+  pictoclonado.style.left=(posX - (anchoPicto/2)-posicionZone.left)+"px";
+  pictoclonado.style.top=(posY - (altoPicto/2)-posicionZone.top)+"px";
+  
+  var despVer = 566*100/myHeight;
+  pictoclonado.style.position="absolute";
+  console.log("posfortop:",pictoclonado.style.top,"posforleft:",pictoclonado.style.left);
+  noMover(pictoclonado);
+  var divGrande =document.getElementById("dropzone");
+  divGrande.appendChild(pictoclonado);
+}
+
+function noMover(elemento){
+  elemento.style.webkitTransform =
+  elemento.style.transform =
+    'translate(' + 0 + 'px, ' + 0 + 'px)';
+
+  // update the posiion attributes
+  elemento.setAttribute('data-x', 0);
+  elemento.setAttribute('data-y', 0);
+}
+
+
+
+////http://mathelino.com/index.php?id=64

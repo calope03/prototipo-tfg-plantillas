@@ -6,7 +6,7 @@
 .dropzone {
   background-color: #ccc;
   height: 600px;
-  border: dashed 2px grey;
+  border: solid 2px grey;
 }
 
 .draggable{
@@ -22,20 +22,6 @@
 .resize-drag > img{
   width: 100%;
 }
-
-/*.draggable {
-  height: 100px;
-  
+.row{
+  margin-bottom: 20px;
 }
-/*
-.drop-active {
-  border-color: #aaa;
-}
-
-.drop-target {
-  background-color: #000;
-  color: #FFF;
-  border-color: #fff;
-  border-style: solid;
-}*/
-
