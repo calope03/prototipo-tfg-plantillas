@@ -150,3 +150,68 @@
   border:solid 1px black;
   margin:7px;
 }
+
+#pinkcolor{
+  float:right;
+  background-color: pink;
+  width: 20px;
+  height: 10px;
+  border:solid 1px black;
+  margin:7px;
+}
+
+#peachpuffcolor{
+  float:right;
+  background-color: peachpuff;
+  width: 20px;
+  height: 10px;
+  border:solid 1px black;
+  margin:7px;
+}
+
+#lightgoldenrodyellowcolor{
+  float:right;
+  background-color: lightgoldenrodyellow;
+  width: 20px;
+  height: 10px;
+  border:solid 1px black;
+  margin:7px;
+}
+
+#palegreencolor{
+  float:right;
+  background-color: palegreen;
+  width: 20px;
+  height: 10px;
+  border:solid 1px black;
+  margin:7px;
+}
+
+#thistlecolor{
+  float:right;
+  background-color: thistle;
+  width: 20px;
+  height: 10px;
+  border:solid 1px black;
+  margin:7px;
+}
+
+#lightsteelbluecolor{
+  float:right;
+  background-color: lightsteelblue;
+  width: 20px;
+  height: 10px;
+  border:solid 1px black;
+  margin:7px;
+}
+
+#paleturquoisecolor{
+  float:right;
+  background-color: paleturquoise;
+  width: 20px;
+  height: 10px;
+  border:solid 1px black;
+  margin:7px;
+}
+
+

@@ -20,9 +20,9 @@
     <div class = "container-fluid">
       <h1 class="offset-md-1 col-md-10 border-bottom title">Prototipo para crear plantillas con pictogramas</h1>
       <div class="row offset-md-1 col-md-10"> 
-        <div class="dropdown">
+        <div class="dropdown col-md-auto">
           <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-            Selecciona color borde
+            Color Borde
           </button>
           <div class="dropdown-menu" id = "color-borde">
             <div class="dropdown-item green" href="#">
@@ -60,7 +60,54 @@
             
           </div>
         </div>
+        <div class="dropdown col-md-auto">
+          <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
+            Color Fondo
+          </button>
+          <div class="dropdown-menu" id = "color-fondo">
+            <div class="dropdown-item white" href="#">
+              Blanco
+              <div id="whitecolor"></div>
+            </div>
+            <div class="dropdown-item pink" href="#">
+              Rosa
+              <div id="pinkcolor"></div>
+            </div>
+            <div class="dropdown-item peachpuff" href="#">
+              Naranja
+              <div id="peachpuffcolor"></div>
+            </div>
+            <div class="dropdown-item lightgoldenrodyellow" href="#">
+              Amarillo
+              <div id="lightgoldenrodyellowcolor"></div>
+            </div>
+            <div class="dropdown-item palegreen" href="#">
+              Verde
+              <div id="palegreencolor"></div>
+            </div>
+            <div class="dropdown-item thistle" href="#">
+              Morado
+              <div id="thistlecolor"></div>
+            </div>
+            <div class="dropdown-item lightsteelblue" href="#">
+              Azul
+              <div id="lightsteelbluecolor"></div>
+            </div>
+            <div class="dropdown-item paleturquoise" href="#">
+              Turquesa
+              <div id="paleturquoisecolor"></div>
+            </div>
+            
+          </div>
+        </div>
+        <input type="text" class="col-md-2 form-control" id="tituloPlantilla" placeholder="Titulo">
+        <div class="custom-control custom-checkbox col-md-auto">
+          <input type="checkbox" class="custom-control-input" id="customCheck1">
+          <label class="custom-control-label" for="customCheck1">Visible</label>
+        </div>
       </div>
+      
+      
       
       
       <div class="row offset-md-1 col-md-10">
@@ -81,6 +128,7 @@
         </div>
       </div>
     </div>
+    
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

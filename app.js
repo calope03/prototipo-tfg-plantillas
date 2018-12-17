@@ -29,27 +29,6 @@ function alturaPictograma(picto){
 
 interact('.draggable')  
   .draggable({
-    // enable inertial throwing
-    //inertia: true,
-    /*snap: {
-            targets: [
-                interact.createSnapGrid({
-                    x: 30,
-                    y: 30,
-                    // limit to the container dimensions
-                    limits: {
-                        left: 30,
-                        top: 30,
-                        right: 30,
-                        bottom: 30,
-                    },
-                })
-            ],
-            relativePoints: [
-            	{ x: 0, y: 0 }
-            ]
-        },*/
-    
     autoScroll: true,
     // call this function on every dragmove event
     onmove: dragMoveListener,
@@ -104,17 +83,37 @@ interact('.dropzone').dropzone({
     event.target.classList.remove('drop-target');
   },
   ondrop: function (event) {
-    //event.relatedTarget.textContent = 'Dropped';
-    //event.relatedTarget.classList.add('resize-drag');
     console.log(event);
-    creaPicto(event);
-    noMover(event.relatedTarget);
+    if(event.relatedTarget.classList.contains('draggable')){
+      creaPicto(event);
+      noMover(event.relatedTarget);
+    }
+    
+    
   },
   ondropdeactivate: function (event) {
     // remove active dropzone feedback
     event.target.classList.remove('drop-active');
     event.target.classList.remove('drop-target');
   }
+});
+
+interact('.draggado')
+  .draggable({
+    restrict: {
+      restriction: "parent",
+      endOnly: true,
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+    },
+    // enable autoScroll
+    autoScroll: true,
+
+    // call this function on every dragmove event
+    onmove: dragMoveListener,
+    // call this function on every dragend event
+    onend: function (event) {
+      var textEl = event.target.querySelector('p');
+    }
 });
 
 
@@ -128,6 +127,8 @@ function creaPicto(event){
   console.log("posx:",posX,"posy:",posY);
   var pictoclonado = pictograma.cloneNode(true); 
   pictoclonado.classList.remove('col-md-4');
+  pictoclonado.classList.remove('draggable');
+  pictoclonado.classList.add('draggado');
   var anchoPicto = pictograma.clientWidth;
   var altoPicto = pictograma.clientHeight;
   pictoclonado.style.width = anchoPicto+"px";

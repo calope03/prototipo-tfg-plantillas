@@ -9,13 +9,13 @@
   border: solid 2px grey;
 }
 
-.draggable{
+.pictograma{
   padding:0 20px;
   text-align: center;
   max-height: 160px;
 }
 
-.draggable > img{
+.pictograma > img{
   width: 100%;
 }
 
@@ -24,4 +24,15 @@
 }
 .row{
   margin-bottom: 20px;
+}
+
+.dropdown{
+  padding-left: 0px;
+}
+
+.custom-checkbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
 }
