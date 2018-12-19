@@ -65,7 +65,7 @@ interact('.draggable')
 
 interact('.dropzone').dropzone({  
   // Require a 50% element overlap for a drop to be possible
-  overlap: 0.50,
+  overlap: 1,
 
   ondropactivate: function (event) {
     // add active dropzone feedback
@@ -83,14 +83,14 @@ interact('.dropzone').dropzone({
     event.target.classList.remove('drop-target');
   },
   ondrop: function (event) {
-    console.log(event);
-    if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('pictograma')){
-      creaPicto(event);
-      noMover(event.relatedTarget);
-    }else if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('newArea')){
-      creaArea(event);
-      noMover(event.relatedTarget);
-    }
+    console.log('event',event);
+      if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('pictograma')){
+        creaPicto(event);
+        noMover(event.relatedTarget);
+      }else if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('newArea')){
+        creaArea(event);
+        noMover(event.relatedTarget);
+      }
   },
   ondropdeactivate: function (event) {
     // remove active dropzone feedback
@@ -121,6 +121,7 @@ interact('.rectdraggable')
     onmove: window.dragMoveListener,
     restrict: {
       restriction: 'parent',
+      endOnly: true,
       elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
     }
   })
@@ -141,8 +142,44 @@ interact('.rectdraggable')
     restrictSize: {
       min: { width: 100, height: 50 },
     },
-
-    inertia: true,
+  })
+  .dropzone({
+    overlap: 1,
+  
+    ondropactivate: function (event) {
+      // add active dropzone feedback
+      event.target.classList.add('drop-active');
+    },
+    ondragenter: function (event) {
+      var draggableElement = event.relatedTarget,
+          dropzoneElement = event.target;
+  
+      // feedback the possibility of a drop
+      dropzoneElement.classList.add('drop-target');
+      draggableElement.classList.add('can-drop');
+     // dropzoneElement.textContent = 'Dragged in';
+    },
+    ondragleave: function (event) {
+      // remove the drop feedback style
+      event.target.classList.remove('drop-target');
+      event.relatedTarget.classList.remove('can-drop');
+    },
+    ondrop: function (event) {
+      //event.relatedTarget.textContent = 'Dropped';
+      console.log('event',event);
+      if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('pictograma')){
+        creaPicto(event);
+        noMover(event.relatedTarget);
+      }else if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('newArea')){
+        creaArea(event);
+        noMover(event.relatedTarget);
+      }
+    },
+    ondropdeactivate: function (event) {
+      // remove active dropzone feedback
+      event.target.classList.remove('drop-active');
+      event.target.classList.remove('drop-target');
+    }
   })
   .on('resizemove', function (event) {
     var target = event.target,
@@ -164,7 +201,6 @@ interact('.rectdraggable')
     target.setAttribute('data-y', y);
     
   });
-
 
 function noMover(elemento){
   elemento.style.webkitTransform =
@@ -211,8 +247,7 @@ function colocaElemento(event){
   elementoClonado.style.position="absolute";
   console.log("posfortop:",elementoClonado.style.top,"posforleft:",elementoClonado.style.left);
   noMover(elementoClonado);
-  var divGrande =document.getElementById("dropzone");
-  divGrande.appendChild(elementoClonado);
+  dropZone.appendChild(elementoClonado);
   
   return elementoClonado;
 }
