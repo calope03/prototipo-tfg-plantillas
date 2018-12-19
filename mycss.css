@@ -36,3 +36,9 @@
   align-items: center;
   margin: 0 20px;
 }
+
+#addrectangle{
+  margin: 0 20px;
+  background-color: paleturquoise;
+  border:solid 1px black;
+}
