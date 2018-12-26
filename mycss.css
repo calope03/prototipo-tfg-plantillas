@@ -42,3 +42,8 @@
   background-color: paleturquoise;
   border:solid 1px black;
 }
+
+body {
+  -ms-touch-action: none;
+  touch-action: none;
+}
