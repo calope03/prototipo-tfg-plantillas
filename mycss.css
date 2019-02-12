@@ -10,9 +10,12 @@
 }
 
 .pictograma{
-  padding:0 20px;
+  padding:15px;
   text-align: center;
-  max-height: 160px;
+  /*max-height: 160px;*/
+  z-index: 1;
+  position: relative;
+  border:solid 2px transparent;
 }
 
 .pictograma > img{
@@ -26,10 +29,10 @@
   margin-bottom: 20px;
 }
 
-.dropdown{
+/*.dropdown{
   padding-left: 0px;
 }
-
+*/
 .custom-checkbox{
   display: flex;
   justify-content: center;
@@ -37,13 +40,37 @@
   margin: 0 20px;
 }
 
+#tituloPlantilla{
+  margin: 0 15px;
+}
+
 #addrectangle{
   margin: 0 20px;
   background-color: paleturquoise;
   border:solid 1px black;
+  min-height: 100px;
 }
 
 body {
   -ms-touch-action: none;
   touch-action: none;
+}
+
+#title{
+  text-align: center;
+}
+
+
+.pictogramaHover{
+ /* background-color: red;*/
+  width: 100%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  /*padding-bottom: 100%;*/
+  
+  /*https://codepen.io/bboygaz/pen/FgriI*/
 }

@@ -9,6 +9,9 @@
 
 console.log("width:",myWidth,"height",myHeight);
 
+var titlePlantilla = document.getElementById('title');
+titlePlantilla.style.display = 'none';
+
 var pictogramas = Array.prototype.slice.call(document.querySelectorAll('.pictograma'));
 
 pictogramas.forEach(function(element){
@@ -18,9 +21,18 @@ pictogramas.forEach(function(element){
 
 function alturaPictograma(picto){
   var elemsPicto = Array.prototype.slice.call(picto.children);
-  var altura = 0;
+  var altura = 15;
+  var pictoHover;
   for (var i = 0; i<elemsPicto.length; i++) {
-    altura += elemsPicto[i].clientHeight;
+    console.log('elemento',elemsPicto[i].clientHeight);
+    if(elemsPicto[i].classList.contains('pictogramaHover')){
+      pictoHover = elemsPicto[i];
+    }else{
+      altura += elemsPicto[i].scrollHeight;
+    }
+  }
+  if(pictoHover){
+    pictoHover.style.height = altura+"px";
   }
   return altura;
 }
@@ -57,10 +69,11 @@ function colocaElemento(event){
   console.log("posx:",posX,"posy:",posY);
   var elementoClonado = elemento.cloneNode(true); 
   
-  var anchoPicto = elemento.clientWidth;
-  var altoPicto = elemento.clientHeight;
+  var anchoPicto = elemento.offsetWidth;
+  var altoPicto = elemento.scrollHeight;
   elementoClonado.style.width = anchoPicto+"px";
   elementoClonado.style.height = altoPicto+"px";
+  console.log('holaaaaaaaaa', elementoClonado.style.height)
   var posicionZone = dropZone.getBoundingClientRect();
   
   elementoClonado.style.left=(posX - (anchoPicto/2)-posicionZone.left)+"px";
