@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <img id= "img">
+    <script type="text/javascript">
+        var text = prompt('dime picto')
+        fetch('https://api.arasaac.org/api/pictograms/es/search/'+text.trim())
+            .then(res => res.json())
+            .then(data => {
+                const picto = data[0].idPictogram;
+                document.getElementById('img').src = 'https://api.arasaac.org/api/pictograms/'+picto;
+            })
+            .catch(console.warn)
+        
+    </script>
+    </body>
+    
+</html>

@@ -1,6 +1,6 @@
-var dropzone = document.getElementById("dropzone");
+
 var panelDerecho = document.getElementById('panelDerecha');
-var dropZoneOriginal;
+
 
 var ajustesDropzone = function () {
     
@@ -12,16 +12,7 @@ var ajustesDropzone = function () {
     var colorBorde = document.getElementById("color-borde");
     var colorFondo = document.getElementById("color-fondo");
     var visibleONo = document.getElementById('customCheck1');
-    
-    function stop(){
-      console.log('parando');
-      panelAjustes.removeEventListener('click', aceptarOCancelar);
-      titlePlantillaField.removeEventListener('keyup',cambiaTitulo);
-      colorBorde.removeEventListener('click', function(evento){cambiaColor(evento,"borderColor");});
-      colorFondo.removeEventListener('click',function(evento){cambiaColor(evento,"backgroundColor");});
-      visibleONo.removeEventListener('change', mostrarTitulo);
-      //panelAjustes.style.display = 'block';
-    }
+    var _self = this;
     
     function aceptarOCancelar(evento){
       //console.log(evento);
@@ -30,14 +21,13 @@ var ajustesDropzone = function () {
         if(clases.contains('btn-success')){
             panelAjustes.style.display = 'none';
             panelDerecho.style.display = 'block';
-            stop();
+            _self.stop(false);
         }else if(clases.contains('btn-danger')){
-            let padre =dropzone.parentNode;
-            padre.replaceChild(dropZoneOriginal,dropzone);
+            
             panelAjustes.style.display = 'none';
             panelDerecho.style.display = 'block';
             console.log('no',evento);
-            stop();
+            _self.stop(true);
         }
         
       }
@@ -80,4 +70,25 @@ var ajustesDropzone = function () {
       panelAjustes.style.display = 'block';
     }
   
+    this.stop = function(cancelar){
+      console.log('parando dropzone');
+      panelAjustes.removeEventListener('click', aceptarOCancelar);
+      titlePlantillaField.removeEventListener('keyup',cambiaTitulo);
+      colorBorde.removeEventListener('click', function(evento){cambiaColor(evento,"borderColor");});
+      colorFondo.removeEventListener('click',function(evento){cambiaColor(evento,"backgroundColor");});
+      visibleONo.removeEventListener('change', mostrarTitulo);
+      
+      
+      
+      if(cancelar){
+        dropZoneOriginal.addEventListener("dblclick", function(){
+            muestraAjustes(event);
+        }); 
+        let padre =dropzone.parentNode;
+        if(padre){
+          padre.replaceChild(dropZoneOriginal,dropzone);
+        }
+      }
+      //panelAjustes.style.display = 'block';
+    }
 };

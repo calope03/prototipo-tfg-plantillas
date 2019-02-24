@@ -12,28 +12,14 @@ var ajustesPicto = function (pictograma) {
     var pictoOriginal = pictogramaPadre.cloneNode(true);
     var panelDerecho = document.getElementById('panelDerecha');
     var seleccionHover = document.getElementById('seleccionHover');
+    var _self = this;
     //console.log(pictoHijos);
     /*
     var dropzone = document.getElementById("dropzone");
     var panelDerecho = document.getElementById('panelDerecha');
     var dropZoneOriginal = dropzone.cloneNode(false);
     var panelAjustes = document.getElementById('panelDerechaAjustes');
-    
-    
     */
-    
-    function stop(){
-      panelAjustes.removeEventListener('click', aceptarOCancelar);
-      seleccionHover.removeEventListener('click',cambiaHover);
-     // nombrePictoField.value = pictoText.innerText;
-      colorBorde.removeEventListener('click',cambiaColorBorde);
-      colorFondo.removeEventListener('click',cambiaColorFondo);
-      nombrePictoField.removeEventListener('keyup',cambiaTitulo);
-      visibleONo.removeEventListener('change', mostrarTitulo);
-      //panelAjustes.style.display = 'block';
-      
-      console.log('parando');
-    }
     
     function aceptarOCancelar(evento){
       //console.log(evento);
@@ -42,14 +28,13 @@ var ajustesPicto = function (pictograma) {
         if(clases.contains('btn-success')){
             panelAjustes.style.display = 'none';
             panelDerecho.style.display = 'block';
-            stop();
+            _self.stop(false);
         }else if(clases.contains('btn-danger')){
-            let padre =pictogramaPadre.parentNode;
-            padre.replaceChild(pictoOriginal,pictogramaPadre);
+            
             panelAjustes.style.display = 'none';
             panelDerecho.style.display = 'block';
             console.log('no',evento);
-            stop();
+            _self.stop(true);
         }
         
       }
@@ -123,8 +108,30 @@ var ajustesPicto = function (pictograma) {
       nombrePictoField.addEventListener('keyup',cambiaTitulo);
       visibleONo.addEventListener('change', mostrarTitulo);
       panelAjustes.style.display = 'block';
-      
+      pictogramaPadre.classList.add('myShadow');
     //  console.log(visibleONo);
+    }
+    
+    this.stop = function(cancelar){
+      panelAjustes.removeEventListener('click', aceptarOCancelar);
+      seleccionHover.removeEventListener('click',cambiaHover);
+     // nombrePictoField.value = pictoText.innerText;
+      colorBorde.removeEventListener('click',cambiaColorBorde);
+      colorFondo.removeEventListener('click',cambiaColorFondo);
+      nombrePictoField.removeEventListener('keyup',cambiaTitulo);
+      visibleONo.removeEventListener('change', mostrarTitulo);
+      //panelAjustes.style.display = 'block';
+      pictogramaPadre.classList.remove('myShadow');
+      
+      if(cancelar){
+        console.log(pictogramaPadre);
+        let padre =pictogramaPadre.parentNode;
+        if(padre){
+          padre.replaceChild(pictoOriginal,pictogramaPadre);
+        }
+        
+      }
+      console.log('parando picto ');
     }
   
 };
