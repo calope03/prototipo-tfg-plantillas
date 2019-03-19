@@ -2,6 +2,9 @@
   var myWidth = window.innerWidth;
   var myHeight = window.innerHeight; 
   var body = document.querySelector('body');
+  var container = document.querySelector('.container-fluid');
+  container.style.width=myWidth+"px";
+  container.style.height=myHeight+"px";
   body.style.width = myWidth+"px";
   body.style.height = myHeight+"px";
 //})();
@@ -12,6 +15,36 @@ console.log("width:",myWidth,"height",myHeight);
 var titlePlantilla = document.getElementById('title');
 titlePlantilla.style.display = 'none';
 
+
+
+textFit(document.getElementById('addText'));
+
+function recalculaAlturaPictogramas(){
+  var pictogramas = Array.prototype.slice.call(document.querySelectorAll('.pictograma'));
+
+  pictogramas.forEach(function(element){
+    element.style.height = ((element.clientWidth*110)/100) +"px";
+    console.log(element.style.height);
+  });
+  
+  function alturaPictograma(picto){
+    var elemsPicto = Array.prototype.slice.call(picto.children);
+    var altura = 15;
+    var pictoHover;
+    for (var i = 0; i<elemsPicto.length; i++) {
+      console.log('elemento',elemsPicto[i].scrollHeight);
+      if(elemsPicto[i].classList.contains('pictogramaHover')){
+        pictoHover = elemsPicto[i];
+      }else{
+        altura += elemsPicto[i].scrollHeight;
+      }
+    }
+    /*if(pictoHover){
+      pictoHover.style.height = altura+"px";
+    }*/
+    return altura;
+  }
+}/*
 var pictogramas = Array.prototype.slice.call(document.querySelectorAll('.pictograma'));
 
 pictogramas.forEach(function(element){
@@ -33,10 +66,12 @@ function alturaPictograma(picto){
   }
   /*if(pictoHover){
     pictoHover.style.height = altura+"px";
-  }*/
+  }
   return altura;
-}
+}*/
 
+
+recalculaAlturaPictogramas();
 function noMover(elemento){
   elemento.style.webkitTransform =
   elemento.style.transform =
@@ -81,7 +116,7 @@ function colocaElemento(event){
   var posY = event.interaction.curCoords.client.y;
   var dropZone = event.target;
   
-  console.log("posx:",posX,"posy:",posY);
+  console.log("posx:",posX,"posy:",posY, "dropzone", dropZone);
   var elementoClonado = elemento.cloneNode(true); 
   
   var anchoPicto = elemento.offsetWidth;

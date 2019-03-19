@@ -1,0 +1,6 @@
+https://stackoverflow.com/questions/42252443/vertical-align-center-in-bootstrap-4 ---- alinear verticalmente la zona gris
+
+https://developer.mozilla.org/es/docs/Web/HTML/Elemento/input/color ---- color picker para borde y fondo y eventos
+
+https://codepen.io/estelle/pen/rigBl ---- por si hace falta paleta antes de la vista general
+

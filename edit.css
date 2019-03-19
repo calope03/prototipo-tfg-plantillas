@@ -1,0 +1,152 @@
+.title {
+  margin: 20px auto;
+  padding: 5px;
+}
+
+.dropzone {
+  background-color: #ccc;
+  height: 530px;
+  min-width: 895px;
+  border: solid 2px grey;
+}
+
+.pictograma{
+  padding:15px;
+  text-align: center;
+  /*max-height: 160px;*/
+  z-index: 1;
+  position: relative;
+  border:solid 2px transparent;
+}
+
+.pictograma > img{
+  width: 100%;
+}
+
+.newPicto {
+  padding:15px;
+  text-align: center;
+  /*max-height: 160px;*/
+  z-index: 1;
+  position: relative;
+  border:solid 2px transparent;
+}
+
+.newPicto > img{
+  width: 100%;
+}
+
+.resize-drag > img{
+  width: 100%;
+}
+.row{
+  margin-bottom: 20px;
+}
+
+/*.dropdown{
+  padding-left: 0px;
+}
+*/
+.custom-checkbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 20px;
+}
+
+#tituloPlantilla{
+  margin: 0 15px;
+}
+
+#addrectangle{
+  padding: 15px;
+  background-color: paleturquoise;
+  border:solid 1px black;
+  min-height: 100px;
+}
+#addText{
+  padding: 15px;
+  background-color: palegreen;
+  border:solid 1px black;
+  height: 80px;
+}
+
+#addrectanglepicto{
+  margin: 0 20px;
+  background-color: green;
+  border:solid 1px black;
+  min-height: 100px;
+}
+
+body {
+  -ms-touch-action: none;
+  touch-action: none;
+}
+
+#title{
+  text-align: center;
+}
+
+
+.pictogramaHover{
+ /*background-color: red;*/
+  width: 100%;
+  height:100%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+  /*padding-bottom: 100%;*/
+  
+  /*https://codepen.io/bboygaz/pen/FgriI*/
+}
+
+.myShadow{
+  box-shadow: 0px 0px 34px 13px rgba(0,0,0,0.56);;
+}
+
+
+
+/***********************/
+
+body, html, .container-fluid {
+    height: 100%;
+}
+
+
+.container-fluid {
+    padding-top:60px;
+    z-index:1;
+}
+.navbar {
+    height: 56px;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    z-index:2;
+}
+
+
+
+
+.bg-green{
+    background-color: #8bc34a;
+}
+
+.active{
+    background-color: #dadada;
+}
+
+
+#resultadosBusqueda{
+  max-height: 160px;
+  overflow: auto;
+  display: none;
+}
+/*
+.container-fluid .row{
+  height: 100%;
+}*/

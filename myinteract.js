@@ -1,5 +1,4 @@
-interact('.draggable')  
-  .draggable({
+interact('.draggable').draggable({
     autoScroll: true,
     // call this function on every dragmove event
     onmove: dragMoveListener,
@@ -15,21 +14,21 @@ interact('.draggable')
     }
   });
 
-  function dragMoveListener (event) {
-    var target = event.target,
-        // keep the dragged position in the data-x/data-y attributes
-        x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-        y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+function dragMoveListener (event) {
+  var target = event.target,
+      // keep the dragged position in the data-x/data-y attributes
+      x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
+      y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
 
-    // translate the element
-    target.style.webkitTransform =
-    target.style.transform =
-      'translate(' + x + 'px, ' + y + 'px)';
+  // translate the element
+  target.style.webkitTransform =
+  target.style.transform =
+    'translate(' + x + 'px, ' + y + 'px)';
 
-    // update the posiion attributes
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-  }
+  // update the posiion attributes
+  target.setAttribute('data-x', x);
+  target.setAttribute('data-y', y);
+}
 
 
 
@@ -73,6 +72,10 @@ interact('.dropzone').dropzone({
   }
 });
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                      Pictograma draggado
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 interact('.draggado')
   .draggable({
     restrict: {
@@ -110,7 +113,10 @@ interact('.draggado')
     var target = event.target,
         x = (parseFloat(target.getAttribute('data-x')) || 0),
         y = (parseFloat(target.getAttribute('data-y')) || 0);
-
+        
+    //_________________ Revisar para poner hijo p
+    textFit(target.children[1]);
+    
     // update the element's style
     target.style.width  = event.rect.width + 'px';
     target.style.height = event.rect.height + 'px';
@@ -127,10 +133,13 @@ interact('.draggado')
     console.log('hola');
   });
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                              Area draggable
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 interact('.rectdraggable')
   .draggable({
-    onmove: window.dragMoveListener,
+    onmove: dragMoveListener,
     restrict: {
       restriction: 'parent',
       endOnly: true,
@@ -297,117 +306,18 @@ interact('.pictoDraggado')
     }
   })
   .on('resizemove', function (event) {
+    console.log('asdfsdfasdf',event)
+    
     var target = event.target,
         x = (parseFloat(target.getAttribute('data-x')) || 0),
         y = (parseFloat(target.getAttribute('data-y')) || 0);
-
-    // update the element's style
-    target.style.width  = event.rect.width + 'px';
-    target.style.height = event.rect.height + 'px';
-
-    // translate when resizing from top or left edges
-    x += event.deltaRect.left;
-    y += event.deltaRect.top;
-
-    target.style.webkitTransform = target.style.transform =
-        'translate(' + x + 'px,' + y + 'px)';
-
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-    console.log('hola');
-  });
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  interact('.pictodraggable')
-  .draggable({
-    onmove: window.dragMoveListener,
-    restrict: {
-      restriction: 'parent',
-      endOnly: true,
-      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
-    }
-  })
-  .resizable({
-    // resize from all edges and corners
-    edges: { left: true, right: true, bottom: true, top: true },
-    // keep the edges inside the parent
-    restrict: {
-      restriction: "parent",
-      endOnly: true,
-    },
-    restrictEdges: {
-      outer: 'parent',
-      endOnly: true,
-    },
-
-    // minimum size
-    restrictSize: {
-      min: { width: 100, height: 50 },
-    },
-  })
-  .dropzone({
-    overlap: 0.5,
-  
-    ondropactivate: function (event) {
-      // add active dropzone feedback
-      event.target.classList.add('drop-active');
-    },
-    ondragenter: function (event) {
-      var draggableElement = event.relatedTarget,
-          dropzoneElement = event.target;
-  
-      // feedback the possibility of a drop
-      dropzoneElement.classList.add('drop-target');
-      draggableElement.classList.add('can-drop');
-     // dropzoneElement.textContent = 'Dragged in';
-    },
-    ondragleave: function (event) {
-      // remove the drop feedback style
-      event.target.classList.remove('drop-target');
-      event.relatedTarget.classList.remove('can-drop');
-    },
-    ondrop: function (event) {
-      //event.relatedTarget.textContent = 'Dropped';
-      console.log('event',event);
-      if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('pictograma')){
-        creaPictoAjustado(event);
-        noMover(event.relatedTarget);
-      }else{
-        noMover(event.relatedTarget);
-      };
-    },
-    ondropdeactivate: function (event) {
-      // remove active dropzone feedback
-      event.target.classList.remove('drop-active');
-      event.target.classList.remove('drop-target');
-    }
-  })
-  .on('resizemove', function (event) {
-    var target = event.target,
-        x = (parseFloat(target.getAttribute('data-x')) || 0),
-        y = (parseFloat(target.getAttribute('data-y')) || 0);
-
+    
+    console.log('element', target.offsetHeight);
+    console.log('nuevo', event.rect.height)
+    
+   
+    ////__________________________________________________________________________REVISAR
+    textFit(target.children[1]);
     // update the element's style
     target.style.width  = event.rect.width + 'px';
     target.style.height = event.rect.height + 'px';
@@ -422,4 +332,8 @@ interact('.pictoDraggado')
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
     
+    //target.style.fontSize = "smaller";
+    console.log('hola');
   });
+  
+  

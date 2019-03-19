@@ -9,9 +9,10 @@ var ajustesPicto = function (pictograma) {
     var colorFondo = document.getElementById("color-fondo-picto");
     var nombrePictoField = document.getElementById('nombrePicto');
     var visibleONo = document.getElementById('customCheck2');
-    var pictoOriginal = pictogramaPadre.cloneNode(true);
+    //var pictoOriginal = pictogramaPadre.cloneNode(true);
     var panelDerecho = document.getElementById('panelDerecha');
     var seleccionHover = document.getElementById('seleccionHover');
+    var botonCerrar = document.getElementById('botonCerrarPicto');
     var _self = this;
     //console.log(pictoHijos);
     /*
@@ -21,7 +22,7 @@ var ajustesPicto = function (pictograma) {
     var panelAjustes = document.getElementById('panelDerechaAjustes');
     */
     
-    function aceptarOCancelar(evento){
+   /* function aceptarOCancelar(evento){
       //console.log(evento);
       if(evento.isTrusted){
         var clases = evento.target.classList;
@@ -38,7 +39,7 @@ var ajustesPicto = function (pictograma) {
         }
         
       }
-    }
+    }*/
     
     function cambiaTitulo(evento){
         console.log(evento);
@@ -98,9 +99,15 @@ var ajustesPicto = function (pictograma) {
         console.log('salud');
       }
     }
+    
+    function cerrar(){
+      panelAjustes.style.display = 'none';
+      panelDerecho.style.display = 'block';
+      _self.stop();
+    }
 
     this.init = function(){
-      panelAjustes.addEventListener('click', aceptarOCancelar);
+      botonCerrar.addEventListener('click', cerrar);
       seleccionHover.addEventListener('click',cambiaHover);
       nombrePictoField.value = pictoText.innerText;
       colorBorde.addEventListener('click',cambiaColorBorde);
@@ -112,8 +119,9 @@ var ajustesPicto = function (pictograma) {
     //  console.log(visibleONo);
     }
     
-    this.stop = function(cancelar){
-      panelAjustes.removeEventListener('click', aceptarOCancelar);
+    this.stop = function(){
+      botonCerrar.removeEventListener('click', cerrar);
+      //panelAjustes.removeEventListener('click', aceptarOCancelar);
       seleccionHover.removeEventListener('click',cambiaHover);
      // nombrePictoField.value = pictoText.innerText;
       colorBorde.removeEventListener('click',cambiaColorBorde);
@@ -123,14 +131,14 @@ var ajustesPicto = function (pictograma) {
       //panelAjustes.style.display = 'block';
       pictogramaPadre.classList.remove('myShadow');
       
-      if(cancelar){
+      /*if(cancelar){
         console.log(pictogramaPadre);
         let padre =pictogramaPadre.parentNode;
         if(padre){
           padre.replaceChild(pictoOriginal,pictogramaPadre);
         }
         
-      }
+      }*/
       console.log('parando picto ');
     }
   

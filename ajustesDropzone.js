@@ -1,20 +1,21 @@
 
-var panelDerecho = document.getElementById('panelDerecha');
+/**/
 
 
 var ajustesDropzone = function () {
     
     var dropzone = document.getElementById("dropzone");
     var panelDerecho = document.getElementById('panelDerecha');
-    var dropZoneOriginal = dropzone.cloneNode(true);
+    //var dropZoneOriginal = dropzone.cloneNode(true);
     var panelAjustes = document.getElementById('panelDerechaAjustes');
     var titlePlantillaField = document.getElementById('tituloPlantilla');
     var colorBorde = document.getElementById("color-borde");
     var colorFondo = document.getElementById("color-fondo");
     var visibleONo = document.getElementById('customCheck1');
+    var botonCerrar =  document.getElementById('botonCerrarDropZone')
     var _self = this;
     
-    function aceptarOCancelar(evento){
+  /*  function aceptarOCancelar(evento){
       //console.log(evento);
       if(evento.isTrusted){
         var clases = evento.target.classList;
@@ -32,7 +33,7 @@ var ajustesDropzone = function () {
         
       }
     }
-    
+    */
     function cambiaTitulo(evento){
         console.log(evento);
         let tituloPlantilla = document.getElementById('title');
@@ -41,13 +42,7 @@ var ajustesDropzone = function () {
     
     function cambiaColor(evento,tipo){
       if(evento.isTrusted){
-        var clases = evento.target.classList;
-        for(var i = 0; i< clases.length; i++){
-          if(colors.includes(clases[i])){
-            dropzone.style[tipo] = clases[i];
-            break;
-          }
-        }
+        dropzone.style[tipo] = evento.target.value;
       }
     }
     
@@ -60,26 +55,34 @@ var ajustesDropzone = function () {
       }
       console.log("hooooola");
     };
+    
+    function cerrar(){
+      panelAjustes.style.display = 'none';
+      panelDerecho.style.display = 'block';
+      _self.stop();
+    }
 
     this.init = function(){
-      panelAjustes.addEventListener('click', aceptarOCancelar);
+      botonCerrar.addEventListener('click',cerrar);
+     // panelAjustes.addEventListener('click', aceptarOCancelar);
       titlePlantillaField.addEventListener('keyup',cambiaTitulo);
-      colorBorde.addEventListener('click', function(evento){cambiaColor(evento,"borderColor");});
-      colorFondo.addEventListener('click',function(evento){cambiaColor(evento,"backgroundColor");});
+      colorBorde.addEventListener('change', function(evento){cambiaColor(evento,"borderColor");});
+      colorFondo.addEventListener('change',function(evento){cambiaColor(evento,"backgroundColor");});
       visibleONo.addEventListener('change', mostrarTitulo);
       panelAjustes.style.display = 'block';
     }
   
-    this.stop = function(cancelar){
+    this.stop = function(){
       console.log('parando dropzone');
-      panelAjustes.removeEventListener('click', aceptarOCancelar);
+      botonCerrar.removeEventListener('click',cerrar);
+      //panelAjustes.removeEventListener('click', aceptarOCancelar);
       titlePlantillaField.removeEventListener('keyup',cambiaTitulo);
-      colorBorde.removeEventListener('click', function(evento){cambiaColor(evento,"borderColor");});
-      colorFondo.removeEventListener('click',function(evento){cambiaColor(evento,"backgroundColor");});
+      colorBorde.removeEventListener('change', function(evento){cambiaColor(evento,"borderColor");});
+      colorFondo.removeEventListener('change',function(evento){cambiaColor(evento,"backgroundColor");});
       visibleONo.removeEventListener('change', mostrarTitulo);
       
       
-      
+      /*
       if(cancelar){
         dropZoneOriginal.addEventListener("dblclick", function(){
             muestraAjustes(event);
@@ -88,7 +91,7 @@ var ajustesDropzone = function () {
         if(padre){
           padre.replaceChild(dropZoneOriginal,dropzone);
         }
-      }
+      }*/
       //panelAjustes.style.display = 'block';
     }
 };

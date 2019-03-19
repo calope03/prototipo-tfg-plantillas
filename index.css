@@ -1,0 +1,51 @@
+body, html, .container-fluid, .sidebar {
+    height: 100%;
+}
+
+#sidebar {
+    min-width: 130px;
+    padding:0;
+    overflow: auto;
+}
+
+.nav-link{
+    color:black;
+}
+.nav-link[data-toggle].collapsed:after {
+    content: "▾";
+}
+.nav-link[data-toggle]:not(.collapsed):after {
+    content: "▴";
+}
+
+.nav-link:hover{
+    background-color: #dadada;
+    color:black;
+}
+
+.sidebar, .container-fluid {
+    padding-top:56px;
+    z-index:1;
+}
+.navbar {
+    height: 56px;
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    z-index:2;
+}
+
+
+
+
+.bg-green{
+    background-color: #8bc34a;
+}
+
+.active{
+    background-color: #dadada;
+}
+
+
+

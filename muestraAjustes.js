@@ -13,6 +13,7 @@
     };
     ocultaPaneles();
     function muestraAjustes(event){
+        var panelDerecho = document.getElementById('panelDerecha');
         var classTarget = event.target.classList;
         console.log('classtarget',classTarget);
         panelDerecho.style.display = 'none';
@@ -45,3 +46,7 @@
 //})();
 
 
+/*https://developer.mozilla.org/es/docs/Web/HTML/Elemento/input/color
+
+https://stackoverflow.com/questions/40064087/html-div-tag-input-color-value-control-for-new-html-div-element
+*/

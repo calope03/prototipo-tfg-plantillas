@@ -3,265 +3,89 @@
   <head>
     <meta charset="utf-8">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!--<meta name="description" content="">-->
+    <meta name="author" content="Carmen">
     <!--<link rel="icon" href="">-->
 
     <title> Prototipo </title>
 
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link href="mycss.css" rel="stylesheet">
-    <link href="colors.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="index.css" rel="stylesheet">
   </head>
 
   <body>
-    <div class = "container-fluid">
-      <h1 class="offset-md-1 col-md-10 border-bottom title">Prototipo para crear plantillas con pictogramas</h1>
-      <div class="row offset-md-1 col-md-10">
-        <div id = "dropzone" class = "dropzone col-md-8"> <p id='title'></p> </div>
-        <div id = "panelDerecha"class = "row col-md-4">
-          <div class = "row col-md-12">
-            <div id="box-one1" class = "pictograma draggable col-md-4">
-              <img class = "picto" src="hola.png"></img>
-              <p class = "picto">hola</p>
-              <div class = "pictogramaHover"></div>
-            </div>
-            <div id="box-one2" class = "pictograma draggable col-md-4">
-              <img class = "picto" src="amigos.png"></img>
-              <p class = "picto">amigos</p>
-              <div class = "pictogramaHover"></div>
-            </div>
-            <div id="box-one3" class = "pictograma draggable col-md-4">
-              <img class = "picto" src="hola.png"></img>
-              <p class = "picto">hola</p>
-              <div class = "pictogramaHover"></div>
-            </div>
+    
+    <nav class="navbar navbar-light bg-green">
+      <a class="navbar-brand" href="#">
+        <img src="hola.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        Titulo aun por definir
+      </a>
+    </nav>
+    
+    
+    <div class="container-fluid h-100">
+      <div class="row h-100">
+          <div class="col-2 bg-light h-100" id="sidebar">
+              <ul class="nav flex-column pt-2">
+                  <li class="nav-item">
+                      <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Plantillas</a>
+                        <div class="collapse" id="submenu1" aria-expanded="false">
+                            <ul class="flex-column nav">
+                                <li class="nav-item"><a class="nav-link pl-4" id="plantillas-publicas" href='#plantillas-publicas'>Publicas</a></li>
+                                <li class="nav-item"><a class="nav-link pl-4" id="plantillas-privadas" href='#plantillas-privadas'>Privadas</a></li>
+                                <li class="nav-item"><a class="nav-link pl-4" href="edit.html#nueva-plantilla">Crear nueva</a></li>
+                            </ul>
+                        </div>
+                      <a class="nav-link collapsed" href="#submenu2" data-toggle="collapse" data-target="#submenu2">Tableros</a>
+                        <div class="collapse" id="submenu2" aria-expanded="false">
+                            <ul class="flex-column nav">
+                                <li class="nav-item"><a class="nav-link pl-4" id="tableros-publicos" href='#tableros-publicos'>Publicos</a></li>
+                                <li class="nav-item"><a class="nav-link pl-4" id="tableros-privados" href='#tableros-privados'>Privados</a></li>
+                                <li class="nav-item"><a class="nav-link pl-4">Crear nuevo</a></li>
+                            </ul>
+                        </div>
+                  </li>
+              </ul>
           </div>
-          <div class = "row col-md-12">
-            <div id = "addrectangle" class = "draggable newArea col-md-4"></div>
-            <!--<div id = "addrectanglepicto" class = "draggable newPicto col-md-4"></div>-->
-            
-            <div id="box-one4" class = "pictograma newPicto draggable col-md-4">
-              <img class = "picto" src="plus.png"></img>
-              <div class = "picto"> Nuevo </div>
-              <div class = "pictogramaHover"></div>
+          <div class="col" id="content">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Titulo</th>
+                    <th colspan="2">Acciones</th>
+                  </tr>
+                </thead>
+                <tbody id = "cuerpoTabla">
+                  <tr>
+                    <td>Bill Gates</td>
+                    <td>55577854</td>
+                    <td>55577855</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            
+              
+              <p>3 wolf moon retro jean shorts chambray sustainable roof party. Shoreditch vegan artisan Helvetica. Tattooed Codeply Echo Park Godard kogi, next level irony ennui twee squid fap selvage. Meggings flannel Brooklyn literally small batch, mumblecore
+                  PBR try-hard kale chips. Brooklyn vinyl lumbersexual bicycle rights, viral fap cronut leggings squid chillwave pickled gentrify mustache. 3 wolf moon hashtag church-key Odd Future. Austin messenger bag normcore, Helvetica Williamsburg
+                  sartorial tote bag distillery Portland before they sold out gastropub taxidermy Vice.</p>
           </div>
-          
-          <button type="button" id="botonDescarga" class="btn btn-primary">Descargar</button>
-        </div>
-        <div id = "panelDerechaAjustes" class ="panelAjustes row col-md-4">
-          <div class = "row col-md-12">
-            <div class="dropdown col-md-6">
-              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                Color Borde
-              </button>
-              <div class="dropdown-menu" id = "color-borde">
-                <div class="dropdown-item green" href="#">
-                  Verde
-                  <div id="greencolor"></div>
-                </div>
-                <div class="dropdown-item maroon" href="#">
-                  Marron
-                  <div id="marooncolor"></div>
-                </div>
-                <div class="dropdown-item red" href="#">
-                  Rojo
-                  <div id="redcolor"></div>
-                </div>
-                <div class="dropdown-item orange" href="#">
-                  Naranja
-                  <div id="orangecolor"></div>
-                </div>
-                <div class="dropdown-item yellow" href="#">
-                  Amarillo
-                  <div id="yellowcolor"></div>
-                </div>
-                <div class="dropdown-item purple" href="#">
-                  Morado
-                  <div id="purplecolor"></div>
-                </div>
-                <div class="dropdown-item blue" href="#">
-                  Azul
-                  <div id="bluecolor"></div>
-                </div>
-                <div class="dropdown-item black" href="#">
-                  Negro
-                  <div id="blackcolor"></div>
-                </div>
-                
-              </div>
-            </div>
-            <div class="dropdown col-md-6">
-              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                Color Fondo
-              </button>
-              <div class="dropdown-menu" id = "color-fondo">
-                <div class="dropdown-item white" href="#">
-                  Blanco
-                  <div id="whitecolor"></div>
-                </div>
-                <div class="dropdown-item pink" href="#">
-                  Rosa
-                  <div id="pinkcolor"></div>
-                </div>
-                <div class="dropdown-item peachpuff" href="#">
-                  Naranja
-                  <div id="peachpuffcolor"></div>
-                </div>
-                <div class="dropdown-item lightgoldenrodyellow" href="#">
-                  Amarillo
-                  <div id="lightgoldenrodyellowcolor"></div>
-                </div>
-                <div class="dropdown-item palegreen" href="#">
-                  Verde
-                  <div id="palegreencolor"></div>
-                </div>
-                <div class="dropdown-item thistle" href="#">
-                  Morado
-                  <div id="thistlecolor"></div>
-                </div>
-                <div class="dropdown-item lightsteelblue" href="#">
-                  Azul
-                  <div id="lightsteelbluecolor"></div>
-                </div>
-                <div class="dropdown-item paleturquoise" href="#">
-                  Turquesa
-                  <div id="paleturquoisecolor"></div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          <div class = "row col-md-12">
-            <input type="text" class="col-md-2 form-control" id="tituloPlantilla" placeholder="Titulo">
-            <div class="custom-control custom-checkbox col-md-auto">
-              <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">Visible</label>
-            </div>
-          </div>
-          <div class = "row col-md-12">
-            <button type="button" class="botonSave btn btn-success">Success</button>
-            <button type="button" class="btn btn-danger">Danger</button>
-          </div>
-          
       </div>
-        <div id = "panelDerechaAjustesPicto" class = "panelAjustes row col-md-4"> <div class = "row col-md-12">
-            <div class="dropdown col-md-6">
-              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                Color Borde
-              </button>
-              <div class="dropdown-menu" id = "color-borde-picto">
-                <div class="dropdown-item green" href="#">
-                  Verde
-                  <div id="greencolor"></div>
-                </div>
-                <div class="dropdown-item maroon" href="#">
-                  Marron
-                  <div id="marooncolor"></div>
-                </div>
-                <div class="dropdown-item red" href="#">
-                  Rojo
-                  <div id="redcolor"></div>
-                </div>
-                <div class="dropdown-item orange" href="#">
-                  Naranja
-                  <div id="orangecolor"></div>
-                </div>
-                <div class="dropdown-item yellow" href="#">
-                  Amarillo
-                  <div id="yellowcolor"></div>
-                </div>
-                <div class="dropdown-item purple" href="#">
-                  Morado
-                  <div id="purplecolor"></div>
-                </div>
-                <div class="dropdown-item blue" href="#">
-                  Azul
-                  <div id="bluecolor"></div>
-                </div>
-                <div class="dropdown-item black" href="#">
-                  Negro
-                  <div id="blackcolor"></div>
-                </div>
-                
-              </div>
-            </div>
-            <div class="dropdown col-md-6">
-              <button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                Color Fondo
-              </button>
-              <div class="dropdown-menu" id = "color-fondo-picto">
-                <div class="dropdown-item white" href="#">
-                  Blanco
-                  <div id="whitecolor"></div>
-                </div>
-                <div class="dropdown-item pink" href="#">
-                  Rosa
-                  <div id="pinkcolor"></div>
-                </div>
-                <div class="dropdown-item peachpuff" href="#">
-                  Naranja
-                  <div id="peachpuffcolor"></div>
-                </div>
-                <div class="dropdown-item lightgoldenrodyellow" href="#">
-                  Amarillo
-                  <div id="lightgoldenrodyellowcolor"></div>
-                </div>
-                <div class="dropdown-item palegreen" href="#">
-                  Verde
-                  <div id="palegreencolor"></div>
-                </div>
-                <div class="dropdown-item thistle" href="#">
-                  Morado
-                  <div id="thistlecolor"></div>
-                </div>
-                <div class="dropdown-item lightsteelblue" href="#">
-                  Azul
-                  <div id="lightsteelbluecolor"></div>
-                </div>
-                <div class="dropdown-item paleturquoise" href="#">
-                  Turquesa
-                  <div id="paleturquoisecolor"></div>
-                </div>
-                
-              </div>
-            </div>
-          </div>
-          <div class = "row col-md-12">
-            <input type="text" class="col-md-2 form-control" id="nombrePicto" placeholder="Titulo">
-            <div class="custom-control custom-checkbox col-md-auto">
-              <input type="checkbox" class="custom-control-input" id="customCheck2" checked>
-              <label class="custom-control-label" for="customCheck2">Visible</label>
-            </div>
-          </div>
-          <div class = "row col-md-12 justify-content-center">
-            <i class="fas fa-times fa-4x fa-border text-danger" id="seleccionHover" style="color: #ff922b;"></i>
-            <!--<i class="icon-remove icon-4x icon-border text-danger" ></i>-->
-          </div>
-          <div class = "row col-md-12">
-            <button type="button" class="botonSave btn btn-success">Success</button>
-            <button type="button" class="btn btn-danger">Danger</button>
-          </div>
-          
-        </div>
-    </div>
+  </div>
     
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.min.js"></script>
-    <script src="myinteract.js"></script>
-    <script src="app.js"></script>
-    <script src="descarga.js"></script>
-    <script src="selectorcolores.js"></script>
-    <script src="ajustesPicto.js"></script>
-    <script src="ajustesDropzone.js"></script>
-    <script src="muestraAjustes.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.3.1/textFit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
+    
+    <script src="router.js"></script>
+    
+    <!-- Bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    
   </body>
 </html>
+<!-- https://code.luasoftware.com/tutorials/bootstrap/bootstrap4-vertical-side-menu/-->
