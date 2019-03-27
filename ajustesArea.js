@@ -1,18 +1,19 @@
-var ajustesPicto = function (pictograma) {
+var ajustesArea = function (area) {
     
-    var pictogramaPadre = pictograma;
-    var pictoImg = pictogramaPadre.children[0];
+    var areaPadre = area;
+    /*var pictoImg = pictogramaPadre.children[0];
     var pictoText = pictogramaPadre.children[1];
-    var pictoHover = pictogramaPadre.children[2];
-    var panelAjustes = document.getElementById('panelDerechaAjustesPicto');
-    var colorBorde = document.getElementById("color-borde-picto");
-    var colorFondo = document.getElementById("color-fondo-picto");
-    var nombrePictoField = document.getElementById('nombrePicto');
-    var visibleONo = document.getElementById('customCheck2');
+    var pictoHover = pictogramaPadre.children[2];*/
+    var areaText = areaPadre.children[0];
+    var panelAjustes = document.getElementById('panelDerechaAjustesArea');
+    var colorBorde = document.getElementById("color-borde-area");
+    var colorFondo = document.getElementById("color-fondo-area");
+    var nombreAreaField = document.getElementById('nombreArea');
+    var visibleONo = document.getElementById('customCheck3');
     //var pictoOriginal = pictogramaPadre.cloneNode(true);
     var panelDerecho = document.getElementById('panelDerecha');
-    var seleccionHover = document.getElementById('seleccionHover');
-    var botonCerrar = document.getElementById('botonCerrarPicto');
+    //var seleccionHover = document.getElementById('seleccionHover');
+    var botonCerrar = document.getElementById('botonCerrarArea');
     var _self = this;
     //console.log(pictoHijos);
     /*
@@ -43,32 +44,30 @@ var ajustesPicto = function (pictograma) {
     
     function cambiaTitulo(evento){
         console.log(evento);
-        pictoText.innerText = evento.target.value;
+        areaText.innerText = evento.target.value;
     }
     
     function cambiaColorBorde(evento){
-      console.log('cambiandocolor',evento);
       if(evento.isTrusted){
-          pictogramaPadre.style.borderColor = evento.target.value;
+          areaPadre.style.borderColor = evento.target.value;
       }
     }
     
     function cambiaColorFondo(evento){
-      console.log('cambiandocolor',evento);
       if(evento.isTrusted){
-          pictogramaPadre.style.backgroundColor = evento.target.value;
+          areaPadre.style.backgroundColor = evento.target.value;
       }
     }
     
     function mostrarTitulo(event){
       if (event.target.checked) {
-        pictoText.style.display = 'block';
+        areaText.style.display = 'block';
       } else {
-        pictoText.style.display = 'none';
+        areaText.style.display = 'none';
       }
       console.log("hooooola");
     };
-    
+    /*
     function cambiaHover(event){
       console.log('salud');
       if(event.target.classList.contains('fa-times')){
@@ -86,7 +85,7 @@ var ajustesPicto = function (pictograma) {
         //pictoHover.style.backgroundSize = "cover";
         console.log('salud');
       }
-    }
+    }*/
     
     function cerrar(){
       panelAjustes.style.display = 'none';
@@ -96,28 +95,28 @@ var ajustesPicto = function (pictograma) {
 
     this.init = function(){
       botonCerrar.addEventListener('click', cerrar);
-      seleccionHover.addEventListener('click',cambiaHover);
-      nombrePictoField.value = pictoText.innerText;
+      //seleccionHover.addEventListener('click',cambiaHover);
+      nombreAreaField.value = areaText.innerText;
       colorBorde.addEventListener('change',cambiaColorBorde);
       colorFondo.addEventListener('change',cambiaColorFondo);
-      nombrePictoField.addEventListener('keyup',cambiaTitulo);
+      nombreAreaField.addEventListener('keyup',cambiaTitulo);
       visibleONo.addEventListener('change', mostrarTitulo);
       panelAjustes.style.display = 'block';
-      pictogramaPadre.classList.add('myShadow');
+      areaPadre.classList.add('myShadow');
     //  console.log(visibleONo);
     }
     
     this.stop = function(){
       botonCerrar.removeEventListener('click', cerrar);
       //panelAjustes.removeEventListener('click', aceptarOCancelar);
-      seleccionHover.removeEventListener('click',cambiaHover);
+      //seleccionHover.removeEventListener('click',cambiaHover);
      // nombrePictoField.value = pictoText.innerText;
       colorBorde.removeEventListener('change',cambiaColorBorde);
       colorFondo.removeEventListener('change',cambiaColorFondo);
-      nombrePictoField.removeEventListener('keyup',cambiaTitulo);
+      nombreAreaField.removeEventListener('keyup',cambiaTitulo);
       visibleONo.removeEventListener('change', mostrarTitulo);
       //panelAjustes.style.display = 'block';
-      pictogramaPadre.classList.remove('myShadow');
+      areaPadre.classList.remove('myShadow');
       
       /*if(cancelar){
         console.log(pictogramaPadre);

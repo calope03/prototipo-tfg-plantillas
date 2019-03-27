@@ -35,6 +35,9 @@
             //var ajustesPicto = document.getElementById('panelDerechaAjustesPicto');
            // ajustesPicto.style.display = 'block';
             //event.target.parentNode.style.display = ''
+        }else if(classTarget.contains("newArea")){
+            ajustes = new ajustesArea(event.target);
+            ajustes.init();
         }
        /* //var panelDerecho = document.getElementById('panelDerecha');
         dropZoneOriginal = dropzone.cloneNode(false);

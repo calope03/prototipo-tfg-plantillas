@@ -40,9 +40,18 @@ var ajustesDropzone = function () {
         tituloPlantilla.innerText = evento.target.value;
     }
     
-    function cambiaColor(evento,tipo){
+    
+    function cambiaColorBorde(evento){
+      console.log('cambiandocolor',evento);
       if(evento.isTrusted){
-        dropzone.style[tipo] = evento.target.value;
+          dropzone.style.borderColor = evento.target.value;
+      }
+    }
+    
+    function cambiaColorFondo(evento){
+      console.log('cambiandocolor',evento);
+      if(evento.isTrusted){
+          dropzone.style.backgroundColor = evento.target.value;
       }
     }
     
@@ -66,8 +75,8 @@ var ajustesDropzone = function () {
       botonCerrar.addEventListener('click',cerrar);
      // panelAjustes.addEventListener('click', aceptarOCancelar);
       titlePlantillaField.addEventListener('keyup',cambiaTitulo);
-      colorBorde.addEventListener('change', function(evento){cambiaColor(evento,"borderColor");});
-      colorFondo.addEventListener('change',function(evento){cambiaColor(evento,"backgroundColor");});
+      colorBorde.addEventListener('change',cambiaColorBorde);
+      colorFondo.addEventListener('change',cambiaColorFondo);
       visibleONo.addEventListener('change', mostrarTitulo);
       panelAjustes.style.display = 'block';
     }
@@ -77,8 +86,8 @@ var ajustesDropzone = function () {
       botonCerrar.removeEventListener('click',cerrar);
       //panelAjustes.removeEventListener('click', aceptarOCancelar);
       titlePlantillaField.removeEventListener('keyup',cambiaTitulo);
-      colorBorde.removeEventListener('change', function(evento){cambiaColor(evento,"borderColor");});
-      colorFondo.removeEventListener('change',function(evento){cambiaColor(evento,"backgroundColor");});
+      colorBorde.removeEventListener('change',cambiaColorBorde);
+      colorFondo.removeEventListener('change',cambiaColorFondo);
       visibleONo.removeEventListener('change', mostrarTitulo);
       
       

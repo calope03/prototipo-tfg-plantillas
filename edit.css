@@ -88,6 +88,9 @@ body {
 }
 
 
+#titleArea{
+  text-align: center;
+}
 .pictogramaHover{
  /*background-color: red;*/
   width: 100%;
@@ -150,3 +153,6 @@ body, html, .container-fluid {
 .container-fluid .row{
   height: 100%;
 }*/
+
+
+
