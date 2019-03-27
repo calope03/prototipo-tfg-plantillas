@@ -15,9 +15,7 @@ console.log("width:",myWidth,"height",myHeight);
 var titlePlantilla = document.getElementById('title');
 titlePlantilla.style.display = 'none';
 
-
-
-textFit(document.getElementById('addText'));
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!textFit(document.getElementById('addText'));
 
 function recalculaAlturaPictogramas(){
   var pictogramas = Array.prototype.slice.call(document.querySelectorAll('.pictograma'));
@@ -98,7 +96,7 @@ function creaPictoAjustado(event){
 
 function creaArea(event){
   var areaClonada = colocaElemento(event);
-  areaClonada.classList.remove('col-md-6');
+  areaClonada.classList.remove('col-md-4');
   areaClonada.classList.remove('draggable');
   areaClonada.classList.add('rectdraggable');
 }

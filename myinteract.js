@@ -160,12 +160,12 @@ interact('.rectdraggable')
     },
 
     // minimum size
-    restrictSize: {
+    /*srestrictSize: {
       min: { width: 100, height: 50 },
-    },
+    },*/
   })
   .dropzone({
-    overlap: 1,
+    overlap: 0.5,
   
     ondropactivate: function (event) {
       // add active dropzone feedback

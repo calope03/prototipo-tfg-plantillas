@@ -5,8 +5,8 @@
 
 .dropzone {
   background-color: #ccc;
-  height: 530px;
-  min-width: 895px;
+  /*height: 530px;
+  min-width: 895px;*/
   border: solid 2px grey;
 }
 

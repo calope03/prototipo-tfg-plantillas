@@ -17,4 +17,23 @@ window.addEventListener("hashchange", function(event){
             el.classList.remove("active");
     });
     document.getElementById(hashActual()).classList.add('active');
+    listaByHash();
+   
+    console.log(hashActual())
 }, false);
+
+
+function listaByHash(){
+    cargarLocalStorage();
+    if(hashActual() === "plantillas-privadas"){
+        listaPlantillasPrivadas();
+    }else if(hashActual()==="tableros-privados"){
+        listaTablerosPrivados();
+    }else if(hashActual()==="plantillas-publicas"){
+        listaPlantillasPublicas();
+    }else if(hashActual()==="tableros-publicos"){
+        listaTablerosPrublicos();
+    }
+}
+
+listaByHash();

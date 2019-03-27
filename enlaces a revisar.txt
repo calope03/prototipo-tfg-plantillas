@@ -4,3 +4,10 @@ https://developer.mozilla.org/es/docs/Web/HTML/Elemento/input/color ---- color p
 
 https://codepen.io/estelle/pen/rigBl ---- por si hace falta paleta antes de la vista general
 
+
+
+
+minificar html a la ida para que no tenga cosas raras de intros al traerlo de vuelta
+
+
+https://cdnjs.com/libraries/html-minifier

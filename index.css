@@ -37,8 +37,6 @@ body, html, .container-fluid, .sidebar {
 }
 
 
-
-
 .bg-green{
     background-color: #8bc34a;
 }
@@ -47,5 +45,15 @@ body, html, .container-fluid, .sidebar {
     background-color: #dadada;
 }
 
+.option{
+    cursor: pointer;
+}
 
+a{
+    color: #212529;
+}
 
+a:hover{
+    color: #212529;
+    text-decoration: none;
+}

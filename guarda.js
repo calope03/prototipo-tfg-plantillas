@@ -1,33 +1,34 @@
+const hashValido = /[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/;
 document.getElementById("botonDescarga").addEventListener('click', function(event){
-   let dropzone = document.getElementById("dropzone").outerHTML;
+   let dropzone = document.getElementById("dropzone");
+   let dropzoneOuter = document.getElementById("dropzone").outerHTML;
+   let hash = hashActual();
+   let tipo;
+   let id = guid();
+   let tamanoDropzone = {
+       alto: dropzone.clientHeight,
+       ancho: dropzone.clientWidth
+   }
+   if(hash === "nueva-plantilla"){
+      tipo="plantilla";
+   }else if(hash === "nuevo-tablero"){
+      tipo="tablero";
+   }else if(hashValido.test(hash)){
+     id = hash;
+     console.log('id',id)
+   }
    let datosAExportar = {
-       contenido: dropzone,
-       tipo: "plantilla"
+       id: id,
+       contenido: dropzoneOuter,
+       tamano: tamanoDropzone,
+       titulo: "Titulo sin determinar",
+       tipo: tipo
    } 
-   let tipo = hashActual();
-   console.log(tipo, guid());
    var datos = JSON.stringify(datosAExportar);
-   const blob = new Blob([datos], {type: "application/json"});
-   const link = document.createElement('a');
-   document.body.appendChild(link);
-   link.style.display = "none";
-   link.href = window.URL.createObjectURL(blob);
-   link.download = 'archivo.json';
-   link.click();
-   window.URL.revokeObjectURL(link.href);
-   console.log('descargando');
+   localStorage.setItem(id, datos);
+   console.log('guardado');
 });
 
-function hashActual () {
-    return window.location.href.split('#')[1] || '';
-}
 
-function guid() {
-  function s4() {
-    return Math.floor((1 + Math.random()) * 0x10000)
-      .toString(16)
-      .substring(1);
-  }
-  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
-    s4() + '-' + s4() + s4() + s4();
-}
+
+
