@@ -1,4 +1,9 @@
-const hashValido = /[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/;
+function navigate (path) {
+  var current = window.location.href;
+  window.location.href = current.replace(/#(.*)$/, '') + '#' + path;
+}
+
+
 document.getElementById("botonDescarga").addEventListener('click', function(event){
    let dropzone = document.getElementById("dropzone");
    let dropzoneOuter = document.getElementById("dropzone").outerHTML;
@@ -11,8 +16,10 @@ document.getElementById("botonDescarga").addEventListener('click', function(even
    }
    if(hash === "nueva-plantilla"){
       tipo="plantilla";
+      navigate(id);
    }else if(hash === "nuevo-tablero"){
       tipo="tablero";
+      navigate(id);
    }else if(hashValido.test(hash)){
      id = hash;
      console.log('id',id)

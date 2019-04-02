@@ -4,10 +4,10 @@
 }
 
 .dropzone {
-  background-color: #ccc;
+  background-color: #fff;
   /*height: 530px;
   min-width: 895px;*/
-  border: solid 2px grey;
+  border: solid 2px black;
 }
 
 .pictograma{
@@ -54,8 +54,9 @@
   margin: 0 20px;
 }
 
-#tituloPlantilla{
+.tituloElemento{
   margin: 0 15px;
+  font-size: 1.3rem;
 }
 
 #addrectangle{
@@ -154,5 +155,56 @@ body, html, .container-fluid {
   height: 100%;
 }*/
 
+#panelDerecha{
+  display:block;
+}
 
+.panelAjustes{
+  font-size: 1.3em;
+  display: none;
+}
 
+.rowColores, .rowTitulo, .rowHover, .rowBuscador{
+  margin-bottom: 10%;
+}
+.colorButton{
+  margin-left: 10%;
+  /*background-color: #F5FF55;*/
+  width: 30%;
+  height: 100%;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.checkbox:before{
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.checkbox:after{
+  width: 1.3rem;
+  height: 1.3rem;
+}
+
+.btn{
+  font-size: 1.3rem;
+}
+
+#botonCerrarDropZone, #botonCerrarPicto, #botonCerrarArea{
+  margin: 0 15px;
+}
+
+.buscar{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#inputBusqueda{
+  font-size: 1.3rem;
+}
+
+.rowNewElement{
+  margin-bottom: 10%;
+  font-size: 1.3rem;
+  text-align: center;
+}

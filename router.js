@@ -3,10 +3,7 @@ function hashActual () {
     return window.location.href.split('#')[1] || '';
 }
 
-function navigate (path) {
-  var current = window.location.href;
-  window.location.href = current.replace(/#(.*)$/, '') + '#' + path;
-}
+
 
 
 

@@ -2,9 +2,8 @@
 <html lang="es">
   <head>
     <meta charset="utf-8">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="TFG-plantillas">
+    <meta name="author" content="Carmen Lopez">
     <!--<link rel="icon" href="">-->
 
     <title> Prototipo </title>
@@ -17,37 +16,48 @@
   </head>
 
   <body>
+    <!--
+    Header
+    -->     
     <nav class="navbar navbar-light bg-green">
       <a class="navbar-brand" href="#">
-        <img src="hola.png" width="30" height="30" class="d-inline-block align-top" alt="">
+        <img src="hola.png" width="30" height="30" class="d-inline-block align-top" alt=""></img>
         Titulo aun por definir
       </a>
     </nav>
-    
-    
+    <!--
+    Cuerpo
+    -->     
     <div class = "container-fluid">
-      <div class="row h-100">
+      <div class="row h-100 mb-0 p-3">
+        <!--
+        Dropzone
+        --> 
         <div class="col-md-8 h-100 d-flex justify-content-center">
-          <div id = "dropzone" class = "col-md-12 h-100 dropzone"> <p id='title'></p> </div>
+          <div id = "dropzone" class = "col-md-12 h-100 dropzone"> <p id="title"></p> </div>
         </div>
-        
-        <div id = "panelDerecha"class = "row col-md-4">
-          <!--<div class = "row col-md-12">-->
+        <!--
+        Panel derecha, buscador, y demas elementos
+        --> 
+        <div id = "panelDerecha" class = "row col-md-4">
+          <div class = "row col-md-12 rowBuscador">
             <div class="col-md-12 buscar">
-              <!--<form class="navbar-form" role="search">-->
-                <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Buscar" id = "inputBusqueda">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-search"></i></span>
-                  </div>
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Buscar" id = "inputBusqueda">
+                <div class="input-group-append">
+                  <span class="input-group-text"><i class="fas fa-search"></i></span>
                 </div>
-             <!-- </form>-->
+              </div>
             </div>
             <div id = "resultadosBusqueda" class="row col-md-12"></div>
-          <!--</div>-->
-          <div class = "row col-md-12">
-            <div id = "addrectangle" class = "draggable newArea col-md-4"><p id='titleArea' style ="display:none;"></p></div>
-            <!--<div id = "addrectanglepicto" class = "draggable newPicto col-md-4"></div>-->
+          </div>
+          <div class = "row col-md-12 rowNewElement ">
+            <p class="col-md-4">Area</p>
+            <p class="col-md-4">Pictograma</p>
+            <p class="col-md-4">Texto</p>
+            <div id = "addrectangle" class = "draggable newArea col-md-4">
+              <p id='titleArea' style ="display:none;"></p>
+            </div>
             
             <div id="box-one4" class = "pictograma newPicto draggable col-md-4">
               <img class = "picto" src="plus.png"></img>
@@ -55,91 +65,84 @@
               <div class = "pictogramaHover"></div>
             </div>
             
-            <!--<div id = "addText" class = "draggable newArea col-md-4">Escribe aqui tu texto</div>-->
-            
+            <div id = "addText" class = "draggable newArea col-md-4">Escribe aqui tu texto</div>
           </div>
-          
-          <button type="button" id="botonDescarga" class="btn btn-primary">Guardar</button>
+          <button type="button" id="botonDescarga" class="btn btn-primary col-md-3">Guardar</button>
         </div>
+<!--
+Ajustes dropzone
+-->        
         <div id = "panelDerechaAjustes" class ="panelAjustes row col-md-4">
-          <div class = "row col-md-12">
-            <div class="col-md-6">
-              Color borde: <input id = 'color-borde' type="color">
-                
+          <div class = "row col-md-12 rowColores ">
+            <div class="col-md-6 float-right">
+              Color borde: <input id = 'color-borde' class = "colorButton" type="color" value="#000000">
             </div>
-            
             <div class="col-md-6">
-              Color fondo: <input id = 'color-fondo' type="color">
-                
+              Color fondo: <input id = 'color-fondo' class = "colorButton" type="color" value="#ffffff">
             </div>
           </div>
-          <div class = "row col-md-12">
-            <input type="text" class="col-md-2 form-control" id="tituloPlantilla" placeholder="Titulo">
+          <div class = "row col-md-12 rowTitulo">
+            <input type="text" class="col-md-6 form-control tituloElemento" id="tituloPlantilla" placeholder="Titulo">
             <div class="custom-control custom-checkbox col-md-auto">
               <input type="checkbox" class="custom-control-input" id="customCheck1">
-              <label class="custom-control-label" for="customCheck1">Visible</label>
+              <label class="checkbox custom-control-label" for="customCheck1">Visible</label>
             </div>
           </div>
-          <div class = "row col-md-12">
-            <button id = "botonCerrarDropZone" type="button" class="btn btn-primary">Cerrar</button>
+          <div class = "row col-md-12 justify-content-start">
+            <button id = "botonCerrarDropZone" type="button" class="col-md-2 btn btn-primary">Cerrar</button>
           </div>
-          
       </div>
+<!--
+Ajustes pictograma
+-->      
         <div id = "panelDerechaAjustesPicto" class = "panelAjustes row col-md-4"> 
-           
-          <div class = "row col-md-12">
+          <div class = "row col-md-12 rowColores">
             <div class="col-md-6">
-              Color borde: <input id = 'color-borde-picto' type="color">
-                
+              Color borde: <input id = 'color-borde-picto' class = "colorButton" type="color">
             </div>
-            
             <div class="col-md-6">
-              Color fondo: <input id = 'color-fondo-picto' type="color">
-                
+              Color fondo: <input id = 'color-fondo-picto' class = "colorButton" type="color">
             </div>
           </div>
-          <div class = "row col-md-12">
-            <input type="text" class="col-md-2 form-control" id="nombrePicto" placeholder="Titulo">
+          <div class = "row col-md-12 rowTitulo">
+            <input type="text" class="col-md-6 form-control tituloElemento" id="nombrePicto" placeholder="Titulo">
             <div class="custom-control custom-checkbox col-md-auto">
               <input type="checkbox" class="custom-control-input" id="customCheck2" checked>
-              <label class="custom-control-label" for="customCheck2">Visible</label>
+              <label class="checkbox custom-control-label" for="customCheck2">Visible</label>
             </div>
           </div>
-          <div class = "row col-md-12 justify-content-center">
+          <div class = "row col-md-12 justify-content-center rowHover">
             <i class="fas fa-times fa-4x fa-border text-danger" id="seleccionHover" style="color: #ff922b;"></i>
-            <!--<i class="icon-remove icon-4x icon-border text-danger" ></i>-->
           </div>
           <div class = "row col-md-12">
-            <button id = "botonCerrarPicto" type="button" class="btn btn-primary">Cerrar</button>
+            <button id = "botonCerrarPicto" type="button" class="col-md-2 btn btn-primary">Cerrar</button>
           </div>
          
         </div>
-       
+<!--
+Ajustes area 
+-->
       <div id = "panelDerechaAjustesArea" class = "panelAjustes row col-md-4"> 
-           
-        <div class = "row col-md-12">
+        <div class = "row col-md-12 rowColores">
           <div class="col-md-6">
-            Color borde: <input id = 'color-borde-area' type="color">
-              
+            Color borde: <input id = 'color-borde-area' class = "colorButton" type="color">
           </div>
-          
           <div class="col-md-6">
-            Color fondo: <input id = 'color-fondo-area' type="color">
-              
+            Color fondo: <input id = 'color-fondo-area' class = "colorButton" type="color">
           </div>
         </div>
-        <div class = "row col-md-12">
-          <input type="text" class="col-md-2 form-control" id="nombreArea" placeholder="Titulo">
+        <div class = "row col-md-12 rowTitulo">
+          <input type="text" class="col-md-6 form-control tituloElemento" id="nombreArea" placeholder="Titulo">
           <div class="custom-control custom-checkbox col-md-auto">
             <input type="checkbox" class="custom-control-input" id="customCheck3">
-            <label class="custom-control-label" for="customCheck3">Visible</label>
+            <label class="custom-control-label checkbox" for="customCheck3">Visible</label>
           </div>
         </div>
         <!--<div class = "row col-md-12 justify-content-center">
           <i class="fas fa-times fa-4x fa-border text-danger" id="seleccionHover" style="color: #ff922b;"></i>
         </div>-->
         <div class = "row col-md-12">
-          <button id = "botonCerrarArea" type="button" class="btn btn-primary">Cerrar</button>
+          <button id = "botonCerrarArea" type="button" class="col-md-2 btn btn-primary">Cerrar</button>
         </div>
        
       </div>
@@ -170,45 +173,3 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   </body>
 </html>
-
-
-
-<!--
-<button type="button" class="btn dropdown-toggle" data-toggle="dropdown">
-                Color Borde
-              </button>
-              <div class="dropdown-menu" id = "color-borde">
-                <div class="dropdown-item green" href="#">
-                  Verde
-                  <div id="greencolor"></div>
-                </div>
-                <div class="dropdown-item maroon" href="#">
-                  Marron
-                  <div id="marooncolor"></div>
-                </div>
-                <div class="dropdown-item red" href="#">
-                  Rojo
-                  <div id="redcolor"></div>
-                </div>
-                <div class="dropdown-item orange" href="#">
-                  Naranja
-                  <div id="orangecolor"></div>
-                </div>
-                <div class="dropdown-item yellow" href="#">
-                  Amarillo
-                  <div id="yellowcolor"></div>
-                </div>
-                <div class="dropdown-item purple" href="#">
-                  Morado
-                  <div id="purplecolor"></div>
-                </div>
-                <div class="dropdown-item blue" href="#">
-                  Azul
-                  <div id="bluecolor"></div>
-                </div>
-                <div class="dropdown-item black" href="#">
-                  Negro
-                  <div id="blackcolor"></div>
-                </div>
-              </div>
--->

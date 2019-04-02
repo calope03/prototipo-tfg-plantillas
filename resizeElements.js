@@ -1,9 +1,11 @@
+const hashValido = /[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/;
+
 function hashActual () {
     return window.location.href.split('#')[1] || '';
 }
 
 
-if(hashActual()!== "nueva-plantilla"){
+if(hashValido.test(hashActual())){
     console.log('recalculando??');
     var dropzone =  document.getElementById('dropzone');
     let elementoPintar = JSON.parse(localStorage.getItem(hashActual()));
@@ -25,23 +27,13 @@ if(hashActual()!== "nueva-plantilla"){
     if(anchoAntiguo !== anchoNuevo){
         variacionAncho =  ((100*anchoNuevo)/anchoAntiguo)/100;  
     }
-    //console.log(dropzone)
-     Array.prototype.slice.call(dropzone.children).forEach(function(element){
+    Array.prototype.slice.call(dropzone.children).forEach(function(element){
         console.log('ey',element);
         if(element.nodeName === 'DIV'){
-            console.log('holaaaaaaaaaaaaaa')
             element.style.width = (parseFloat(element.style.width,10)*variacionAncho) +'px';
             element.style.left = (parseFloat(element.style.left,10)*variacionAncho) +'px'; 
             element.style.height = (parseFloat(element.style.height,10)*variacionAlto) +'px';
             element.style.top = (parseFloat(element.style.top,10)*variacionAlto) +'px'; 
         }
-        
     });
-    
-    
 }
-/*
-
-https://stackoverflow.com/questions/8690463/get-a-number-for-a-style-value-without-the-px-suffix
-
-*/

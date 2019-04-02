@@ -64,7 +64,7 @@ function listaTablerosPrublicos(){
             element = element.val();
             resultadosHTML += `<tr data-id="${element.id}">
                             <td>${element.titulo}</td>
-                            <td class="option" data-action="privado">Crear copia privada</td>
+                            <td class="option" data-action="tableroPrivado">Crear copia privada</td>
                             <td class="option" data-action="ver">Ver</td>
                           </tr>`;
             console.log(resultadosHTML);
@@ -85,8 +85,8 @@ function listaPlantillasPublicas(){
             element = element.val();
             resultadosHTML += `<tr data-id="${element.id}">
                             <td>${element.titulo}</td>
-                            <td class="option" data-action="privado">Crear copia privada</td>
-                            <td class="option" data-action="tableropublico">Utilizar como tablero</td>
+                            <td class="option" data-action="plantillaPrivada">Crear copia privada</td>
+                            <td class="option" data-action="tableroPublico">Utilizar como tablero</td>
                             <td class="option" data-action="ver">Ver</td>
                           </tr>`;
             console.log(resultadosHTML);
@@ -110,7 +110,53 @@ function opciones(event){
         utilizarComoTablero(event.target.parentNode.dataset.id)
     }else if(event.target.dataset.action === "eliminar"){
         eliminar(event.target.parentNode.dataset.id)
+    }else if(event.target.dataset.action === "plantillaPrivada"){
+        plantillaPrivada(event.target.parentNode.dataset.id)
+    }else if(event.target.dataset.action === "tableroPrivado"){
+        tableroPrivado(event.target.parentNode.dataset.id)
+    }else if(event.target.dataset.action === "tableroPublico"){
+        tableroPublico(event.target.parentNode.dataset.id)
     }
+}
+
+function tableroPublico(id){
+    var elemento = plantillasRef.child(id);
+    elemento.once("value", snapshot => {
+        let elemento = snapshot.val();
+        elemento.id = guid();
+        elemento.tipo = "tablero";
+        localStorage.setItem(elemento.id, JSON.stringify(elemento));
+        console.log(snapshot.val())
+    }, errorObject => {
+      console.log(`Fallo en lectura de datos: ${errorObject.code}`);
+    });
+    console.log(elemento);
+}
+
+function tableroPrivado(id){
+    var elemento = tablerosRef.child(id);
+    elemento.once("value", snapshot => {
+        let elemento = snapshot.val();
+        //elemento.id = guid();
+        localStorage.setItem(elemento.id, JSON.stringify(elemento));
+        console.log(snapshot.val())
+    }, errorObject => {
+      console.log(`Fallo en lectura de datos: ${errorObject.code}`);
+    });
+    console.log(elemento);
+}
+
+function plantillaPrivada(id){
+    var elemento = plantillasRef.child(id);
+    elemento.once("value", snapshot => {
+        let elemento = snapshot.val();
+        //elemento.id = guid();
+        localStorage.setItem(elemento.id, JSON.stringify(elemento));
+        console.log(snapshot.val())
+    }, errorObject => {
+      console.log(`Fallo en lectura de datos: ${errorObject.code}`);
+    });
+    console.log(elemento);
 }
 
 function utilizarComoTablero(id){
@@ -147,10 +193,3 @@ function duplicar(id){
     listaByHash();
 }
 console.log('plantillas', plantillasPrivadas,'tableros' , tablerosPrivados)
-
-
-/*
-
-Funciones de listado segun el hash  y recorrer el contenido de localStorage y generar el html y filtrar por el tipo del hash para generar el html
-
-*/

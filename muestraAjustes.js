@@ -11,7 +11,7 @@
             elemento.style.display = 'none';
         });
     };
-    ocultaPaneles();
+    //ocultaPaneles();
     function muestraAjustes(event){
         var panelDerecho = document.getElementById('panelDerecha');
         var classTarget = event.target.classList;
