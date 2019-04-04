@@ -47,8 +47,17 @@ body, html, .container-fluid, .sidebar {
 
 .option{
     cursor: pointer;
+    background-color:rgb(228, 228, 228);
+    margin-bottom: 3px;
+    padding: 0.8rem 0;
+    border-top: solid 2px rgb(133, 133, 133);
+    border-bottom: solid 2px rgb(117, 117, 117);
 }
 
+.opcion{
+    margin-bottom: 1rem;
+}
+/*
 a{
     color: #212529;
 }
@@ -56,4 +65,4 @@ a{
 a:hover{
     color: #212529;
     text-decoration: none;
-}
+}*/
