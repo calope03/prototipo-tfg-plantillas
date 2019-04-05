@@ -33,10 +33,42 @@ function listaPlantillasPrivadas() {
             <img src=${element.miniatura} class="img-fluid d-block">
           </div>
           <div class="col-md-8 px-3">
-              <div class="row card-block px-3 justify-content-around" data-id="${element.id}">
+              <div class="row card-block px-3 justify-content-around" data-id="${
+                element.id
+              }">
                   <h4 class="col-md-12 card-title">${element.titulo}</h4>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="publicar">Publicar</button>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="tablero">Utilizar como tablero</button>
+                  <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="duplicar">Duplicar</button>
+                  <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="editar"><a href="edit.html#${
+                    element.id
+                  }">Editar</a></button>
+                  <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="eliminar">Eliminar</button>
+              </div>
+          </div>
+        </div>
+      </div>`;
+  });
+  resultadosHTML += `</div>`;
+  contentSlctr.innerHTML = resultadosHTML;
+  document.getElementById("contenidoTabla").addEventListener("click", opciones);
+}
+
+function listaTablerosPrivados() {
+  let resultadosHTML = `<div id = "contenidoTabla">`;
+  tablerosPrivados.forEach(function(element) {
+    resultadosHTML += `
+    <div class="card my-3 h-100" data-id="${element.id}">
+        <div class="row h-100">
+          <div class="col-md-4 h-100">
+            <img src=${element.miniatura} class="img-fluid d-block">
+          </div>
+          <div class="col-md-8 px-3">
+              <div class="row card-block px-3 justify-content-around" data-id="${
+                element.id
+              }">
+                  <h4 class="col-md-12 card-title">${element.titulo}</h4>
+                  <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="publicar">Publicar</button>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="duplicar">Duplicar</button>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="editar"><a href="edit.html#${element.id}">Editar</a></button>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="eliminar">Eliminar</button>
@@ -50,59 +82,72 @@ function listaPlantillasPrivadas() {
   document.getElementById("contenidoTabla").addEventListener("click", opciones);
 }
 
-function listaPlantillasPrivadas2() {
-  let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="5">Acciones</th></tr></thead><tbody>`;
-  plantillasPrivadas.forEach(function(element) {
-    resultadosHTML += `<tr data-id="${element.id}">
-                              <td>${element.titulo}</td>
-                              <td class="option" data-action="publicar">Publicar</td>
-                              <td class="option" data-action="tablero">Utilizar como tablero</td>
-                              <td class="option" data-action="duplicar">Duplicar</td>
-                              <td class="option" data-action="editar"><a href="edit.html#${
-                                element.id
-                              }">Editar</a></td>
-                              <td class="option" data-action="eliminar">Eliminar</td>
-                            </tr>`;
-  });
-  resultadosHTML += `</tbody></table></div>`;
-  contentSlctr.innerHTML = resultadosHTML;
-  document.getElementById("contenidoTabla").addEventListener("click", opciones);
-}
-
-function listaTablerosPrivados() {
-  let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="4">Acciones</th></tr></thead><tbody>`;
-  tablerosPrivados.forEach(function(element) {
-    resultadosHTML += `<tr data-id="${element.id}">
-                            <td>${element.titulo}</td>
-                            <td class="option" data-action="publicar">Publicar</td>
-                            <td class="option" data-action="duplicar">Duplicar</td>
-                            <td class="option" data-action="editar"><a href="edit.html#${
-                              element.id
-                            }">Editar</a></td>
-                            <td class="option" data-action="eliminar">Eliminar</td>
-                          </tr>`;
-  });
-  resultadosHTML += `</tbody></table></div>`;
-  contentSlctr.innerHTML = resultadosHTML;
-  document.getElementById("contenidoTabla").addEventListener("click", opciones);
-}
-
 function listaTablerosPrublicos() {
   tablerosRef.on(
     "value",
     snapshot => {
-      let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="2">Acciones</th></tr></thead><tbody>`;
+      let resultadosHTML = `<div id = "contenidoTabla">`;
       snapshot.forEach(function(element) {
         element = element.val();
-        resultadosHTML += `<tr data-id="${element.id}">
-                            <td>${element.titulo}</td>
-                            <td class="option" data-action="tableroPrivado">Crear copia privada</td>
-                            <td class="option" data-action="ver">Ver</td>
-                          </tr>`;
+        resultadosHTML += `
+        <div class="card my-3 h-100" data-id="${element.id}">
+            <div class="row h-100">
+              <div class="col-md-4 h-100">
+                <img src=${element.miniatura} class="img-fluid d-block">
+              </div>
+              <div class="col-md-8 px-3">
+                  <div class="row card-block px-3 justify-content-around" data-id="${
+                    element.id
+                  }">
+                      <h4 class="col-md-12 card-title">${element.titulo}</h4>
+                      <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="tableroPrivado">Crear copia privada</button>
+                      <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="ver">Ver</button>
+                  </div>
+              </div>
+            </div>
+          </div>`;
         console.log(resultadosHTML);
       });
       console.log(resultadosHTML);
-      resultadosHTML += `</tbody></table></div>`;
+      resultadosHTML += `</div>`;
+      contentSlctr.innerHTML = resultadosHTML;
+      document.getElementById("contenidoTabla").addEventListener("click", opciones);
+    },
+    errorObject => {
+      console.log(`Fallo en lectura de datos: ${errorObject.code}`);
+    }
+  );
+}
+
+function listaPlantillasPublicas() {
+  plantillasRef.on(
+    "value",
+    snapshot => {
+      let resultadosHTML = `<div id = "contenidoTabla">`;
+      snapshot.forEach(function(element) {
+        element = element.val();
+        resultadosHTML += `
+        <div class="card my-3 h-100" data-id="${element.id}">
+            <div class="row h-100">
+              <div class="col-md-4 h-100">
+                <img src=${element.miniatura} class="img-fluid d-block">
+              </div>
+              <div class="col-md-8 px-3">
+                  <div class="row card-block px-3 justify-content-around" data-id="${
+                    element.id
+                  }">
+                      <h4 class="col-md-12 card-title">${element.titulo}</h4>
+                      <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="plantillaPrivada">Crear copia privada</button>
+                      <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="tableroPublico">Utilizar como tablero</button>
+                      <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="ver">Ver</td></button>
+                  </div>
+              </div>
+            </div>
+          </div>`;
+        console.log(resultadosHTML);
+      });
+      console.log(resultadosHTML);
+      resultadosHTML += `</div>`;
       contentSlctr.innerHTML = resultadosHTML;
       document
         .getElementById("contenidoTabla")
@@ -114,7 +159,7 @@ function listaTablerosPrublicos() {
   );
 }
 
-function listaPlantillasPublicas() {
+function listaPlantillasPublicas2() {
   plantillasRef.on(
     "value",
     snapshot => {
@@ -247,3 +292,71 @@ function duplicar(id) {
   listaByHash();
 }
 console.log("plantillas", plantillasPrivadas, "tableros", tablerosPrivados);
+
+/*
+function listaPlantillasPrivadas2() {
+  let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="5">Acciones</th></tr></thead><tbody>`;
+  plantillasPrivadas.forEach(function(element) {
+    resultadosHTML += `<tr data-id="${element.id}">
+                              <td>${element.titulo}</td>
+                              <td class="option" data-action="publicar">Publicar</td>
+                              <td class="option" data-action="tablero">Utilizar como tablero</td>
+                              <td class="option" data-action="duplicar">Duplicar</td>
+                              <td class="option" data-action="editar"><a href="edit.html#${
+                                element.id
+                              }">Editar</a></td>
+                              <td class="option" data-action="eliminar">Eliminar</td>
+                            </tr>`;
+  });
+  resultadosHTML += `</tbody></table></div>`;
+  contentSlctr.innerHTML = resultadosHTML;
+  document.getElementById("contenidoTabla").addEventListener("click", opciones);
+}
+
+function listaTablerosPrivados2() {
+  let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="4">Acciones</th></tr></thead><tbody>`;
+  tablerosPrivados.forEach(function(element) {
+    resultadosHTML += `<tr data-id="${element.id}">
+                            <td>${element.titulo}</td>
+                            <td class="option" data-action="publicar">Publicar</td>
+                            <td class="option" data-action="duplicar">Duplicar</td>
+                            <td class="option" data-action="editar"><a href="edit.html#${
+                              element.id
+                            }">Editar</a></td>
+                            <td class="option" data-action="eliminar">Eliminar</td>
+                          </tr>`;
+  });
+  resultadosHTML += `</tbody></table></div>`;
+  contentSlctr.innerHTML = resultadosHTML;
+  document.getElementById("contenidoTabla").addEventListener("click", opciones);
+}
+
+
+function listaTablerosPrublicos2() {
+  tablerosRef.on(
+    "value",
+    snapshot => {
+      let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="2">Acciones</th></tr></thead><tbody>`;
+      snapshot.forEach(function(element) {
+        element = element.val();
+        resultadosHTML += `<tr data-id="${element.id}">
+                            <td>${element.titulo}</td>
+                            <td class="option" data-action="tableroPrivado">Crear copia privada</td>
+                            <td class="option" data-action="ver">Ver</td>
+                          </tr>`;
+        console.log(resultadosHTML);
+      });
+      console.log(resultadosHTML);
+      resultadosHTML += `</tbody></table></div>`;
+      contentSlctr.innerHTML = resultadosHTML;
+      document
+        .getElementById("contenidoTabla")
+        .addEventListener("click", opciones);
+    },
+    errorObject => {
+      console.log(`Fallo en lectura de datos: ${errorObject.code}`);
+    }
+  );
+}
+
+*/
