@@ -27,31 +27,20 @@
     
     <div class="container-fluid h-100">
       <div class="row h-100">
-          <div class="col-2 bg-light h-100" id="sidebar">
-              <ul class="nav flex-column pt-2">
-                  <li class="nav-item">
-                      <a class="nav-link collapsed" href="#submenu1" data-toggle="collapse" data-target="#submenu1">Plantillas</a>
-                        <div class="collapse" id="submenu1" aria-expanded="false">
-                            <ul class="flex-column nav">
-                                <li class="nav-item"><a class="nav-link pl-4" id="plantillas-publicas" href='#plantillas-publicas'>Publicas</a></li>
-                                <li class="nav-item"><a class="nav-link pl-4" id="plantillas-privadas" href='#plantillas-privadas'>Privadas</a></li>
-                                <li class="nav-item"><a class="nav-link pl-4" href="edit.html#nueva-plantilla">Crear nueva</a></li>
-                            </ul>
-                        </div>
-                      <a class="nav-link collapsed" href="#submenu2" data-toggle="collapse" data-target="#submenu2">Tableros</a>
-                        <div class="collapse" id="submenu2" aria-expanded="false">
-                            <ul class="flex-column nav">
-                                <li class="nav-item"><a class="nav-link pl-4" id="tableros-publicos" href='#tableros-publicos'>Publicos</a></li>
-                                <li class="nav-item"><a class="nav-link pl-4" id="tableros-privados" href='#tableros-privados'>Privados</a></li>
-                                <li class="nav-item"><a class="nav-link pl-4" href="edit.html#nuevo-tablero">Crear nuevo</a></li>
-                            </ul>
-                        </div>
-                  </li>
-              </ul>
-          </div>
+          <div class="col-2 bg-light border-right" id="sidebar-wrapper">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item list-group-item-action bg-light">Plantillas</a>
+                <a href='#plantillas-publicas' class="pl-5 list-group-item list-group-item-action bg-light">Publicas</a>
+                <a href='#plantillas-privadas' class="pl-5 list-group-item list-group-item-action bg-light">Privadas</a>
+                <a href="edit.html#nueva-plantilla" class="pl-5 list-group-item list-group-item-action bg-light">Crear Nueva</a>
+                <a href="#" class="list-group-item list-group-item-action bg-light">Tableros</a>
+                <a href='#tableros-publicos' class="pl-5 list-group-item list-group-item-action bg-light">Publicos</a>
+                <a href='#tableros-privados' class="pl-5 list-group-item list-group-item-action bg-light">Privados</a>
+                <a href="edit.html#nuevo-tablero" class="pl-5 list-group-item list-group-item-action bg-light">Crear Nuevo</a>
+              </div>
+            </div>
           <div class="col" id="content">
-            
-              
+        
           </div>
       </div>
   </div>
