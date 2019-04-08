@@ -24,7 +24,7 @@ function listarResultados(data){
 
 function renderPicto(element){
     
-    return `<div id="box-one1" class = "pictograma draggable col-md-4">
+    return `<div id="box-one1" class = "altura pictograma draggable col-md-4">
               <img class = "picto" src="https://api.arasaac.org/api/pictograms/${element.idPictogram}"></img>
               <p class = "picto">hola</p>
               <div class = "pictogramaHover"></div>

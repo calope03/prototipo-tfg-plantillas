@@ -18,7 +18,7 @@ titlePlantilla.style.display = 'none';
 textFit(document.getElementById('addText'));
 
 function recalculaAlturaPictogramas(){
-  var pictogramas = Array.prototype.slice.call(document.querySelectorAll('.pictograma'));
+  var pictogramas = Array.prototype.slice.call(document.querySelectorAll('.altura'));
 
   pictogramas.forEach(function(element){
     element.style.height = ((element.clientWidth*110)/100) +"px";

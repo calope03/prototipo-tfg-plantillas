@@ -4,13 +4,25 @@ interact('.draggable').draggable({
     onmove: dragMoveListener,
     
     onend: function (event) {
-      //console.log(event);
+      console.log('terminando de arratrar', event);
+      let target = event.target;
+      target.style.position = "relative";
+      target.style.top = "auto";
+      target.style.left = 0 + "px";
       if(!event.dropzone){
         console.log("no deberias moverte");
         // translate the element
         noMover(event.target);
       }
-      
+    },
+    onstart(event) {
+      let target = event.target;
+      let position = target.getBoundingClientRect();
+      target.style.position = "fixed";
+      target.style.top = position.top + "px";
+      target.style.left = position.left + "px";
+      target.style.width = position.width + "px";
+      target.style.height = position.height + "px";
     }
   });
 
@@ -114,7 +126,7 @@ interact('.draggado')
         x = (parseFloat(target.getAttribute('data-x')) || 0),
         y = (parseFloat(target.getAttribute('data-y')) || 0);
         
-    //_________________ Revisar para poner hijo p
+    //________________________________________________________________ Revisar para poner hijo p
     textFit(target.children[1]);
     
     // update the element's style
@@ -134,7 +146,7 @@ interact('.draggado')
   });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                                                              Area draggable
+                                                              Area draggada
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 interact('.rectdraggable')
@@ -154,6 +166,7 @@ interact('.rectdraggable')
       restriction: "parent",
       endOnly: true,
     },
+    preserveAspectRatio: true,
     restrictEdges: {
       outer: 'parent',
       endOnly: true,
