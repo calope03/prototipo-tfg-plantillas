@@ -83,7 +83,7 @@ interact('.dropzone').dropzone({
     event.target.classList.remove('drop-target');
   }
 })
-.on('hold', function (event) {
+.on('tap', function (event) {
   muestraAjustes(event);
   console.log(event.type, event.target)
 });
@@ -148,7 +148,7 @@ interact('.draggado')
     target.setAttribute('data-y', y);
     console.log('hola');
   })
-  .on('hold', function (event) {
+  .on('tap', function (event) {
     muestraAjustes(event);
     console.log(event.type, event.target)
   });
@@ -243,7 +243,7 @@ interact('.rectdraggable')
     target.setAttribute('data-y', y);
     
   })
-  .on('hold', function (event) {
+  .on('tap', function (event) {
     muestraAjustes(event);
     console.log(event.type, event.target)
   });
