@@ -1,21 +1,21 @@
 interact('.draggable').draggable({
-    autoScroll: true,
+    autoScroll: false,
     // call this function on every dragmove event
     onmove: dragMoveListener,
     
     onend: function (event) {
       console.log('terminando de arratrar', event);
-      let target = event.target;
+      /*let target = event.target;
       target.style.position = "relative";
       target.style.top = "auto";
-      target.style.left = 0 + "px";
+      target.style.left = 0 + "px";*/
       if(!event.dropzone){
         console.log("no deberias moverte");
         // translate the element
         noMover(event.target);
       }
     },
-    onstart(event) {
+    /*onstart(event) {
       let target = event.target;
       let position = target.getBoundingClientRect();
       target.style.position = "fixed";
@@ -23,7 +23,7 @@ interact('.draggable').draggable({
       target.style.left = position.left + "px";
       target.style.width = position.width + "px";
       target.style.height = position.height + "px";
-    }
+    }*/
   });
 
 function dragMoveListener (event) {
@@ -82,6 +82,10 @@ interact('.dropzone').dropzone({
     event.target.classList.remove('drop-active');
     event.target.classList.remove('drop-target');
   }
+})
+.on('hold', function (event) {
+  muestraAjustes(event);
+  console.log(event.type, event.target)
 });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -143,6 +147,10 @@ interact('.draggado')
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
     console.log('hola');
+  })
+  .on('hold', function (event) {
+    muestraAjustes(event);
+    console.log(event.type, event.target)
   });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -234,8 +242,35 @@ interact('.rectdraggable')
     target.setAttribute('data-x', x);
     target.setAttribute('data-y', y);
     
+  })
+  .on('hold', function (event) {
+    muestraAjustes(event);
+    console.log(event.type, event.target)
   });
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 ----------------------------------------------------------------------------------------------------------------
 */

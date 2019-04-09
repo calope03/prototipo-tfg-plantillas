@@ -212,11 +212,7 @@ body, html, .container-fluid {
 }
 
 
-#resultadosBusqueda{
-  max-height: 160px;
-  overflow: auto;
-  display: none;
-}
+
 /*
 .container-fluid .row{
   height: 100%;
@@ -274,4 +270,16 @@ body, html, .container-fluid {
   margin-bottom: 10%;
   font-size: 1.3rem;
   text-align: center;
+}
+
+#resultadosBusqueda{
+ /*max-height: 160px;
+  overflow: auto;*/
+  display: none;
+}
+
+#panelDerecha{
+  display:block;
+  /*overflow-y: auto;
+  max-height: 100%;*/
 }
