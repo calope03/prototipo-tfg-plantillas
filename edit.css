@@ -149,6 +149,7 @@ clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%,
 body {
   -ms-touch-action: none;
   touch-action: none;
+  overflow: auto;
 }
 
 #title{
@@ -274,17 +275,64 @@ body, html, .container-fluid {
 }
 
 #resultadosBusqueda{
- /*max-height: 160px;
-  overflow: auto;*/
   display: none;
   position: absolute;
+  z-index: 3;
   padding-top: 2.5rem;
   background-color: #fff;
-  z-index: 3;
+ /*max-height: 160px;
+  overflow: auto;*/
+  /*padding: 0px;*/
+  /*margin-left: 0px;
+  
+  
+  
+  
+  
+  width:95.5%;
+  border-bottom-left-radius: 1%;
+  border-bottom-right-radius: 1%;*/
 }
 
 #panelDerecha{
   display:block;
   /*overflow-y: auto;
   max-height: 100%;*/
+}
+
+.btn-circle.btn-xl {
+  width: auto;
+  height: auto;
+  padding: 13px 16px;
+  border-radius: 100%;
+  line-height: 1.33;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+  color: rgb(90, 90, 90); 
+  opacity: 0.8;
+}
+
+#buttonsUpandDown{
+  float: right;
+}
+
+#btnUp{
+  top: 1%;
+  left:91%;
+  position: fixed;
+  z-index: 10;
+}
+#btnDown{
+  top: 77%;
+  left:91%;
+  position: fixed;
+  z-index: 10;
 }
