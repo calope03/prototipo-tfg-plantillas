@@ -260,6 +260,7 @@ body, html, .container-fluid {
 .buscar{
   padding-left: 0px;
   padding-right: 0px;
+  z-index: 4;
 }
 
 #inputBusqueda{
@@ -276,6 +277,10 @@ body, html, .container-fluid {
  /*max-height: 160px;
   overflow: auto;*/
   display: none;
+  position: absolute;
+  padding-top: 2.5rem;
+  background-color: #fff;
+  z-index: 3;
 }
 
 #panelDerecha{
