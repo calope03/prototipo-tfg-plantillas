@@ -7,6 +7,7 @@
   background-color: #fff;
   /*height: 530px;
   min-width: 895px;*/
+  /*position: fixed;*/
   border: solid 2px black;
 }
 
@@ -331,7 +332,7 @@ body, html, .container-fluid {
   z-index: 10;
 }
 #btnDown{
-  top: 77%;
+  bottom: 1%;
   left:91%;
   position: fixed;
   z-index: 10;

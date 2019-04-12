@@ -38,6 +38,14 @@
         }else if(classTarget.contains("newArea")){
             ajustes = new ajustesArea(event.target);
             ajustes.init();
+        }else if(classTarget.contains("newFig")){
+            console.log('ajustes fig')
+            ajustes = new ajustesFigura(event.target);
+            ajustes.init();
+        }else if(classTarget.contains("newText")){
+            console.log('ajustes texto')
+            ajustes = new ajustesTexto(event.target);
+            ajustes.init();
         }
        /* //var panelDerecho = document.getElementById('panelDerecha');
         dropZoneOriginal = dropzone.cloneNode(false);

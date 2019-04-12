@@ -15,7 +15,7 @@ console.log("width:",myWidth,"height",myHeight);
 var titlePlantilla = document.getElementById('title');
 titlePlantilla.style.display = 'none';
 
-textFit(document.getElementById('addText'));
+//textFit(document.getElementById('addText'));
 
 function recalculaAlturaPictogramas(){
   var pictogramas = Array.prototype.slice.call(document.querySelectorAll('.altura'));
@@ -68,14 +68,12 @@ function alturaPictograma(picto){
   return altura;
 }*/
 
-
 recalculaAlturaPictogramas();
+
 function noMover(elemento){
   elemento.style.webkitTransform =
   elemento.style.transform =
     'translate(' + 0 + 'px, ' + 0 + 'px)';
-
-  // update the posiion attributes
   elemento.setAttribute('data-x', 0);
   elemento.setAttribute('data-y', 0);
 }
@@ -101,11 +99,26 @@ function creaArea(event){
   areaClonada.classList.add('rectdraggable');
 }
 
+function creaText(event){
+  var areaClonada = colocaElemento(event);
+  areaClonada.classList.remove('col-md-4');
+  areaClonada.classList.remove('draggable');
+  areaClonada.classList.add('textDraggado');
+}
+
+
 function creaAreaPicto(event){
   var pictoclonado = colocaElemento(event);
   pictoclonado.classList.remove('col-md-4');
   pictoclonado.classList.remove('draggable');
   pictoclonado.classList.add('pictoDraggado');
+}
+
+function creaFigura(event){
+  var pictoclonado = colocaElemento(event);
+  pictoclonado.classList.remove('col-md-4');
+  pictoclonado.classList.remove('draggable');
+  pictoclonado.classList.add('figdragada');
 }
 
 function colocaElemento(event){

@@ -9,7 +9,7 @@ if(isMobileDevice()){
     document.getElementById('buttonsUpandDown').innerHTML = btns;  
 }
 
-document.getElementById('buttonsUpandDown').addEventListener('click', subirObajar);
+document.getElementById('buttonsUpandDown').addEventListener('mousedown', subirObajar);
 
 function subirObajar(event){
     if(event.target.classList.contains("btnUp")){

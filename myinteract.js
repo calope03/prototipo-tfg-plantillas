@@ -1,98 +1,107 @@
-interact('.draggable').draggable({
-    autoScroll: false,
-    // call this function on every dragmove event
-    onmove: dragMoveListener,
-    
-    onend: function (event) {
-      console.log('terminando de arratrar', event);
-      /*let target = event.target;
-      target.style.position = "relative";
-      target.style.top = "auto";
-      target.style.left = 0 + "px";*/
-      if(!event.dropzone){
-        console.log("no deberias moverte");
-        // translate the element
-        noMover(event.target);
-      }
-    },
-    /*onstart(event) {
-      let target = event.target;
-      let position = target.getBoundingClientRect();
-      target.style.position = "fixed";
-      target.style.top = position.top + "px";
-      target.style.left = position.left + "px";
-      target.style.width = position.width + "px";
-      target.style.height = position.height + "px";
-    }*/
-  });
+interact(".draggable").draggable({
+  autoScroll: true,
+  // call this function on every dragmove event
+  onmove: dragMoveListener,
 
-function dragMoveListener (event) {
+  onend: function(event) {
+    console.log("terminando de arratrar", event);
+    if (!event.dropzone) {
+      console.log("no deberias moverte");
+      noMover(event.target);
+    }
+  }
+});
+
+function dragMoveListener(event) {
   var target = event.target,
-      // keep the dragged position in the data-x/data-y attributes
-      x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx,
-      y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+    // keep the dragged position in the data-x/data-y attributes
+    x = (parseFloat(target.getAttribute("data-x")) || 0) + event.dx,
+    y = (parseFloat(target.getAttribute("data-y")) || 0) + event.dy;
 
   // translate the element
-  target.style.webkitTransform =
-  target.style.transform =
-    'translate(' + x + 'px, ' + y + 'px)';
+  target.style.webkitTransform = target.style.transform =
+    "translate(" + x + "px, " + y + "px)";
 
   // update the posiion attributes
-  target.setAttribute('data-x', x);
-  target.setAttribute('data-y', y);
+  target.setAttribute("data-x", x);
+  target.setAttribute("data-y", y);
 }
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                      Dropzone
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+interact(".dropzone")
+  .dropzone({
+    // Require a 50% element overlap for a drop to be possible
+    overlap: 1,
 
-
-interact('.dropzone').dropzone({  
-  // Require a 50% element overlap for a drop to be possible
-  overlap: 1,
-
-  ondropactivate: function (event) {
-    // add active dropzone feedback
-    event.target.classList.add('drop-active');
-  },
-  ondragenter: function (event) {
-    var draggableElement = event.relatedTarget,
+    ondropactivate: function(event) {
+      // add active dropzone feedback
+      event.target.classList.add("drop-active");
+    },
+    ondragenter: function(event) {
+      var draggableElement = event.relatedTarget,
         dropzoneElement = event.target;
 
-    // feedback the possibility of a drop
-    dropzoneElement.classList.add('drop-target');
-  },
-  ondragleave: function (event) {
-    // remove the drop feedback style
-    event.target.classList.remove('drop-target');
-  },
-  ondrop: function (event) {
-    console.log('event',event);
-      if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('pictograma') && !event.relatedTarget.classList.contains('newPicto')){
+      // feedback the possibility of a drop
+      dropzoneElement.classList.add("drop-target");
+    },
+    ondragleave: function(event) {
+      // remove the drop feedback style
+      event.target.classList.remove("drop-target");
+    },
+    ondrop: function(event) {
+      console.log("event", event);
+      if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("pictograma") &&
+        !event.relatedTarget.classList.contains("newPicto")
+      ) {
         creaPicto(event);
         noMover(event.relatedTarget);
-      }else if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('newArea')){
+      } else if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("newArea")
+      ) {
         creaArea(event);
         noMover(event.relatedTarget);
-      }else if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('newPicto')){
+      } else if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("newText")
+      ) {
+        creaText(event);
+        noMover(event.relatedTarget);
+      } else if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("newPicto")
+      ) {
         creaAreaPicto(event);
         noMover(event.relatedTarget);
+      } else if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("newFig")
+      ) {
+        creaFigura(event);
+        noMover(event.relatedTarget);
       }
-  },
-  ondropdeactivate: function (event) {
-    // remove active dropzone feedback
-    event.target.classList.remove('drop-active');
-    event.target.classList.remove('drop-target');
-  }
-})
-.on('tap', function (event) {
-  muestraAjustes(event);
-  console.log(event.type, event.target)
-});
+    },
+    ondropdeactivate: function(event) {
+      // remove active dropzone feedback
+      event.target.classList.remove("drop-active");
+      event.target.classList.remove("drop-target");
+    }
+  })
+  .on("tap", function(event) {
+    muestraAjustes(event);
+    console.log(event.type, event.target);
+  });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                                       Pictograma draggado
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-interact('.draggado')
+interact(".draggado")
   .draggable({
     restrict: {
       restriction: "parent",
@@ -105,7 +114,7 @@ interact('.draggado')
     // call this function on every dragmove event
     onmove: dragMoveListener,
     // call this function on every dragend event
-    onend: function (event) {}
+    onend: function(event) {}
   })
   .resizable({
     // resize from all edges and corners
@@ -113,55 +122,120 @@ interact('.draggado')
     // keep the edges inside the parent
     restrict: {
       restriction: "parent",
-      endOnly: true,
+      endOnly: true
     },
     restrictEdges: {
-      outer: 'parent',
-      endOnly: true,
+      outer: "parent",
+      endOnly: true
     },
     preserveAspectRatio: true,
     // minimum size
     restrictSize: {
-      min: { width: 100, height: 50 },
-    },
+      min: { width: 100, height: 50 }
+    }
   })
-  .on('resizemove', function (event) {
+  .on("resizemove", function(event) {
     var target = event.target,
-        x = (parseFloat(target.getAttribute('data-x')) || 0),
-        y = (parseFloat(target.getAttribute('data-y')) || 0);
-        
+      x = parseFloat(target.getAttribute("data-x")) || 0,
+      y = parseFloat(target.getAttribute("data-y")) || 0;
+
     //________________________________________________________________ Revisar para poner hijo p
     textFit(target.children[1]);
-    
+
     // update the element's style
-    target.style.width  = event.rect.width + 'px';
-    target.style.height = event.rect.height + 'px';
+    target.style.width = event.rect.width + "px";
+    target.style.height = event.rect.height + "px";
 
     // translate when resizing from top or left edges
     x += event.deltaRect.left;
     y += event.deltaRect.top;
 
     target.style.webkitTransform = target.style.transform =
-        'translate(' + x + 'px,' + y + 'px)';
+      "translate(" + x + "px," + y + "px)";
 
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-    console.log('hola');
+    target.setAttribute("data-x", x);
+    target.setAttribute("data-y", y);
+    console.log("hola");
   })
-  .on('tap', function (event) {
+  .on("tap", function(event) {
     muestraAjustes(event);
-    console.log(event.type, event.target)
+    console.log(event.type, event.target);
+  });
+
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                                      Texto Dragado
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+interact(".textDraggado")
+  .draggable({
+    restrict: {
+      restriction: "parent",
+      endOnly: true,
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+    },
+    // enable autoScroll
+    autoScroll: true,
+
+    // call this function on every dragmove event
+    onmove: dragMoveListener,
+    // call this function on every dragend event
+    onend: function(event) {}
+  })
+  .resizable({
+    // resize from all edges and corners
+    edges: { left: true, right: true, bottom: true, top: true },
+    // keep the edges inside the parent
+    restrict: {
+      restriction: "parent",
+      endOnly: true
+    },
+    restrictEdges: {
+      outer: "parent",
+      endOnly: true
+    },
+    //preserveAspectRatio: true,
+    // minimum size
+    restrictSize: {
+      min: { width: 100, height: 50 }
+    }
+  })
+  .on("resizemove", function(event) {
+    var target = event.target,
+      x = parseFloat(target.getAttribute("data-x")) || 0,
+      y = parseFloat(target.getAttribute("data-y")) || 0;
+
+    //________________________________________________________________ Revisar para poner hijo p
+    //textFit(target.children[1]);
+
+    // update the element's style
+    target.style.width = event.rect.width + "px";
+    target.style.height = event.rect.height + "px";
+
+    // translate when resizing from top or left edges
+    x += event.deltaRect.left;
+    y += event.deltaRect.top;
+
+    target.style.webkitTransform = target.style.transform =
+      "translate(" + x + "px," + y + "px)";
+
+    target.setAttribute("data-x", x);
+    target.setAttribute("data-y", y);
+    console.log("hola");
+  })
+  .on("tap", function(event) {
+    muestraAjustes(event);
+    console.log(event.type, event.target);
   });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
                                                               Area draggada
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
-interact('.rectdraggable')
+interact(".rectdraggable")
   .draggable({
     onmove: dragMoveListener,
     restrict: {
-      restriction: 'parent',
+      restriction: "parent",
       endOnly: true,
       elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
     }
@@ -172,13 +246,13 @@ interact('.rectdraggable')
     // keep the edges inside the parent
     restrict: {
       restriction: "parent",
-      endOnly: true,
+      endOnly: true
     },
-    preserveAspectRatio: true,
+    //preserveAspectRatio: true,
     restrictEdges: {
-      outer: 'parent',
-      endOnly: true,
-    },
+      outer: "parent",
+      endOnly: true
+    }
 
     // minimum size
     /*srestrictSize: {
@@ -187,95 +261,179 @@ interact('.rectdraggable')
   })
   .dropzone({
     overlap: 0.5,
-  
-    ondropactivate: function (event) {
+
+    ondropactivate: function(event) {
       // add active dropzone feedback
-      event.target.classList.add('drop-active');
+      event.target.classList.add("drop-active");
     },
-    ondragenter: function (event) {
+    ondragenter: function(event) {
       var draggableElement = event.relatedTarget,
-          dropzoneElement = event.target;
-  
+        dropzoneElement = event.target;
+
       // feedback the possibility of a drop
-      dropzoneElement.classList.add('drop-target');
-      draggableElement.classList.add('can-drop');
-     // dropzoneElement.textContent = 'Dragged in';
+      dropzoneElement.classList.add("drop-target");
+      draggableElement.classList.add("can-drop");
+      // dropzoneElement.textContent = 'Dragged in';
     },
-    ondragleave: function (event) {
+    ondragleave: function(event) {
       // remove the drop feedback style
-      event.target.classList.remove('drop-target');
-      event.relatedTarget.classList.remove('can-drop');
+      event.target.classList.remove("drop-target");
+      event.relatedTarget.classList.remove("can-drop");
     },
-    ondrop: function (event) {
+    ondrop: function(event) {
       //event.relatedTarget.textContent = 'Dropped';
-      console.log('event',event);
-      if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('pictograma')){
+      console.log("event", event);
+      if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("pictograma")
+      ) {
         creaPicto(event);
         noMover(event.relatedTarget);
-      }else if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('newArea')){
+      } else if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("newArea")
+      ) {
         creaArea(event);
         noMover(event.relatedTarget);
       }
     },
-    ondropdeactivate: function (event) {
+    ondropdeactivate: function(event) {
       // remove active dropzone feedback
-      event.target.classList.remove('drop-active');
-      event.target.classList.remove('drop-target');
+      event.target.classList.remove("drop-active");
+      event.target.classList.remove("drop-target");
     }
   })
-  .on('resizemove', function (event) {
+  .on("resizemove", function(event) {
     var target = event.target,
-        x = (parseFloat(target.getAttribute('data-x')) || 0),
-        y = (parseFloat(target.getAttribute('data-y')) || 0);
+      x = parseFloat(target.getAttribute("data-x")) || 0,
+      y = parseFloat(target.getAttribute("data-y")) || 0;
 
     // update the element's style
-    target.style.width  = event.rect.width + 'px';
-    target.style.height = event.rect.height + 'px';
+    target.style.width = event.rect.width + "px";
+    target.style.height = event.rect.height + "px";
 
     // translate when resizing from top or left edges
     x += event.deltaRect.left;
     y += event.deltaRect.top;
 
     target.style.webkitTransform = target.style.transform =
-        'translate(' + x + 'px,' + y + 'px)';
+      "translate(" + x + "px," + y + "px)";
 
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-    
+    target.setAttribute("data-x", x);
+    target.setAttribute("data-y", y);
   })
-  .on('tap', function (event) {
+  .on("tap", function(event) {
     muestraAjustes(event);
-    console.log(event.type, event.target)
+    console.log(event.type, event.target);
   });
-  
 
+/*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+                                                              Figura geometrica
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
+interact(".figdragada")
+  .draggable({
+    onmove: dragMoveListener,
+    restrict: {
+      restriction: "parent",
+      endOnly: true,
+      elementRect: { top: 0, left: 0, bottom: 1, right: 1 }
+    }
+  })
+  .resizable({
+    // resize from all edges and corners
+    edges: { left: true, right: true, bottom: true, top: true },
+    // keep the edges inside the parent
+    restrict: {
+      restriction: "parent",
+      endOnly: true
+    },
+    preserveAspectRatio: true,
+    restrictEdges: {
+      outer: "parent",
+      endOnly: true
+    }
 
+    // minimum size
+    /*srestrictSize: {
+      min: { width: 100, height: 50 },
+    },*/
+  })
+  .dropzone({
+    overlap: 0.5,
 
+    ondropactivate: function(event) {
+      // add active dropzone feedback
+      event.target.classList.add("drop-active");
+    },
+    ondragenter: function(event) {
+      var draggableElement = event.relatedTarget,
+        dropzoneElement = event.target;
 
+      // feedback the possibility of a drop
+      dropzoneElement.classList.add("drop-target");
+      draggableElement.classList.add("can-drop");
+      // dropzoneElement.textContent = 'Dragged in';
+    },
+    ondragleave: function(event) {
+      // remove the drop feedback style
+      event.target.classList.remove("drop-target");
+      event.relatedTarget.classList.remove("can-drop");
+    },
+    ondrop: function(event) {
+      //event.relatedTarget.textContent = 'Dropped';
+      console.log("event", event);
+      if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("pictograma")
+      ) {
+        creaPicto(event);
+        noMover(event.relatedTarget);
+      } else if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("newArea")
+      ) {
+        creaArea(event);
+        noMover(event.relatedTarget);
+      }
+    },
+    ondropdeactivate: function(event) {
+      // remove active dropzone feedback
+      event.target.classList.remove("drop-active");
+      event.target.classList.remove("drop-target");
+    }
+  })
+  .on("resizemove", function(event) {
+    var target = event.target,
+      x = parseFloat(target.getAttribute("data-x")) || 0,
+      y = parseFloat(target.getAttribute("data-y")) || 0;
 
+    // update the element's style
+    target.style.width = event.rect.width + "px";
+    target.style.height = event.rect.height + "px";
 
+    // translate when resizing from top or left edges
+    x += event.deltaRect.left;
+    y += event.deltaRect.top;
 
+    target.style.webkitTransform = target.style.transform =
+      "translate(" + x + "px," + y + "px)";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    target.setAttribute("data-x", x);
+    target.setAttribute("data-y", y);
+  })
+  .on("tap", function(event) {
+    muestraAjustes(event);
+    console.log(event.type, event.target);
+  });
 
 /*
+
+Pictograma de nuevo
 ----------------------------------------------------------------------------------------------------------------
 */
-  
-interact('.pictoDraggado')
+
+interact(".pictoDraggado")
   .draggable({
     restrict: {
       restriction: "parent",
@@ -288,7 +446,7 @@ interact('.pictoDraggado')
     // call this function on every dragmove event
     onmove: dragMoveListener,
     // call this function on every dragend event
-    onend: function (event) {}
+    onend: function(event) {}
   })
   .resizable({
     // resize from all edges and corners
@@ -296,92 +454,96 @@ interact('.pictoDraggado')
     // keep the edges inside the parent
     restrict: {
       restriction: "parent",
-      endOnly: true,
+      endOnly: true
     },
     restrictEdges: {
-      outer: 'parent',
-      endOnly: true,
+      outer: "parent",
+      endOnly: true
     },
     preserveAspectRatio: true,
     // minimum size
     restrictSize: {
-      min: { width: 100, height: 50 },
-    },
+      min: { width: 100, height: 50 }
+    }
   })
   .dropzone({
     overlap: 0.2,
-    accept: '.pictograma',
-    ondropactivate: function (event) {
+    accept: ".pictograma",
+    ondropactivate: function(event) {
       // add active dropzone feedback
-      event.target.classList.add('drop-active');
+      event.target.classList.add("drop-active");
     },
-    ondragenter: function (event) {
+    ondragenter: function(event) {
       var draggableElement = event.relatedTarget,
-          dropzoneElement = event.target;
-  
+        dropzoneElement = event.target;
+
       // feedback the possibility of a drop
-      dropzoneElement.classList.add('drop-target');
-      draggableElement.classList.add('can-drop');
-     // dropzoneElement.textContent = 'Dragged in';
+      dropzoneElement.classList.add("drop-target");
+      draggableElement.classList.add("can-drop");
+      // dropzoneElement.textContent = 'Dragged in';
     },
-    ondragleave: function (event) {
+    ondragleave: function(event) {
       // remove the drop feedback style
-      event.target.classList.remove('drop-target');
-      event.relatedTarget.classList.remove('can-drop');
+      event.target.classList.remove("drop-target");
+      event.relatedTarget.classList.remove("can-drop");
     },
-    ondrop: function (event) {
+    ondrop: function(event) {
       //event.relatedTarget.textContent = 'Dropped';
-      console.log('sssssssssssss',event);
-      if(event.relatedTarget.classList.contains('draggable') && event.relatedTarget.classList.contains('pictograma')){
-        var pictoBlancoHijos = Array.prototype.slice.call(event.target.children);
-        var pictoHijos = Array.prototype.slice.call(event.relatedTarget.children);
+      console.log("sssssssssssss", event);
+      if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("pictograma")
+      ) {
+        var pictoBlancoHijos = Array.prototype.slice.call(
+          event.target.children
+        );
+        var pictoHijos = Array.prototype.slice.call(
+          event.relatedTarget.children
+        );
         //var pictohijo = Array.prototype.slice.call(picto.children)
-        console.log('ASDFDASFASDFASDFASDFAFD');
-        for(var i=0; i<pictoHijos.length;i++){
-          if(pictoHijos[i].nodeName === 'IMG'){
+        console.log("ASDFDASFASDFASDFASDFAFD");
+        for (var i = 0; i < pictoHijos.length; i++) {
+          if (pictoHijos[i].nodeName === "IMG") {
             pictoBlancoHijos[i].src = pictoHijos[i].src;
-            console.log('eey0');
+            console.log("eey0");
           }
         }
       }
-      
+
       noMover(event.relatedTarget);
     },
-    ondropdeactivate: function (event) {
+    ondropdeactivate: function(event) {
       // remove active dropzone feedback
-      event.target.classList.remove('drop-active');
-      event.target.classList.remove('drop-target');
+      event.target.classList.remove("drop-active");
+      event.target.classList.remove("drop-target");
     }
   })
-  .on('resizemove', function (event) {
-    console.log('asdfsdfasdf',event)
-    
+  .on("resizemove", function(event) {
+    console.log("asdfsdfasdf", event);
+
     var target = event.target,
-        x = (parseFloat(target.getAttribute('data-x')) || 0),
-        y = (parseFloat(target.getAttribute('data-y')) || 0);
-    
-    console.log('element', target.offsetHeight);
-    console.log('nuevo', event.rect.height)
-    
-   
+      x = parseFloat(target.getAttribute("data-x")) || 0,
+      y = parseFloat(target.getAttribute("data-y")) || 0;
+
+    console.log("element", target.offsetHeight);
+    console.log("nuevo", event.rect.height);
+
     ////__________________________________________________________________________REVISAR
     textFit(target.children[1]);
     // update the element's style
-    target.style.width  = event.rect.width + 'px';
-    target.style.height = event.rect.height + 'px';
+    target.style.width = event.rect.width + "px";
+    target.style.height = event.rect.height + "px";
 
     // translate when resizing from top or left edges
     x += event.deltaRect.left;
     y += event.deltaRect.top;
 
     target.style.webkitTransform = target.style.transform =
-        'translate(' + x + 'px,' + y + 'px)';
+      "translate(" + x + "px," + y + "px)";
 
-    target.setAttribute('data-x', x);
-    target.setAttribute('data-y', y);
-    
+    target.setAttribute("data-x", x);
+    target.setAttribute("data-y", y);
+
     //target.style.fontSize = "smaller";
-    console.log('hola');
+    console.log("hola");
   });
-  
-  
