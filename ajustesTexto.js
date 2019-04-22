@@ -7,6 +7,7 @@ var ajustesTexto = function(area) {
     var panelAjustes = document.getElementById("panelDerechaAjustesTexto");
     var colorBorde = document.getElementById("color-borde-texto");
     var colorFondo = document.getElementById("color-fondo-texto");
+    var colorTexto = document.getElementById("color-texto");
     var nombreAreaField = document.getElementById("nombreTexto");
     var visibleONo = document.getElementById("customCheck5");
     //var pictoOriginal = pictogramaPadre.cloneNode(true);
@@ -57,6 +58,12 @@ var ajustesTexto = function(area) {
         areaPadre.style.backgroundColor = evento.target.value;
       }
     }
+
+    function cambiaColorTexto(evento) {
+      if (evento.isTrusted) {
+        areaPadre.style.color = evento.target.value;
+      }
+    }
   
     function mostrarTitulo(event) {
       if (event.target.checked) {
@@ -99,6 +106,7 @@ var ajustesTexto = function(area) {
       colorBorde.addEventListener("change", cambiaColorBorde);
       colorFondo.addEventListener("change", cambiaColorFondo);
       nombreAreaField.addEventListener("keyup", cambiaTitulo);
+      colorTexto.addEventListener("change", cambiaColorTexto);
       visibleONo.addEventListener("change", mostrarTitulo);
       panelAjustes.style.display = "block";
       areaPadre.classList.add("myShadow");
@@ -112,6 +120,7 @@ var ajustesTexto = function(area) {
       // nombrePictoField.value = pictoText.innerText;
       colorBorde.removeEventListener("change", cambiaColorBorde);
       colorFondo.removeEventListener("change", cambiaColorFondo);
+      colorTexto.removeEventListener("change", cambiaColorTexto);
       nombreAreaField.removeEventListener("keyup", cambiaTitulo);
       visibleONo.removeEventListener("change", mostrarTitulo);
       //panelAjustes.style.display = 'block';

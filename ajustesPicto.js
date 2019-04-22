@@ -73,15 +73,15 @@ var ajustesPicto = function (pictograma) {
       console.log('salud');
       if(event.target.classList.contains('fa-times')){
         pictoHover.style.backgroundImage="url('error.png')";
-        event.target.classList.add('fa-check','text-success');
-        event.target.classList.remove('fa-times','text-danger');
+        /*event.target.classList.add('fa-check','text-success');
+        event.target.classList.remove('fa-times','text-danger');*/
         
         //pictoHover.style.backgroundSize = "cover";
         
       }else if(event.target.classList.contains('fa-check')){
         pictoHover.style.backgroundImage="url('ok.png')";
-        event.target.classList.remove('fa-check', 'text-success');
-        event.target.classList.add('fa-times','text-danger');
+       /* event.target.classList.remove('fa-check', 'text-success');
+        event.target.classList.add('fa-times','text-danger');*/
         
         //pictoHover.style.backgroundSize = "cover";
         console.log('salud');

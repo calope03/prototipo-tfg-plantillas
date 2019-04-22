@@ -53,6 +53,7 @@ interact(".dropzone")
     },
     ondrop: function(event) {
       console.log("event", event);
+      //Pictograma
       if (
         event.relatedTarget.classList.contains("draggable") &&
         event.relatedTarget.classList.contains("pictograma") &&
@@ -60,25 +61,33 @@ interact(".dropzone")
       ) {
         creaPicto(event);
         noMover(event.relatedTarget);
-      } else if (
+      } 
+      //Area
+      else if (
         event.relatedTarget.classList.contains("draggable") &&
         event.relatedTarget.classList.contains("newArea")
       ) {
         creaArea(event);
         noMover(event.relatedTarget);
-      } else if (
+      }
+      //Texto 
+      else if (
         event.relatedTarget.classList.contains("draggable") &&
         event.relatedTarget.classList.contains("newText")
       ) {
         creaText(event);
         noMover(event.relatedTarget);
-      } else if (
+      } 
+      //PictogramaNuevo
+      else if (
         event.relatedTarget.classList.contains("draggable") &&
         event.relatedTarget.classList.contains("newPicto")
       ) {
         creaAreaPicto(event);
         noMover(event.relatedTarget);
-      } else if (
+      } 
+      //Figura geometrica
+      else if (
         event.relatedTarget.classList.contains("draggable") &&
         event.relatedTarget.classList.contains("newFig")
       ) {
@@ -283,17 +292,45 @@ interact(".rectdraggable")
     ondrop: function(event) {
       //event.relatedTarget.textContent = 'Dropped';
       console.log("event", event);
+      //Pictograma
       if (
         event.relatedTarget.classList.contains("draggable") &&
-        event.relatedTarget.classList.contains("pictograma")
+        event.relatedTarget.classList.contains("pictograma") &&
+        !event.relatedTarget.classList.contains("newPicto")
       ) {
         creaPicto(event);
         noMover(event.relatedTarget);
-      } else if (
+      } 
+      //Area
+      /*else if (
         event.relatedTarget.classList.contains("draggable") &&
         event.relatedTarget.classList.contains("newArea")
       ) {
         creaArea(event);
+        noMover(event.relatedTarget);
+      }*/
+      //Texto 
+      else if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("newText")
+      ) {
+        creaText(event);
+        noMover(event.relatedTarget);
+      } 
+      //PictogramaNuevo
+      else if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("newPicto")
+      ) {
+        creaAreaPicto(event);
+        noMover(event.relatedTarget);
+      } 
+      //Figura geometrica
+      else if (
+        event.relatedTarget.classList.contains("draggable") &&
+        event.relatedTarget.classList.contains("newFig")
+      ) {
+        creaFigura(event);
         noMover(event.relatedTarget);
       }
     },
@@ -358,50 +395,6 @@ interact(".figdragada")
     /*srestrictSize: {
       min: { width: 100, height: 50 },
     },*/
-  })
-  .dropzone({
-    overlap: 0.5,
-
-    ondropactivate: function(event) {
-      // add active dropzone feedback
-      event.target.classList.add("drop-active");
-    },
-    ondragenter: function(event) {
-      var draggableElement = event.relatedTarget,
-        dropzoneElement = event.target;
-
-      // feedback the possibility of a drop
-      dropzoneElement.classList.add("drop-target");
-      draggableElement.classList.add("can-drop");
-      // dropzoneElement.textContent = 'Dragged in';
-    },
-    ondragleave: function(event) {
-      // remove the drop feedback style
-      event.target.classList.remove("drop-target");
-      event.relatedTarget.classList.remove("can-drop");
-    },
-    ondrop: function(event) {
-      //event.relatedTarget.textContent = 'Dropped';
-      console.log("event", event);
-      if (
-        event.relatedTarget.classList.contains("draggable") &&
-        event.relatedTarget.classList.contains("pictograma")
-      ) {
-        creaPicto(event);
-        noMover(event.relatedTarget);
-      } else if (
-        event.relatedTarget.classList.contains("draggable") &&
-        event.relatedTarget.classList.contains("newArea")
-      ) {
-        creaArea(event);
-        noMover(event.relatedTarget);
-      }
-    },
-    ondropdeactivate: function(event) {
-      // remove active dropzone feedback
-      event.target.classList.remove("drop-active");
-      event.target.classList.remove("drop-target");
-    }
   })
   .on("resizemove", function(event) {
     var target = event.target,
@@ -488,8 +481,6 @@ interact(".pictoDraggado")
       event.relatedTarget.classList.remove("can-drop");
     },
     ondrop: function(event) {
-      //event.relatedTarget.textContent = 'Dropped';
-      console.log("sssssssssssss", event);
       if (
         event.relatedTarget.classList.contains("draggable") &&
         event.relatedTarget.classList.contains("pictograma")
@@ -501,15 +492,15 @@ interact(".pictoDraggado")
           event.relatedTarget.children
         );
         //var pictohijo = Array.prototype.slice.call(picto.children)
-        console.log("ASDFDASFASDFASDFASDFAFD");
         for (var i = 0; i < pictoHijos.length; i++) {
           if (pictoHijos[i].nodeName === "IMG") {
             pictoBlancoHijos[i].src = pictoHijos[i].src;
-            console.log("eey0");
+          }
+          else if (pictoHijos[i].nodeName === "P") {
+            pictoBlancoHijos[i].innerText = pictoHijos[i].innerText;
           }
         }
       }
-
       noMover(event.relatedTarget);
     },
     ondropdeactivate: function(event) {
