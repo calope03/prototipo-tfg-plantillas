@@ -68,7 +68,7 @@
 }
 
 #circulo {
-  background-color: #eee;
+  background-color: #d2d2d2;
   /*box-sizing: border-box;
   border:solid 2px black;*/
   -webkit-clip-path: circle(45% at 50% 50%);
@@ -79,7 +79,7 @@
 }
 
 #hexagono {
-  background-color: #eee;
+  background-color: #d2d2d2;
   /*box-sizing: border-box;
   border:solid 2px black;*/
   -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
@@ -90,7 +90,7 @@
 }
 
 #triangulo {
-  background-color: #eee;
+  background-color: #d2d2d2;
   /*box-sizing: border-box;
   border:solid 2px black;*/
   -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
@@ -101,7 +101,7 @@ clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
 #elipse {
-  background-color: #eee;
+  background-color: #d2d2d2;
   /*box-sizing: border-box;
   border:solid 2px black;*/
   -webkit-clip-path: ellipse(50% 33% at 50% 50%);
@@ -112,7 +112,7 @@ clip-path: ellipse(50% 33% at 50% 50%);
 }
 
 #estrella {
-  background-color: #eee;
+  background-color: #d2d2d2;
   /*box-sizing: border-box;
   border:solid 2px black;*/
   -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
@@ -123,7 +123,7 @@ clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%,
 }
 
 #rombo {
-  background-color: #eee;
+  background-color: #d2d2d2;
   /*box-sizing: border-box;
   border:solid 2px black;*/
   -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
@@ -336,4 +336,8 @@ body, html, .container-fluid {
   left:91%;
   position: fixed;
   z-index: 10;
+}
+
+#textForTitle{
+  margin-right: 20px;
 }

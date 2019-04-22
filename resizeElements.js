@@ -4,11 +4,40 @@ function hashActual () {
     return window.location.href.split('#')[1] || '';
 }
 
+window.addEventListener("hashchange", function(event){
+    renderEditView();
+}, false);
 
-if(hashValido.test(hashActual())){
-    console.log('recalculando??');
-    var dropzone =  document.getElementById('dropzone');
-    let elementoPintar = JSON.parse(localStorage.getItem(hashActual()));
+function renderEditView(){
+    if(hashValido.test(hashActual())){
+        console.log('recalculando??');
+        var dropzone =  document.getElementById('dropzone');
+        let elementoPintar = JSON.parse(localStorage.getItem(hashActual()));
+        resizeElementos(dropzone, elementoPintar);
+    
+        rellenaInputTitulo(elementoPintar);
+    }else if(hashActual()==='nueva-plantilla'){
+        document.getElementById('textForTitle').innerText = "Titulo de la plantilla: "; 
+        document.getElementById('nombrePlantilla').value = 'Nueva plantilla';
+    }else if(hashActual()==='nuevo-tablero'){
+        document.getElementById('textForTitle').innerText = "Titulo del tablero: "; 
+        document.getElementById('nombrePlantilla').value = 'Nuevo tablero';
+    }
+}
+renderEditView();
+
+
+function rellenaInputTitulo(elementoPintar){
+    let textTitulo = document.getElementById('textForTitle');
+    if(elementoPintar.tipo === "plantilla"){
+        textTitulo.innerText = "Titulo de la plantilla: ";
+    }else if(elementoPintar.tipo === "tablero"){
+        textTitulo.innerText = "Titulo del tablero: ";
+    }
+    document.getElementById('nombrePlantilla').value = elementoPintar.titulo;
+}
+
+function resizeElementos(dropzone, elementoPintar){
     let altoAntiguo = elementoPintar.tamano.alto;
     let altoNuevo = dropzone.clientHeight;
     let anchoAntiguo = elementoPintar.tamano.ancho;
@@ -36,4 +65,5 @@ if(hashValido.test(hashActual())){
             element.style.top = (parseFloat(element.style.top,10)*variacionAlto) +'px'; 
         }
     });
+
 }

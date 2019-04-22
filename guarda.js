@@ -7,10 +7,11 @@ document
   .getElementById("botonDescarga")
   .addEventListener("click", function(event) {
     let dropzone = document.getElementById("dropzone");
-    let dropzoneOuter = document.getElementById("dropzone").outerHTML;
+    let dropzoneOuter = dropzone.outerHTML;
     let hash = hashActual();
     let tipo;
     let id = guid();
+    let tituloPlantilla = document.getElementById('nombrePlantilla').value; 
     let tamanoDropzone = {
       alto: dropzone.clientHeight,
       ancho: dropzone.clientWidth
@@ -23,7 +24,7 @@ document
       }
     });
     //miniatura =  document.getElementById('miniatura').src;
-
+    
     if (hash === "nueva-plantilla") {
       tipo = "plantilla";
       navigate(id);
@@ -41,7 +42,7 @@ document
         id: id,
         contenido: dropzoneOuter,
         tamano: tamanoDropzone,
-        titulo: "Titulo sin determinar",
+        titulo: tituloPlantilla,
         tipo: tipo,
         miniatura: miniatura
       };
