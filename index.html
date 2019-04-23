@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <!--<meta name="description" content="">-->
-    <meta name="author" content="Carmen">
-    <!--<link rel="icon" href="">-->
 
-    <title> Prototipo </title>
+<head>
+  <meta charset="utf-8">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <!--<meta name="description" content="">-->
+  <meta name="author" content="Carmen">
+  <!--<link rel="icon" href="">-->
 
-    <!-- Custom styles for this template -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <link href="index.css" rel="stylesheet">
-  </head>
+  <title> Prototipo </title>
 
-  <body>
-    
-    <nav class="navbar navbar-light bg-green">
-      <a class="navbar-brand" href="#">
-        <img src="hola.png" width="30" height="30" class="d-inline-block align-top" alt="">
-        Titulo aun por definir
-      </a>
-    </nav>
-    
-    
-    <div class="container-fluid h-100">
-      <div class="row h-100">
-          <div class="col-2 bg-light border-right" id="sidebar-wrapper">
-              <div class="list-group list-group-flush">
-                <a href="#" class="list-group-item list-group-item-action bg-light">Plantillas</a>
-                <a href='#plantillas-publicas' class="pl-5 list-group-item list-group-item-action bg-light">Publicas</a>
-                <a href='#plantillas-privadas' class="pl-5 list-group-item list-group-item-action bg-light">Privadas</a>
-                <a href="edit.html#nueva-plantilla" class="pl-5 list-group-item list-group-item-action bg-light">Crear Nueva</a>
-                <a href="#" class="list-group-item list-group-item-action bg-light">Tableros</a>
-                <a href='#tableros-publicos' class="pl-5 list-group-item list-group-item-action bg-light">Publicos</a>
-                <a href='#tableros-privados' class="pl-5 list-group-item list-group-item-action bg-light">Privados</a>
-                <a href="edit.html#nuevo-tablero" class="pl-5 list-group-item list-group-item-action bg-light">Crear Nuevo</a>
-              </div>
-            </div>
-          <div class="col" id="content">
-        
-          </div>
+  <!-- Custom styles for this template -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="index.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-light bg-green">
+    <a class="navbar-brand" href="#">
+      <img src="hola.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Titulo aun por definir
+    </a>
+  </nav>
+
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+      <div class="col-2 bg-light border-right" id="sidebar-wrapper">
+        <div class="list-group list-group-flush">
+          <a href="#" class="list-group-item list-group-item-action bg-light">Plantillas</a>
+          <a href='#plantillas-publicas' class="pl-5 list-group-item list-group-item-action bg-light">Publicas</a>
+          <a href='#plantillas-privadas' class="pl-5 list-group-item list-group-item-action bg-light">Privadas</a>
+          <a href="edit.html#nueva-plantilla" class="pl-5 list-group-item list-group-item-action bg-light">Crear
+            Nueva</a>
+          <a href="#" class="list-group-item list-group-item-action bg-light">Tableros</a>
+          <a href='#tableros-publicos' class="pl-5 list-group-item list-group-item-action bg-light">Publicos</a>
+          <a href='#tableros-privados' class="pl-5 list-group-item list-group-item-action bg-light">Privados</a>
+          <a href="edit.html#nuevo-tablero" class="pl-5 list-group-item list-group-item-action bg-light">Crear Nuevo</a>
+        </div>
       </div>
+      <div class="col" id="content">
+
+      </div>
+    </div>
   </div>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.3.1/textFit.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
-    
-    <script src="firebase.js"></script>
-    <script src="guid.js"></script>
-    <script src="listados.js"></script>
-    <script src="router.js"></script>
-    
-    
-    <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    
-  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/1.0.8/purify.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/textfit/2.3.1/textFit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/interact.js/1.2.6/interact.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+
+  <script src="firebase.js"></script>
+  <script src="guid.js"></script>
+  <script src="listados.js"></script>
+  <script src="router.js"></script>
+
+  <!-- Bootstrap -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</body>
+
 </html>
-<!-- https://code.luasoftware.com/tutorials/bootstrap/bootstrap4-vertical-side-menu/-->

@@ -13,6 +13,7 @@ var ajustesArea = function(area) {
   var panelDerecho = document.getElementById("panelDerecha");
   //var seleccionHover = document.getElementById('seleccionHover');
   var botonCerrar = document.getElementById("botonCerrarArea");
+  var botonEliminar = document.getElementById('botonEliminarArea');
   var _self = this;
   //console.log(pictoHijos);
   /*
@@ -92,8 +93,16 @@ var ajustesArea = function(area) {
     _self.stop();
   }
 
+  function eliminar(){
+    panelAjustes.style.display = 'none';
+    panelDerecho.style.display = 'block';
+    areaPadre.parentElement.removeChild(areaPadre);
+    _self.stop();
+  }
+
   this.init = function() {
     botonCerrar.addEventListener("click", cerrar);
+    botonEliminar.addEventListener('click', eliminar);
     //seleccionHover.addEventListener('click',cambiaHover);
     nombreAreaField.value = areaText.innerText;
     colorBorde.addEventListener("change", cambiaColorBorde);
@@ -107,6 +116,7 @@ var ajustesArea = function(area) {
 
   this.stop = function() {
     botonCerrar.removeEventListener("click", cerrar);
+    botonEliminar.removeEventListener('click', eliminar);
     //panelAjustes.removeEventListener('click', aceptarOCancelar);
     //seleccionHover.removeEventListener('click',cambiaHover);
     // nombrePictoField.value = pictoText.innerText;

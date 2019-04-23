@@ -14,6 +14,7 @@ var ajustesTexto = function(area) {
     var panelDerecho = document.getElementById("panelDerecha");
     //var seleccionHover = document.getElementById('seleccionHover');
     var botonCerrar = document.getElementById("botonCerrarTexto");
+    var botonEliminar = document.getElementById("botonEliminarTexto");
     var _self = this;
     //console.log(pictoHijos);
     /*
@@ -98,9 +99,17 @@ var ajustesTexto = function(area) {
       panelDerecho.style.display = "block";
       _self.stop();
     }
+
+    function eliminar(){
+      panelAjustes.style.display = 'none';
+      panelDerecho.style.display = 'block';
+      areaPadre.parentElement.removeChild(areaPadre);
+      _self.stop();
+    }
   
     this.init = function() {
       botonCerrar.addEventListener("click", cerrar);
+      botonEliminar.addEventListener("click", eliminar);
       //seleccionHover.addEventListener('click',cambiaHover);
       nombreAreaField.value = areaText;
       colorBorde.addEventListener("change", cambiaColorBorde);
@@ -115,15 +124,12 @@ var ajustesTexto = function(area) {
   
     this.stop = function() {
       botonCerrar.removeEventListener("click", cerrar);
+      botonEliminar.removeEventListener("click", eliminar);
       //panelAjustes.removeEventListener('click', aceptarOCancelar);
       //seleccionHover.removeEventListener('click',cambiaHover);
       // nombrePictoField.value = pictoText.innerText;
       colorBorde.removeEventListener("change", cambiaColorBorde);
       colorFondo.removeEventListener("change", cambiaColorFondo);
-      colorTexto.removeEventListener("change", cambiaColorTexto);
-      nombreAreaField.removeEventListener("keyup", cambiaTitulo);
-      visibleONo.removeEventListener("change", mostrarTitulo);
-      //panelAjustes.style.display = 'block';
       areaPadre.classList.remove("myShadow");
   
       /*if(cancelar){

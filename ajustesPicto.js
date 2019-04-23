@@ -13,6 +13,7 @@ var ajustesPicto = function (pictograma) {
     var panelDerecho = document.getElementById('panelDerecha');
     var seleccionHover = document.getElementById('seleccionHover');
     var botonCerrar = document.getElementById('botonCerrarPicto');
+    var botonEliminar = document.getElementById('botonEliminarPicto');
     var _self = this;
     //console.log(pictoHijos);
     /*
@@ -94,8 +95,16 @@ var ajustesPicto = function (pictograma) {
       _self.stop();
     }
 
+    function eliminar(){
+      panelAjustes.style.display = 'none';
+      panelDerecho.style.display = 'block';
+      pictogramaPadre.parentElement.removeChild(pictogramaPadre);
+      _self.stop();
+    }
+
     this.init = function(){
       botonCerrar.addEventListener('click', cerrar);
+      botonEliminar.addEventListener('click', eliminar);
       seleccionHover.addEventListener('click',cambiaHover);
       nombrePictoField.value = pictoText.innerText;
       colorBorde.addEventListener('change',cambiaColorBorde);
@@ -109,6 +118,7 @@ var ajustesPicto = function (pictograma) {
     
     this.stop = function(){
       botonCerrar.removeEventListener('click', cerrar);
+      botonEliminar.removeEventListener('click', eliminar);
       //panelAjustes.removeEventListener('click', aceptarOCancelar);
       seleccionHover.removeEventListener('click',cambiaHover);
      // nombrePictoField.value = pictoText.innerText;
