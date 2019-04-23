@@ -117,6 +117,7 @@ var ajustesTexto = function(area) {
       nombreAreaField.addEventListener("keyup", cambiaTitulo);
       colorTexto.addEventListener("change", cambiaColorTexto);
       visibleONo.addEventListener("change", mostrarTitulo);
+      panelDerecho.style.display = 'none';
       panelAjustes.style.display = "block";
       areaPadre.classList.add("myShadow");
       //  console.log(visibleONo);

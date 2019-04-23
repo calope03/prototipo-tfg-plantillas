@@ -78,6 +78,7 @@ var ajustesDropzone = function () {
       colorBorde.addEventListener('change',cambiaColorBorde);
       colorFondo.addEventListener('change',cambiaColorFondo);
       visibleONo.addEventListener('change', mostrarTitulo);
+      panelDerecho.style.display = 'none';
       panelAjustes.style.display = 'block';
     }
   

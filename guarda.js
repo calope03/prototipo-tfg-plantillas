@@ -3,10 +3,9 @@ function navigate(path) {
   window.location.href = current.replace(/#(.*)$/, "") + "#" + path;
 }
 
-document
-  .getElementById("botonDescarga")
-  .addEventListener("click", function(event) {
-    let dropzone = document.getElementById("dropzone");
+
+function guarda(event){
+  let dropzone = document.getElementById("dropzone");
     let dropzoneOuter = dropzone.outerHTML;
     let hash = hashActual();
     let tipo;
@@ -16,7 +15,6 @@ document
       alto: dropzone.clientHeight,
       ancho: dropzone.clientWidth
     };
-    console.log();
     var miniatura = "";
     html2canvas(dropzone, {
       onrendered(canvas) {
@@ -51,7 +49,8 @@ document
     }, 10);
 
     console.log("guardado");
-  });
+}
+
 
 /*
 

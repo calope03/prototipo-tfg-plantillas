@@ -109,6 +109,7 @@ var ajustesArea = function(area) {
     colorFondo.addEventListener("change", cambiaColorFondo);
     nombreAreaField.addEventListener("keyup", cambiaTitulo);
     visibleONo.addEventListener("change", mostrarTitulo);
+    panelDerecho.style.display = 'none';
     panelAjustes.style.display = "block";
     areaPadre.classList.add("myShadow");
     //  console.log(visibleONo);
