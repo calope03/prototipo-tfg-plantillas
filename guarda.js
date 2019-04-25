@@ -46,7 +46,7 @@ function guarda(event){
       };
       var datos = JSON.stringify(datosAExportar);
       localStorage.setItem(id, datos);
-      navigate(id);
+      history.replaceState({},'nuevoelemento','edit.html#'+id);
     }, 10);
 
     console.log("guardado");

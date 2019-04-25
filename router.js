@@ -30,6 +30,9 @@ function listaByHash(){
         listaPlantillasPublicas();
     }else if(hashActual()==="tableros-publicos"){
         listaTablerosPrublicos();
+    }else{
+        history.replaceState({},'redireccion','index.html#plantillas-privadas');
+        listaPlantillasPrivadas();
     }
 }
 
