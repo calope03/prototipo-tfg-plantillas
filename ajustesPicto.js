@@ -86,6 +86,9 @@ var ajustesPicto = function (pictograma) {
 
       //pictoHover.style.backgroundSize = "cover";
       console.log('salud');
+    }else if (event.target.classList.contains('fa-times-circle')) {
+      pictoHover.style.backgroundImage = "";
+      pictoHover.style.opacity = 0.5;
     }
   }
 
@@ -144,6 +147,68 @@ var ajustesPicto = function (pictograma) {
   }
 
 };
+
+var ajustesPictoTablero = function (pictograma) {
+
+  var pictogramaPadre = pictograma;
+  var pictoImg = pictogramaPadre.children[0];
+  var pictoText = pictogramaPadre.children[1];
+  var pictoHover = pictogramaPadre.children[2];
+  var panelAjustes = document.getElementById('panelDerechaAjustesPicto');
+  var panelDerecho = document.getElementById('panelDerecha');
+  var seleccionHover = document.getElementById('seleccionHover');
+  var botonCerrar = document.getElementById('botonCerrarPicto');
+  var _self = this;
+
+  function cambiaHover(event) {
+    console.log('salud');
+    if (event.target.classList.contains('fa-times')) {
+      pictoHover.style.backgroundImage = "url('error.png')";
+      pictoHover.style.opacity = 0.5;
+      //pictoHover.style.backgroundSize = "cover";
+    } else if (event.target.classList.contains('fa-check')) {
+      pictoHover.style.backgroundImage = "url('ok.png')";
+      pictoHover.style.opacity = 0.5;
+      //pictoHover.style.backgroundSize = "cover";
+    } else if (event.target.classList.contains('fa-circle')) {
+      pictoHover.style.backgroundImage = "url('circle.png')";
+      pictoHover.style.opacity = 0.8;
+      //pictoHover.style.backgroundSize = "cover";
+    } else if (event.target.classList.contains('fa-square')) {
+      pictoHover.style.backgroundImage = "url('square.png')";
+      pictoHover.style.opacity = 0.5;
+      //pictoHover.style.backgroundSize = "cover";
+    }else if (event.target.classList.contains('fa-times-circle')) {
+      pictoHover.style.backgroundImage = "";
+      pictoHover.style.opacity = 0.5;
+    }
+  }
+
+  function cerrar() {
+    panelAjustes.style.display = 'none';
+    panelDerecho.style.display = 'block';
+    _self.stop();
+  }
+
+  this.init = function () {
+    
+    botonCerrar.addEventListener('click', cerrar);
+    seleccionHover.addEventListener('click', cambiaHover);
+    panelDerecho.style.display = 'none';
+    panelAjustes.style.display = 'block';
+    pictogramaPadre.classList.add('myShadow');
+  }
+
+  this.stop = function () {
+    botonCerrar.removeEventListener('click', cerrar);
+    seleccionHover.removeEventListener('click', cambiaHover);
+    pictogramaPadre.classList.remove('myShadow');
+  }
+};
+
+
+
+
 
 
 

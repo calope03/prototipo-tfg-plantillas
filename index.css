@@ -1,130 +1,165 @@
-body, html, .container-fluid, .sidebar {
-    height: 100%;
+body,
+html,
+.container-fluid,
+.sidebar {
+  height: 100%;
 }
 
 #sidebar-wrapper {
-    min-width: 130px;
-    padding:0;
-    overflow: auto;
+  min-width: 130px;
+  padding: 0;
+  overflow: auto;
 }
 
-.nav-link{
-    color:black;
+.nav-link {
+  color: black;
 }
 .nav-link[data-toggle].collapsed:after {
-    content: "▾";
+  content: "▾";
 }
 .nav-link[data-toggle]:not(.collapsed):after {
-    content: "▴";
+  content: "▴";
 }
 
-.nav-link:hover{
-    background-color: #dadada;
-    color:black;
+.nav-link:hover {
+  background-color: #dadada;
+  color: black;
 }
 
-.sidebar, .container-fluid {
-    padding-top:56px;
-    z-index:1;
+.sidebar,
+.container-fluid {
+  padding-top: 56px;
+  z-index: 1;
 }
 .navbar {
-    height: 56px;
-    position: absolute;
-    top: 0;
-    left:0;
-    width: 100%;
-    z-index:2;
+  height: 56px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
 }
 
-
-.bg-green{
-    background-color: #8bc34a;
+.bg-green {
+  background-color: #8bc34a;
 }
 
-.active{
-    background-color: #dadada;
+.active {
+  background-color: #dadada;
 }
 
-.option{
-    cursor: pointer;
-    background-color:rgb(228, 228, 228);
-    margin-bottom: 3px;
-    padding: 0.8rem 0;
-    border-top: solid 2px rgb(133, 133, 133);
-    border-bottom: solid 2px rgb(117, 117, 117);
+.option {
+  cursor: pointer;
+  background-color: rgb(228, 228, 228);
+  margin-bottom: 3px;
+  padding: 0.8rem 0;
+  border-top: solid 2px rgb(133, 133, 133);
+  border-bottom: solid 2px rgb(117, 117, 117);
 }
 
-.opcion{
-    margin-bottom: 1rem;
+.opcion {
+  margin-bottom: 1rem;
 }
 
 #circulo {
-    background-color: #eee;
-    /*box-sizing: border-box;
+  background-color: #eee;
+  /*box-sizing: border-box;
     border:solid 2px black;*/
-    -webkit-clip-path: circle(45% at 50% 50%);
-      clip-path: circle(45% at 50% 50%);
-    margin: 0 auto;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  #hexagono {
-    background-color: #eee;
-    /*box-sizing: border-box;
+  -webkit-clip-path: circle(45% at 50% 50%);
+  clip-path: circle(45% at 50% 50%);
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px;
+}
+
+#hexagono {
+  background-color: #eee;
+  /*box-sizing: border-box;
     border:solid 2px black;*/
-    -webkit-clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-    clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
-    margin: 0 auto;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  #triangulo {
-    background-color: #eee;
-    /*box-sizing: border-box;
+  -webkit-clip-path: polygon(
+    25% 5%,
+    75% 5%,
+    100% 50%,
+    75% 95%,
+    25% 95%,
+    0% 50%
+  );
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px;
+}
+
+#triangulo {
+  background-color: #eee;
+  /*box-sizing: border-box;
     border:solid 2px black;*/
-    -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
   clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
-    margin: 0 auto;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  #elipse {
-    background-color: #eee;
-    /*box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px;
+}
+
+#elipse {
+  background-color: #eee;
+  /*box-sizing: border-box;
     border:solid 2px black;*/
-    -webkit-clip-path: ellipse(50% 33% at 50% 50%);
+  -webkit-clip-path: ellipse(50% 33% at 50% 50%);
   clip-path: ellipse(50% 33% at 50% 50%);
-    margin: 0 auto;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  #estrella {
-    background-color: #eee;
-    /*box-sizing: border-box;
-    border:solid 2px black;*/
-    -webkit-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    margin: 0 auto;
-    text-align: center;
-    padding: 15px;
-  }
-  
-  #rombo {
-    background-color: #eee;
-    /*box-sizing: border-box;
-    border:solid 2px black;*/
-    -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    margin: 0 auto;
-    text-align: center;
-    padding: 15px;
-  }
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px;
+}
 
+#estrella {
+  background-color: #eee;
+  /*box-sizing: border-box;
+    border:solid 2px black;*/
+  -webkit-clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px;
+}
 
+#rombo {
+  background-color: #eee;
+  /*box-sizing: border-box;
+    border:solid 2px black;*/
+  -webkit-clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px;
+}
+
+.boton {
+  margin: 15px;
+  margin-bottom: 0px;
+}
 /*
 a{
     color: #212529;
@@ -133,4 +168,25 @@ a{
 a:hover{
     color: #212529;
     text-decoration: none;
+}*/
+
+/*
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
 }*/

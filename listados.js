@@ -24,8 +24,12 @@ function cargarLocalStorage() {
 }
 
 function listaPlantillasPrivadas() {
-  let resultadosHTML = `<div id = "contenidoTabla">`;
-  plantillasPrivadas.forEach(function(element) {
+  let resultadosHTML = `<div id = "contenidoTabla">
+    <div class="row justify-content-end">
+      <button class="boton btn btn-primary align-self-center" data-action="exportarPlantillas"><i class="fa fa-download"></i> Exportar Plantillas</button>
+      <label class="boton btn btn-primary align-self-center"><i class="fa fa-upload"></i> Importar Plantillas<input id="inputTableros" type="file" style="display: none;"></label>
+    </div>`;
+  plantillasPrivadas.forEach(function (element) {
     resultadosHTML += `
     <div class="card my-3 h-100" data-id="${element.id}">
         <div class="row h-100">
@@ -33,9 +37,7 @@ function listaPlantillasPrivadas() {
             <img src=${element.miniatura} class="img-fluid d-block">
           </div>
           <div class="col-md-8 px-3">
-              <div class="row card-block px-3 justify-content-around" data-id="${
-                element.id
-              }">
+              <div class="row card-block px-3 justify-content-around" data-id="${element.id}">
                   <h4 class="col-md-12 card-title">${element.titulo}</h4>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="publicar">Publicar</button>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="tablero">Utilizar como tablero</button>
@@ -50,11 +52,16 @@ function listaPlantillasPrivadas() {
   resultadosHTML += `</div>`;
   contentSlctr.innerHTML = resultadosHTML;
   document.getElementById("contenidoTabla").addEventListener("click", opciones);
+  document.getElementById('inputTableros').addEventListener('change', readSingleFile, false);
 }
 
 function listaTablerosPrivados() {
-  let resultadosHTML = `<div id = "contenidoTabla">`;
-  tablerosPrivados.forEach(function(element) {
+  let resultadosHTML = `<div id = "contenidoTabla">
+  <div class="row justify-content-end">
+    <button class="boton btn btn-primary align-self-center" data-action="exportarTableros"><i class="fa fa-download"></i> Exportar Tableros</button>
+    <label class="boton btn btn-primary align-self-center"><i class="fa fa-upload"></i> Importar Tableros<input id="inputPlantillas" type="file" style="display: none;"></label>
+  </div>`;
+  tablerosPrivados.forEach(function (element) {
     resultadosHTML += `
     <div class="card my-3 h-100" data-id="${element.id}">
         <div class="row h-100">
@@ -63,8 +70,8 @@ function listaTablerosPrivados() {
           </div>
           <div class="col-md-8 px-3">
               <div class="row card-block px-3 justify-content-around" data-id="${
-                element.id
-              }">
+      element.id
+      }">
                   <h4 class="col-md-12 card-title">${element.titulo}</h4>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="publicar">Publicar</button>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="duplicar">Duplicar</button>
@@ -78,6 +85,7 @@ function listaTablerosPrivados() {
   resultadosHTML += `</div>`;
   contentSlctr.innerHTML = resultadosHTML;
   document.getElementById("contenidoTabla").addEventListener("click", opciones);
+  document.getElementById('inputPlantillas').addEventListener('change', readSingleFile, false);
 }
 
 function listaTablerosPrublicos() {
@@ -85,7 +93,7 @@ function listaTablerosPrublicos() {
     "value",
     snapshot => {
       let resultadosHTML = `<div id = "contenidoTabla">`;
-      snapshot.forEach(function(element) {
+      snapshot.forEach(function (element) {
         element = element.val();
         resultadosHTML += `
         <div class="card my-3 h-100" data-id="${element.id}">
@@ -95,8 +103,8 @@ function listaTablerosPrublicos() {
               </div>
               <div class="col-md-8 px-3">
                   <div class="row card-block px-3 justify-content-around" data-id="${
-                    element.id
-                  }">
+          element.id
+          }">
                       <h4 class="col-md-12 card-title">${element.titulo}</h4>
                       <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="tableroPrivado">Crear copia privada</button>
                       <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="ver">Ver</button>
@@ -104,9 +112,9 @@ function listaTablerosPrublicos() {
               </div>
             </div>
           </div>`;
-        console.log(resultadosHTML);
+        //console.log(resultadosHTML);
       });
-      console.log(resultadosHTML);
+      //console.log(resultadosHTML);
       resultadosHTML += `</div>`;
       contentSlctr.innerHTML = resultadosHTML;
       document.getElementById("contenidoTabla").addEventListener("click", opciones);
@@ -122,7 +130,7 @@ function listaPlantillasPublicas() {
     "value",
     snapshot => {
       let resultadosHTML = `<div id = "contenidoTabla">`;
-      snapshot.forEach(function(element) {
+      snapshot.forEach(function (element) {
         element = element.val();
         resultadosHTML += `
         <div class="card my-3 h-100" data-id="${element.id}">
@@ -132,8 +140,8 @@ function listaPlantillasPublicas() {
               </div>
               <div class="col-md-8 px-3">
                   <div class="row card-block px-3 justify-content-around" data-id="${
-                    element.id
-                  }">
+          element.id
+          }">
                       <h4 class="col-md-12 card-title">${element.titulo}</h4>
                       <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="plantillaPrivada">Crear copia privada</button>
                       <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="tableroPublico">Utilizar como tablero</button>
@@ -159,21 +167,90 @@ function listaPlantillasPublicas() {
 
 function opciones(event) {
   console.log(event);
-  if (event.target.dataset.action === "duplicar") {
-    duplicar(event.target.parentNode.dataset.id);
-  } else if (event.target.dataset.action === "publicar") {
-    publicar(event.target.parentNode.dataset.id);
-  } else if (event.target.dataset.action === "tablero") {
-    utilizarComoTablero(event.target.parentNode.dataset.id);
-  } else if (event.target.dataset.action === "eliminar") {
-    eliminar(event.target.parentNode.dataset.id);
-  } else if (event.target.dataset.action === "plantillaPrivada") {
-    plantillaPrivada(event.target.parentNode.dataset.id);
-  } else if (event.target.dataset.action === "tableroPrivado") {
-    tableroPrivado(event.target.parentNode.dataset.id);
-  } else if (event.target.dataset.action === "tableroPublico") {
-    tableroPublico(event.target.parentNode.dataset.id);
+  switch (event.target.dataset.action) {
+    case "duplicar":
+      duplicar(event.target.parentNode.dataset.id);
+      break;
+    case "publicar":
+      publicar(event.target.parentNode.dataset.id);
+      break;
+    case "tablero":
+      utilizarComoTablero(event.target.parentNode.dataset.id);
+      break;
+    case "eliminar":
+      eliminar(event.target.parentNode.dataset.id);
+      break;
+    case "plantillaPrivada":
+      plantillaPrivada(event.target.parentNode.dataset.id);
+      break;
+    case "tableroPrivado":
+      tableroPrivado(event.target.parentNode.dataset.id);
+      break;
+    case "tableroPublico":
+      tableroPublico(event.target.parentNode.dataset.id);
+      break;
+    case "exportarTableros":
+      exportarTableros();
+      break;
+    case "exportarPlantillas":
+      exportarPlantillas();
+      break;
+    default:
+      break;
   }
+  
+}
+
+function readSingleFile(e) {
+  var file = e.target.files[0];
+  if (!file) {
+    return;
+  }
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    var contents = e.target.result;
+    cargarDatosImportados(JSON.parse(contents));
+  };
+  reader.readAsText(file);
+}
+
+function cargarDatosImportados(contents) {
+  console.log(contents)
+  for(var element in contents){
+    let elemento = contents[element].element;
+    localStorage.setItem(elemento.id, JSON.stringify(elemento));
+  }
+  listaByHash();
+}
+
+function exportarTableros(){
+  let elementoDescargar = {};
+  tablerosPrivados.forEach(function(element){
+    elementoDescargar[element.id]={element}
+  });
+  descargaElemento(elementoDescargar,'tableros');
+  console.log('exportar tableros',elementoDescargar);
+}
+
+function exportarPlantillas(){
+  let elementoDescargar = {};
+  plantillasPrivadas.forEach(function(element){
+    elementoDescargar[element.id]={element}
+  });
+  descargaElemento(elementoDescargar,'plantillas');
+}
+
+function descargaElemento(elemento,nombre){
+  var datos = JSON.stringify(elemento);	
+  const blob = new Blob([datos], {type: "application/json"});	
+  const link = document.createElement('a');	
+  document.body.appendChild(link);	
+  link.style.display = "none";	
+  link.href = window.URL.createObjectURL(blob);	
+  link.download = nombre+'.json';	
+  link.click();	
+  window.URL.revokeObjectURL(link.href);	
+  console.log('descargando');
 }
 
 function tableroPublico(id) {
@@ -191,7 +268,7 @@ function tableroPublico(id) {
       console.log(`Fallo en lectura de datos: ${errorObject.code}`);
     }
   );
-  console.log(elemento);
+  //console.log(elemento);
 }
 
 function tableroPrivado(id) {
@@ -262,6 +339,18 @@ function duplicar(id) {
   listaByHash();
 }
 console.log("plantillas", plantillasPrivadas, "tableros", tablerosPrivados);
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
 function listaPlantillasPrivadas2() {

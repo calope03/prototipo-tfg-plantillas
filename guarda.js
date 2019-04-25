@@ -25,10 +25,10 @@ function guarda(event){
     
     if (hash === "nueva-plantilla") {
       tipo = "plantilla";
-      navigate(id);
+      //navigate(id);
     } else if (hash === "nuevo-tablero") {
       tipo = "tablero";
-      navigate(id);
+      //navigate(id);
     } else if (hashValido.test(hash)) {
       id = hash;
       let elemento = JSON.parse(localStorage.getItem(id));
@@ -46,6 +46,7 @@ function guarda(event){
       };
       var datos = JSON.stringify(datosAExportar);
       localStorage.setItem(id, datos);
+      navigate(id);
     }, 10);
 
     console.log("guardado");

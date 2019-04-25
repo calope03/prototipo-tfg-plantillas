@@ -62,7 +62,7 @@
 
 #addrectangle {
   padding: 15px;
-  background-color: paleturquoise;
+  background-color: white;
   border: solid 2px black;
   min-height: 100px;
 }
@@ -162,9 +162,20 @@
   padding: 15px;
 }
 
+#flecha {
+  background-color: #333333;
+  /*box-sizing: border-box;
+  border:solid 2px black;*/
+  -webkit-clip-path: polygon(0 39%, 59% 39%, 60% 10%, 100% 50%, 60% 90%, 60% 62%, 0 62%);
+  clip-path: polygon(0 39%, 59% 39%, 60% 10%, 100% 50%, 60% 90%, 60% 62%, 0 62%);
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px;
+}
+
 #addText {
   padding: 15px;
-  background-color: palegreen;
+  background-color: white;
   border: solid 2px black;
   height: 80px;
 }
@@ -190,6 +201,17 @@ body {
   text-align: center;
 }
 .pictogramaHover {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-size: cover;
+  background-position: center;
+}
+
+.areaHover {
   /*background-color: red;*/
   width: 100%;
   height: 100%;
@@ -199,9 +221,6 @@ body {
   position: absolute;
   background-size: cover;
   background-position: center;
-  /*padding-bottom: 100%;*/
-
-  /*https://codepen.io/bboygaz/pen/FgriI*/
 }
 
 .myShadow {
@@ -284,10 +303,7 @@ html,
   margin: 0 15px;
 }
 
-#botonEliminarPicto,
-#botonEliminarArea,
-#botonEliminarTexto,
-#botonEliminarFigura {
+.margenBoton {
   margin: 0 15px;
 }
 

@@ -140,3 +140,41 @@ var ajustesFigura = function(area) {
     };
   };
   
+
+
+  var ajustesFiguraTablero = function(area) {
+    var areaPadre = area;
+    var areaText = areaPadre.children[0];
+    var panelAjustes = document.getElementById("panelDerechaAjustesFigura");
+    var colorFondo = document.getElementById("color-fondo-figura");
+    var panelDerecho = document.getElementById("panelDerecha");
+    var botonCerrar = document.getElementById("botonCerrarFigura");
+    var _self = this;
+  
+    function cambiaColorFondo(evento) {
+      if (evento.isTrusted) {
+        areaPadre.style.backgroundColor = evento.target.value;
+      }
+    }
+  
+    function cerrar() {
+      panelAjustes.style.display = "none";
+      panelDerecho.style.display = "block";
+      _self.stop();
+    }
+    
+    this.init = function() {
+      botonCerrar.addEventListener("click", cerrar);
+      colorFondo.addEventListener("change", cambiaColorFondo);
+      panelDerecho.style.display = 'none';
+      panelAjustes.style.display = "block";
+      areaPadre.classList.add("myShadow");
+    };
+  
+    this.stop = function() {
+      botonCerrar.removeEventListener("click", cerrar);
+      colorFondo.removeEventListener("change", cambiaColorFondo);
+      areaPadre.classList.remove("myShadow");
+    };
+  };
+  

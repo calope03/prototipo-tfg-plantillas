@@ -28,6 +28,7 @@ function contentPlantilla() {
           <p class="col-md-4">Texto</p>
           <div id="addrectangle" class="draggable newArea col-md-4">
             <p id="titleArea" style="display:none;"></p>
+            <div class="areaHover"></div>
           </div>
 
           <div id="box-one4" class="altura newPicto draggable col-md-4">
@@ -40,27 +41,30 @@ function contentPlantilla() {
             Escribe aqui tu texto
           </div>
 
-          <div id="circulo" class="draggable altura newFig col-md-4">
+          <div id="circulo" class="draggable altura newFig col-md-3 d-flex align-items-center justify-content-center">
             <p id="titleArea" style="display:none;">hola</p>
           </div>
 
-          <div id="rombo" class="draggable altura newFig col-md-4">
+          <div id="rombo" class="draggable altura newFig col-md-3 d-flex align-items-center justify-content-center">
             <p id="titleArea" style="display:none;">hola</p>
           </div>
 
-          <div id="hexagono" class="draggable altura newFig col-md-4">
+          <div id="hexagono" class="draggable altura newFig col-md-3 d-flex align-items-center justify-content-center">
             <p id="titleArea" style="display:none;">hola</p>
           </div>
 
-          <div id="triangulo" class="draggable altura newFig col-md-4">
+          <div id="triangulo" class="draggable altura newFig col-md-3 d-flex align-items-center justify-content-center">
             <p id="titleArea" style="display:none;">hola</p>
           </div>
 
-          <div id="elipse" class="draggable altura newFig col-md-4">
+          <div id="elipse" class="draggable altura newFig col-md-3 d-flex align-items-center justify-content-center">
             <p id="titleArea" style="display:none;">hola</p>
           </div>
 
-          <div id="estrella" class="draggable altura newFig col-md-4">
+          <div id="estrella" class="draggable altura newFig col-md-3 d-flex align-items-center justify-content-center">
+            <p id="titleArea" style="display:none;">hola</p>
+          </div>
+          <div id="flecha" class="draggable altura newFig col-md-3 d-flex align-items-center justify-content-center">
             <p id="titleArea" style="display:none;">hola</p>
           </div>
         </div>
@@ -90,7 +94,7 @@ Ajustes dropzone
           </div>
         </div>
         <div class="row col-md-12 justify-content-start">
-          <button id="botonCerrarDropZone" type="button" class="col-md-2 btn btn-primary">
+          <button id="botonCerrarDropZone" type="button" class="margenBoton col-md-2 btn btn-primary">
             Cerrar
           </button>
         </div>
@@ -102,11 +106,11 @@ Ajustes pictograma
         <div class="row col-md-12 rowColores">
           <div class="col-md-6">
             Color borde:
-            <input id="color-borde-picto" class="colorButton" type="color" />
+            <input id="color-borde-picto" class="colorButton" type="color" value="#808080"/>
           </div>
           <div class="col-md-6">
             Color fondo:
-            <input id="color-fondo-picto" class="colorButton" type="color" />
+            <input id="color-fondo-picto" class="colorButton" type="color" value="#ffffff"/>
           </div>
         </div>
         <div class="row col-md-12 rowTitulo">
@@ -119,9 +123,10 @@ Ajustes pictograma
         <div id="seleccionHover" class="row col-md-12 justify-content-center rowHover">
           <i class="fas fa-times fa-4x fa-border text-danger"></i>
           <i class="fas fa-check fa-4x fa-border text-success"></i>
+          <i class="fas fa-times-circle fa-4x fa-border text-secondary"></i>
         </div>
         <div class="row col-md-12 justify-content-between">
-          <button id="botonEliminarPicto" type="button" class="col-md-2 btn btn-danger">
+          <button id="botonEliminarPicto" type="button" class="margenBoton col-md-2 btn btn-danger">
             Eliminar
           </button>
           <button id="botonCerrarPicto" type="button" class="col-md-2 btn btn-primary">
@@ -136,11 +141,11 @@ Ajustes area
         <div class="row col-md-12 rowColores">
           <div class="col-md-6">
             Color borde:
-            <input id="color-borde-area" class="colorButton" type="color" />
+            <input id="color-borde-area" class="colorButton" type="color" value="#000000"/>
           </div>
           <div class="col-md-6">
             Color fondo:
-            <input id="color-fondo-area" class="colorButton" type="color" />
+            <input id="color-fondo-area" class="colorButton" type="color" value="#ffffff"/>
           </div>
         </div>
         <div class="row col-md-12 rowTitulo">
@@ -150,11 +155,13 @@ Ajustes area
             <label class="custom-control-label checkbox" for="customCheck3">Visible</label>
           </div>
         </div>
-        <!--<div class = "row col-md-12 justify-content-center">
-          <i class="fas fa-times fa-4x fa-border text-danger" id="seleccionHover" style="color: #ff922b;"></i>
-        </div>-->
+        <div id="seleccionHoverArea" class="row col-md-12 justify-content-center rowHover">
+          <i class="fas fa-times fa-4x fa-border text-danger"></i>
+          <i class="fas fa-check fa-4x fa-border text-success"></i>
+          <i class="fas fa-times-circle fa-4x fa-border text-secondary"></i>
+        </div>
         <div class="row col-md-12 justify-content-between">
-          <button id="botonEliminarArea" type="button" class="col-md-2 btn btn-danger">
+          <button id="botonEliminarArea" type="button" class="margenBoton col-md-2 btn btn-danger">
             Eliminar
           </button>
           <button id="botonCerrarArea" type="button" class="col-md-2 btn btn-primary">
@@ -170,17 +177,17 @@ Ajustes texto
         <div class="row col-md-12 rowColores">
           <div class="col-md-6">
             Color borde:
-            <input id="color-borde-texto" class="colorButton" type="color" />
+            <input id="color-borde-texto" class="colorButton" type="color" value="#000000"/>
           </div>
           <div class="col-md-6">
             Color fondo:
-            <input id="color-fondo-texto" class="colorButton" type="color" />
+            <input id="color-fondo-texto" class="colorButton" type="color" value="#ffffff"/>
           </div>
         </div>
         <div class="row col-md-12 rowColores">
           <div class="col-md-6">
             Color texto:
-            <input id="color-texto" class="colorButton" type="color" />
+            <input id="color-texto" class="colorButton" type="color" value="#000000"/>
           </div>
         </div>
         <div class="row col-md-12 rowTitulo">
@@ -190,11 +197,8 @@ Ajustes texto
             <label class="custom-control-label checkbox" for="customCheck5">Editable</label>
           </div>
         </div>
-        <!--<div class = "row col-md-12 justify-content-center">
-  <i class="fas fa-times fa-4x fa-border text-danger" id="seleccionHover" style="color: #ff922b;"></i>
-</div>-->
         <div class="row col-md-12 justify-content-between">
-          <button id="botonEliminarTexto" type="button" class="col-md-2 btn btn-danger">
+          <button id="botonEliminarTexto" type="button" class="margenBoton col-md-2 btn btn-danger">
             Eliminar
           </button>
           <button id="botonCerrarTexto" type="button" class="col-md-2 btn btn-primary">
@@ -213,7 +217,7 @@ Ajustes texto
           </div>-->
           <div class="col-md-12">
             Color fondo:
-            <input id="color-fondo-figura" class="colorButton" type="color" />
+            <input id="color-fondo-figura" class="colorButton" type="color" value="#d2d2d2"/>
           </div>
         </div>
         <div class="row col-md-12 rowTitulo">
@@ -223,11 +227,8 @@ Ajustes texto
             <label class="custom-control-label checkbox" for="customCheck4">Visible</label>
           </div>
         </div>
-        <!--<div class = "row col-md-12 justify-content-center">
-          <i class="fas fa-times fa-4x fa-border text-danger" id="seleccionHover" style="color: #ff922b;"></i>
-        </div>-->
         <div class="row col-md-12 justify-content-between">
-          <button id="botonEliminarFigura" type="button" class="col-md-2 btn btn-danger">
+          <button id="botonEliminarFigura" type="button" class="margenBoton col-md-2 btn btn-danger">
             Eliminar
           </button>
           <button id="botonCerrarFigura" type="button" class="col-md-2 btn btn-primary">
@@ -263,63 +264,20 @@ function contentTablero() {
           Guardar
         </button>
       </div>
-      <!--
-    Ajustes dropzone
-    -->
-      <div id="panelDerechaAjustes" class="panelAjustes row col-md-12">
-        <div class="row col-md-12 rowColores ">
-          <div class="col-md-6 float-right">
-            Color borde:
-            <input id="color-borde" class="colorButton" type="color" value="#000000" />
-          </div>
-          <div class="col-md-6">
-            Color fondo:
-            <input id="color-fondo" class="colorButton" type="color" value="#ffffff" />
-          </div>
-        </div>
-        <div class="row col-md-12 rowTitulo">
-          <input type="text" class="col-md-6 form-control tituloElemento" id="tituloPlantilla" placeholder="Titulo" />
-          <div class="custom-control custom-checkbox col-md-auto">
-            <input type="checkbox" class="custom-control-input" id="customCheck1" />
-            <label class="checkbox custom-control-label" for="customCheck1">Visible</label>
-          </div>
-        </div>
-        <div class="row col-md-12 justify-content-start">
-          <button id="botonCerrarDropZone" type="button" class="col-md-2 btn btn-primary">
-            Cerrar
-          </button>
-        </div>
-      </div>
-      <!--
+      
+<!--
 Ajustes pictograma
 -->
       <div id="panelDerechaAjustesPicto" class="panelAjustes row col-md-12">
-        <div class="row col-md-12 rowColores">
-          <div class="col-md-6">
-            Color borde:
-            <input id="color-borde-picto" class="colorButton" type="color" />
-          </div>
-          <div class="col-md-6">
-            Color fondo:
-            <input id="color-fondo-picto" class="colorButton" type="color" />
-          </div>
-        </div>
-        <div class="row col-md-12 rowTitulo">
-          <input type="text" class="col-md-6 form-control tituloElemento" id="nombrePicto" placeholder="Titulo" />
-          <div class="custom-control custom-checkbox col-md-auto">
-            <input type="checkbox" class="custom-control-input" id="customCheck2" checked />
-            <label class="checkbox custom-control-label" for="customCheck2">Visible</label>
-          </div>
-        </div>
         <div id="seleccionHover" class="row col-md-12 justify-content-center rowHover">
           <i class="fas fa-times fa-4x fa-border text-danger"></i>
           <i class="fas fa-check fa-4x fa-border text-success"></i>
+          <i class="fas fa-circle fa-4x fa-border text-warning"></i>
+          <i class="fas fa-square fa-4x fa-border text-primary"></i>
+          <i class="fas fa-times-circle fa-4x fa-border text-secondary"></i>
         </div>
         <div class="row col-md-12 justify-content-between">
-          <button id="botonEliminarPicto" type="button" class="col-md-2 btn btn-danger">
-            Eliminar
-          </button>
-          <button id="botonCerrarPicto" type="button" class="col-md-2 btn btn-primary">
+          <button id="botonCerrarPicto" type="button" class="margenBoton col-md-2 btn btn-primary">
             Cerrar
           </button>
         </div>
@@ -328,31 +286,15 @@ Ajustes pictograma
 Ajustes area 
 -->
       <div id="panelDerechaAjustesArea" class="panelAjustes row col-md-12">
-        <div class="row col-md-12 rowColores">
-          <div class="col-md-6">
-            Color borde:
-            <input id="color-borde-area" class="colorButton" type="color" />
-          </div>
-          <div class="col-md-6">
-            Color fondo:
-            <input id="color-fondo-area" class="colorButton" type="color" />
-          </div>
+        <div id="seleccionHoverArea" class="row col-md-12 justify-content-center rowHover">
+          <i class="fas fa-times fa-4x fa-border text-danger"></i>
+          <i class="fas fa-check fa-4x fa-border text-success"></i>
+          <i class="fas fa-circle fa-4x fa-border text-warning"></i>
+          <i class="fas fa-square fa-4x fa-border text-primary"></i>
+          <i class="fas fa-times-circle fa-4x fa-border text-secondary"></i>
         </div>
-        <div class="row col-md-12 rowTitulo">
-          <input type="text" class="col-md-6 form-control tituloElemento" id="nombreArea" placeholder="Titulo" />
-          <div class="custom-control custom-checkbox col-md-auto">
-            <input type="checkbox" class="custom-control-input" id="customCheck3" />
-            <label class="custom-control-label checkbox" for="customCheck3">Visible</label>
-          </div>
-        </div>
-        <!--<div class = "row col-md-12 justify-content-center">
-          <i class="fas fa-times fa-4x fa-border text-danger" id="seleccionHover" style="color: #ff922b;"></i>
-        </div>-->
         <div class="row col-md-12 justify-content-between">
-          <button id="botonEliminarArea" type="button" class="col-md-2 btn btn-danger">
-            Eliminar
-          </button>
-          <button id="botonCerrarArea" type="button" class="col-md-2 btn btn-primary">
+          <button id="botonCerrarArea" type="button" class="margenBoton col-md-2 btn btn-primary">
             Cerrar
           </button>
         </div>
@@ -362,37 +304,11 @@ Ajustes area
 Ajustes texto
 -->
       <div id="panelDerechaAjustesTexto" class="panelAjustes row col-md-12">
-        <div class="row col-md-12 rowColores">
-          <div class="col-md-6">
-            Color borde:
-            <input id="color-borde-texto" class="colorButton" type="color" />
-          </div>
-          <div class="col-md-6">
-            Color fondo:
-            <input id="color-fondo-texto" class="colorButton" type="color" />
-          </div>
-        </div>
-        <div class="row col-md-12 rowColores">
-          <div class="col-md-6">
-            Color texto:
-            <input id="color-texto" class="colorButton" type="color" />
-          </div>
-        </div>
         <div class="row col-md-12 rowTitulo">
           <input type="text" class="col-md-6 form-control tituloElemento" id="nombreTexto" placeholder="Titulo" />
-          <div class="custom-control custom-checkbox col-md-auto">
-            <input type="checkbox" class="custom-control-input" id="customCheck5" />
-            <label class="custom-control-label checkbox" for="customCheck5">Editable</label>
-          </div>
         </div>
-        <!--<div class = "row col-md-12 justify-content-center">
-  <i class="fas fa-times fa-4x fa-border text-danger" id="seleccionHover" style="color: #ff922b;"></i>
-</div>-->
         <div class="row col-md-12 justify-content-between">
-          <button id="botonEliminarTexto" type="button" class="col-md-2 btn btn-danger">
-            Eliminar
-          </button>
-          <button id="botonCerrarTexto" type="button" class="col-md-2 btn btn-primary">
+          <button id="botonCerrarTexto" type="button" class="margenBoton col-md-2 btn btn-primary">
             Cerrar
           </button>
         </div>
@@ -403,29 +319,13 @@ Ajustes texto
         -->
       <div id="panelDerechaAjustesFigura" class="panelAjustes row col-md-12">
         <div class="row col-md-8 rowColores">
-          <!--<div class="col-md-6">
-            Color borde: <input id = 'color-borde-area' class = "colorButton" type="color">
-          </div>-->
           <div class="col-md-12">
             Color fondo:
-            <input id="color-fondo-figura" class="colorButton" type="color" />
+            <input id="color-fondo-figura" class="colorButton" type="color" value="#d2d2d2/>
           </div>
         </div>
-        <div class="row col-md-12 rowTitulo">
-          <input type="text" class="col-md-6 form-control tituloElemento" id="nombreFigura" placeholder="Titulo" />
-          <div class="custom-control custom-checkbox col-md-auto">
-            <input type="checkbox" class="custom-control-input" id="customCheck4" />
-            <label class="custom-control-label checkbox" for="customCheck4">Visible</label>
-          </div>
-        </div>
-        <!--<div class = "row col-md-12 justify-content-center">
-          <i class="fas fa-times fa-4x fa-border text-danger" id="seleccionHover" style="color: #ff922b;"></i>
-        </div>-->
         <div class="row col-md-12 justify-content-between">
-          <button id="botonEliminarFigura" type="button" class="col-md-2 btn btn-danger">
-            Eliminar
-          </button>
-          <button id="botonCerrarFigura" type="button" class="col-md-2 btn btn-primary">
+          <button id="botonCerrarFigura" type="button" class="margenBoton col-md-2 btn btn-primary">
             Cerrar
           </button>
         </div>
@@ -446,12 +346,11 @@ function initContent() {
   } else if (hashActual() === "nueva-plantilla") {
     tipoDelContenido = "plantilla";
   } else if (hashActual() === "nuevo-tablero") {
-    tipoDelContenido = "tablero";
+    tipoDelContenido = "plantilla";
   }
 
   if (tipoDelContenido === "plantilla") {
     contentPlantilla();
-    //console.log("cargando opciones plantilla nueva");
   } else if (tipoDelContenido === "tablero") {
     contentTablero();
   }

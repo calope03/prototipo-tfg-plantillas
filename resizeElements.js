@@ -32,6 +32,8 @@ function rellenaInputTitulo(elementoPintar){
 }
 
 function resizeElementos(dropzone, elementoPintar){
+    console.log('dropzone',dropzone)
+    console.log('elemento',elementoPintar)
     let altoAntiguo = elementoPintar.tamano.alto;
     let altoNuevo = dropzone.clientHeight;
     let anchoAntiguo = elementoPintar.tamano.ancho;

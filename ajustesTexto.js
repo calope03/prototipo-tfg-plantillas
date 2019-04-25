@@ -145,3 +145,38 @@ var ajustesTexto = function(area) {
     };
   };
   
+
+  var ajustesTextoTablero = function(area) {
+    var areaPadre = area;
+    var areaText = areaPadre.innerText;
+    var panelAjustes = document.getElementById("panelDerechaAjustesTexto");
+    var nombreAreaField = document.getElementById("nombreTexto");
+    var panelDerecho = document.getElementById("panelDerecha");
+    var botonCerrar = document.getElementById("botonCerrarTexto");
+    var _self = this;
+
+    function cambiaTitulo(evento) {
+      console.log(evento);
+      areaPadre.innerText= evento.target.value;
+    }
+
+    function cerrar() {
+      panelAjustes.style.display = "none";
+      panelDerecho.style.display = "block";
+      _self.stop();
+    }
+  
+    this.init = function() {
+      botonCerrar.addEventListener("click", cerrar);
+      nombreAreaField.value = areaText;
+      nombreAreaField.addEventListener("keyup", cambiaTitulo);
+      panelDerecho.style.display = 'none';
+      panelAjustes.style.display = "block";
+    };
+  
+    this.stop = function() {
+      botonCerrar.removeEventListener("click", cerrar);
+      areaPadre.classList.remove("myShadow");
+    };
+  };
+  

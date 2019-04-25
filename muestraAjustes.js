@@ -27,14 +27,26 @@ function muestraAjustes(event) {
   } else if (classTarget.contains("pictogramaHover")&& tipoDelContenido==="plantilla") {
     ajustes = new ajustesPicto(event.target.parentElement);
     ajustes.init();
-  } else if (classTarget.contains("newArea")&& tipoDelContenido==="plantilla") {
-    ajustes = new ajustesArea(event.target);
+  } else if (classTarget.contains("areaHover")&& tipoDelContenido==="plantilla") {
+    ajustes = new ajustesArea(event.target.parentElement);
     ajustes.init();
   } else if (classTarget.contains("newFig")&& tipoDelContenido==="plantilla") {
     ajustes = new ajustesFigura(event.target);
     ajustes.init();
   } else if (classTarget.contains("newText")&& tipoDelContenido==="plantilla") {
     ajustes = new ajustesTexto(event.target);
+    ajustes.init();
+  }else if (classTarget.contains("pictogramaHover")&& tipoDelContenido==="tablero") {
+    ajustes = new ajustesPictoTablero(event.target.parentElement);
+    ajustes.init();
+  }else if (classTarget.contains("areaHover")&& tipoDelContenido==="tablero") {
+    ajustes = new ajustesAreaTablero(event.target.parentElement);
+    ajustes.init();
+  }else if (classTarget.contains("newFig")&& tipoDelContenido==="tablero") {
+    ajustes = new ajustesFiguraTablero(event.target);
+    ajustes.init();
+  } else if (classTarget.contains("newText")&& tipoDelContenido==="tablero" && event.target.dataset.editable) {
+    ajustes = new ajustesTextoTablero(event.target);
     ajustes.init();
   }
 }
