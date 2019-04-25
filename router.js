@@ -3,17 +3,7 @@ function hashActual () {
     return window.location.href.split('#')[1] || '';
 }
 
-
-
-
-
 window.addEventListener("hashchange", function(event){
-    //console.log("Hash actual:", hashActual(),"event",event);
-    /*var elems = document.querySelectorAll(".active");
-        [].forEach.call(elems, function(el) {
-            el.classList.remove("active");
-    });
-    document.getElementById(hashActual()).classList.add('active');*/
     listaByHash();
    
     console.log(hashActual())

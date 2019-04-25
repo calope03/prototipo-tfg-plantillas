@@ -43,6 +43,7 @@ function listaPlantillasPrivadas() {
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="tablero">Utilizar como tablero</button>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="duplicar">Duplicar</button>
                   <a class="col-md-5 p-0" href="edit.html#${element.id}"><button type="button" class="opcion col-md-12 btn btn-outline-primary" data-action="editar">Editar</button></a>
+                  <a class="col-md-5 p-0" href="ver.html#${element.id}"><button type="button" class="opcion col-md-12 btn btn-outline-primary" data-action="editar">Ver</button></a>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="eliminar">Eliminar</button>
               </div>
           </div>
@@ -75,7 +76,7 @@ function listaTablerosPrivados() {
                   <h4 class="col-md-12 card-title">${element.titulo}</h4>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="publicar">Publicar</button>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="duplicar">Duplicar</button>
-                  <a class="col-md-5 p-0" href="edit.html#${element.id}"><button type="button" class="opcion col-md-12 btn btn-outline-primary" data-action="editar">Editar</button></a>
+                  <a class="col-md-5 p-0" href="ver.html#${element.id}"><button type="button" class="opcion col-md-12 btn btn-outline-primary" data-action="editar">Ver</button></a>
                   <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="eliminar">Eliminar</button>
               </div>
           </div>
@@ -107,7 +108,7 @@ function listaTablerosPrublicos() {
           }">
                       <h4 class="col-md-12 card-title">${element.titulo}</h4>
                       <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="tableroPrivado">Crear copia privada</button>
-                      <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="ver">Ver</button>
+                      <a class="col-md-5 p-0" href="ver.html#${element.id}"><button type="button" class="opcion col-md-12 btn btn-outline-primary" data-action="editar">Ver</button></a>
                   </div>
               </div>
             </div>
@@ -145,7 +146,7 @@ function listaPlantillasPublicas() {
                       <h4 class="col-md-12 card-title">${element.titulo}</h4>
                       <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="plantillaPrivada">Crear copia privada</button>
                       <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="tableroPublico">Utilizar como tablero</button>
-                      <button type="button" class="opcion col-md-5 btn btn-outline-primary" data-action="ver">Ver</td></button>
+                      <a class="col-md-5 p-0" href="ver.html#${element.id}"><button type="button" class="opcion col-md-12 btn btn-outline-primary" data-action="editar">Ver</button></a>
                   </div>
               </div>
             </div>

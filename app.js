@@ -22,7 +22,7 @@ function recalculaAlturaPictogramas(){
 
   pictogramas.forEach(function(element){
     element.style.height = ((element.clientWidth*110)/100) +"px";
-    console.log(element.style.height);
+    console.log(element.style.height,element);
   });
   
   function alturaPictograma(picto){

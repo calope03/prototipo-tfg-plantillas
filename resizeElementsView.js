@@ -1,6 +1,4 @@
-window.addEventListener("hashchange", function(event){
-    renderEditView();
-}, false);
+
 
 function renderEditView(){
     if(hashValido.test(hashActual())){
@@ -9,7 +7,6 @@ function renderEditView(){
         let elementoPintar = JSON.parse(localStorage.getItem(hashActual()));
         resizeElementos(dropzone, elementoPintar);
     
-        rellenaInputTitulo(elementoPintar);
     }else if(hashActual()==='nueva-plantilla'){
         document.getElementById('textForTitle').innerText = "Titulo de la plantilla: "; 
         document.getElementById('nombrePlantilla').value = 'Nueva plantilla';
