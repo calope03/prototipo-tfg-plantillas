@@ -38,7 +38,7 @@ function listarResultados(data){
     resultadosSlctr.innerHTML = resultadosHTML;
     btnBusquedaSlctr.classList.remove('search');
     btnBusquedaSlctr.classList.add('close');
-    btnBusquedaSlctr.innerHTML = `<span class="input-group-text"><i class="fas fa-times"></i></span>`;
+    btnBusquedaSlctr.innerHTML = `<span class="input-group-text"><i class="fas fa-times text-danger"></i></span>`;
     recalculaAlturaPictogramas();
     //console.log(resultadosHTML);
 }
@@ -64,12 +64,3 @@ function ajaxHandler (url, cb){
       console.log(error)
     });  
 }
-/*
- var text = prompt('dime picto')
-        fetch('https://api.arasaac.org/api/pictograms/es/search/'+text.trim())
-            .then(res => res.json())
-            .then(data => {
-                const picto = data[0].idPictogram;
-                document.getElementById('img').src = 'https://api.arasaac.org/api/pictograms/'+picto;
-            })
-            .catch(console.warn)*/
