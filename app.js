@@ -116,7 +116,7 @@ function creaAreaPicto(event){
 
 function creaFigura(event){
   var pictoclonado = colocaElemento(event);
-  pictoclonado.classList.remove('col-md-4');
+  pictoclonado.classList.remove('col-md-3');
   pictoclonado.classList.remove('draggable');
   pictoclonado.classList.add('figdragada');
 }

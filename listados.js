@@ -311,7 +311,8 @@ function utilizarComoTablero(id) {
   elemento.tipo = "tablero";
   elemento.id = guid();
   localStorage.setItem(elemento.id, JSON.stringify(elemento));
-  listaByHash();
+  window.location.href = "edit.html#"+elemento.id;
+  //history.pushState({},'nuevoelemento','edit.html#'+id);
 }
 
 function eliminar(id) {
@@ -339,112 +340,3 @@ function duplicar(id) {
   }
   listaByHash();
 }
-console.log("plantillas", plantillasPrivadas, "tableros", tablerosPrivados);
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function listaPlantillasPrivadas2() {
-  let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="5">Acciones</th></tr></thead><tbody>`;
-  plantillasPrivadas.forEach(function(element) {
-    resultadosHTML += `<tr data-id="${element.id}">
-                              <td>${element.titulo}</td>
-                              <td class="option" data-action="publicar">Publicar</td>
-                              <td class="option" data-action="tablero">Utilizar como tablero</td>
-                              <td class="option" data-action="duplicar">Duplicar</td>
-                              <td class="option" data-action="editar"><a href="edit.html#${
-                                element.id
-                              }">Editar</a></td>
-                              <td class="option" data-action="eliminar">Eliminar</td>
-                            </tr>`;
-  });
-  resultadosHTML += `</tbody></table></div>`;
-  contentSlctr.innerHTML = resultadosHTML;
-  document.getElementById("contenidoTabla").addEventListener("click", opciones);
-}
-
-function listaTablerosPrivados2() {
-  let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="4">Acciones</th></tr></thead><tbody>`;
-  tablerosPrivados.forEach(function(element) {
-    resultadosHTML += `<tr data-id="${element.id}">
-                            <td>${element.titulo}</td>
-                            <td class="option" data-action="publicar">Publicar</td>
-                            <td class="option" data-action="duplicar">Duplicar</td>
-                            <td class="option" data-action="editar"><a href="edit.html#${
-                              element.id
-                            }">Editar</a></td>
-                            <td class="option" data-action="eliminar">Eliminar</td>
-                          </tr>`;
-  });
-  resultadosHTML += `</tbody></table></div>`;
-  contentSlctr.innerHTML = resultadosHTML;
-  document.getElementById("contenidoTabla").addEventListener("click", opciones);
-}
-
-
-function listaTablerosPrublicos2() {
-  tablerosRef.on(
-    "value",
-    snapshot => {
-      let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="2">Acciones</th></tr></thead><tbody>`;
-      snapshot.forEach(function(element) {
-        element = element.val();
-        resultadosHTML += `<tr data-id="${element.id}">
-                            <td>${element.titulo}</td>
-                            <td class="option" data-action="tableroPrivado">Crear copia privada</td>
-                            <td class="option" data-action="ver">Ver</td>
-                          </tr>`;
-        console.log(resultadosHTML);
-      });
-      console.log(resultadosHTML);
-      resultadosHTML += `</tbody></table></div>`;
-      contentSlctr.innerHTML = resultadosHTML;
-      document
-        .getElementById("contenidoTabla")
-        .addEventListener("click", opciones);
-    },
-    errorObject => {
-      console.log(`Fallo en lectura de datos: ${errorObject.code}`);
-    }
-  );
-}
-
-function listaPlantillasPublicas2() {
-  plantillasRef.on(
-    "value",
-    snapshot => {
-      let resultadosHTML = `<div class="table-responsive"><table id = "contenidoTabla" class="table table-striped"><thead><tr><th>Titulo</th><th colspan="3">Acciones</th></tr></thead><tbody>`;
-      snapshot.forEach(function(element) {
-        element = element.val();
-        resultadosHTML += `<tr data-id="${element.id}">
-                            <td>${element.titulo}</td>
-                            <td class="option" data-action="plantillaPrivada">Crear copia privada</td>
-                            <td class="option" data-action="tableroPublico">Utilizar como tablero</td>
-                            <td class="option" data-action="ver">Ver</td>
-                          </tr>`;
-        console.log(resultadosHTML);
-      });
-      console.log(resultadosHTML);
-      resultadosHTML += `</tbody></table></div>`;
-      contentSlctr.innerHTML = resultadosHTML;
-      document
-        .getElementById("contenidoTabla")
-        .addEventListener("click", opciones);
-    },
-    errorObject => {
-      console.log(`Fallo en lectura de datos: ${errorObject.code}`);
-    }
-  );
-}
-
-*/
