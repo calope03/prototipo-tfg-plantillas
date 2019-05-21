@@ -33,7 +33,7 @@ function guarda(event){
       id = hash;
       let elemento = JSON.parse(localStorage.getItem(id));
       tipo = elemento.tipo;
-      console.log("id", id);
+      //console.log("id", id);
     }
     setTimeout(function() {
       let datosAExportar = {
@@ -49,15 +49,6 @@ function guarda(event){
       history.replaceState({},'nuevoelemento','edit.html#'+id);
     }, 10);
 
-    console.log("guardado");
+    //console.log("guardado");
 }
 
-
-/*
-
-function guardamuchos(){
-  for(let i=0;i<500;i++){
-  document.getElementById("botonDescarga").click;
-}
-}
-*/

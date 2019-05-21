@@ -1,12 +1,15 @@
-
+window.addEventListener("hashchange", function(event){
+    renderEditView();
+}, false);
 
 function renderEditView(){
     if(hashValido.test(hashActual())){
-        console.log('recalculando??');
+        //console.log('recalculando??');
         var dropzone =  document.getElementById('dropzone');
         let elementoPintar = JSON.parse(localStorage.getItem(hashActual()));
         resizeElementos(dropzone, elementoPintar);
     
+        rellenaInputTitulo(elementoPintar);
     }else if(hashActual()==='nueva-plantilla'){
         document.getElementById('textForTitle').innerText = "Titulo de la plantilla: "; 
         document.getElementById('nombrePlantilla').value = 'Nueva plantilla';
@@ -29,8 +32,8 @@ function rellenaInputTitulo(elementoPintar){
 }
 
 function resizeElementos(dropzone, elementoPintar){
-    console.log('dropzone',dropzone)
-    console.log('elemento',elementoPintar)
+    //console.log('dropzone',dropzone)
+    //console.log('elemento',elementoPintar)
     let altoAntiguo = elementoPintar.tamano.alto;
     let altoNuevo = dropzone.clientHeight;
     let anchoAntiguo = elementoPintar.tamano.ancho;
@@ -44,17 +47,17 @@ function resizeElementos(dropzone, elementoPintar){
     console.log(elementoPintar.contenido)*/
     if(altoAntiguo !== altoNuevo){
         variacionAlto =  ((100*altoNuevo)/altoAntiguo)/100;
-        console.log('recalculando!!');
+        //console.log('recalculando!!');
     }
     if(anchoAntiguo !== anchoNuevo){
         variacionAncho =  ((100*anchoNuevo)/anchoAntiguo)/100;  
     }
     Array.prototype.slice.call(dropzone.children).forEach(function(element){
-        console.log('ey',element);
+        //console.log('ey',element);
         if(element.classList.contains('newArea')){
             
             Array.prototype.slice.call(element.children).forEach(function(element){
-                console.log('eeeeey',element)
+                //console.log('eeeeey',element)
                 if(element.nodeName === 'DIV'){
                     element.style.width = (parseFloat(element.style.width,10)*variacionAncho) +'px';
                     element.style.left = (parseFloat(element.style.left,10)*variacionAncho) +'px'; 

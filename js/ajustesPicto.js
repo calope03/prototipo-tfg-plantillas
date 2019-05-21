@@ -16,46 +16,21 @@ var ajustesPicto = function (pictograma) {
   var botonEliminar = document.getElementById('botonEliminarPicto');
   var _self = this;
   //console.log(pictoHijos);
-  /*
-  var dropzone = document.getElementById("dropzone");
-  var panelDerecho = document.getElementById('panelDerecha');
-  var dropZoneOriginal = dropzone.cloneNode(false);
-  var panelAjustes = document.getElementById('panelDerechaAjustes');
-  */
-
-  /* function aceptarOCancelar(evento){
-     //console.log(evento);
-     if(evento.isTrusted){
-       var clases = evento.target.classList;
-       if(clases.contains('btn-success')){
-           panelAjustes.style.display = 'none';
-           panelDerecho.style.display = 'block';
-           _self.stop(false);
-       }else if(clases.contains('btn-danger')){
-           
-           panelAjustes.style.display = 'none';
-           panelDerecho.style.display = 'block';
-           console.log('no',evento);
-           _self.stop(true);
-       }
-       
-     }
-   }*/
-
+ 
   function cambiaTitulo(evento) {
-    console.log(evento);
+    //console.log(evento);
     pictoText.innerText = evento.target.value;
   }
 
   function cambiaColorBorde(evento) {
-    console.log('cambiandocolor', evento);
+    //console.log('cambiandocolor', evento);
     if (evento.isTrusted) {
       pictogramaPadre.style.borderColor = evento.target.value;
     }
   }
 
   function cambiaColorFondo(evento) {
-    console.log('cambiandocolor', evento);
+    //console.log('cambiandocolor', evento);
     if (evento.isTrusted) {
       pictogramaPadre.style.backgroundColor = evento.target.value;
     }
@@ -67,25 +42,17 @@ var ajustesPicto = function (pictograma) {
     } else {
       pictoText.style.display = 'none';
     }
-    console.log("hooooola");
+    //console.log("hooooola");
   };
 
   function cambiaHover(event) {
-    console.log('salud');
+    //console.log('salud');
     if (event.target.classList.contains('fa-times')) {
-      pictoHover.style.backgroundImage = "url('error.png')";
-      /*event.target.classList.add('fa-check','text-success');
-      event.target.classList.remove('fa-times','text-danger');*/
-
-      //pictoHover.style.backgroundSize = "cover";
+      pictoHover.style.backgroundImage = "url('./img/error.png')";
 
     } else if (event.target.classList.contains('fa-check')) {
-      pictoHover.style.backgroundImage = "url('ok.png')";
-      /* event.target.classList.remove('fa-check', 'text-success');
-       event.target.classList.add('fa-times','text-danger');*/
-
-      //pictoHover.style.backgroundSize = "cover";
-      console.log('salud');
+      pictoHover.style.backgroundImage = "url('./img/ok.png')";
+      //console.log('salud');
     }else if (event.target.classList.contains('fa-times-circle')) {
       pictoHover.style.backgroundImage = "";
       pictoHover.style.opacity = 0.5;
@@ -135,15 +102,7 @@ var ajustesPicto = function (pictograma) {
     //panelAjustes.style.display = 'block';
     pictogramaPadre.classList.remove('myShadow');
 
-    /*if(cancelar){
-      console.log(pictogramaPadre);
-      let padre =pictogramaPadre.parentNode;
-      if(padre){
-        padre.replaceChild(pictoOriginal,pictogramaPadre);
-      }
-      
-    }*/
-    console.log('parando picto ');
+    //console.log('parando picto ');
   }
 
 };
@@ -161,21 +120,21 @@ var ajustesPictoTablero = function (pictograma) {
   var _self = this;
 
   function cambiaHover(event) {
-    console.log('salud');
+    //console.log('salud');
     if (event.target.classList.contains('fa-times')) {
-      pictoHover.style.backgroundImage = "url('error.png')";
+      pictoHover.style.backgroundImage = "url('./img/error.png')";
       pictoHover.style.opacity = 0.5;
       //pictoHover.style.backgroundSize = "cover";
     } else if (event.target.classList.contains('fa-check')) {
-      pictoHover.style.backgroundImage = "url('ok.png')";
+      pictoHover.style.backgroundImage = "url('./img/ok.png')";
       pictoHover.style.opacity = 0.5;
       //pictoHover.style.backgroundSize = "cover";
     } else if (event.target.classList.contains('fa-circle')) {
-      pictoHover.style.backgroundImage = "url('circle.png')";
+      pictoHover.style.backgroundImage = "url('./img/circle.png')";
       pictoHover.style.opacity = 0.8;
       //pictoHover.style.backgroundSize = "cover";
     } else if (event.target.classList.contains('fa-square')) {
-      pictoHover.style.backgroundImage = "url('square.png')";
+      pictoHover.style.backgroundImage = "url('./img/square.png')";
       pictoHover.style.opacity = 0.5;
       //pictoHover.style.backgroundSize = "cover";
     }else if (event.target.classList.contains('fa-times-circle')) {

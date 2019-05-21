@@ -14,7 +14,7 @@ var ajustesArea = function(area) {
   var _self = this;
 
   function cambiaTitulo(evento) {
-    console.log(evento);
+    //console.log(evento);
     areaText.innerText = evento.target.value;
   }
 
@@ -36,15 +36,15 @@ var ajustesArea = function(area) {
     } else {
       areaText.style.display = "none";
     }
-    console.log("hooooola");
+    //console.log("hooooola");
   }
 
   function cambiaHover(event) {
-    console.log('salud');
+   //console.log('salud');
     if (event.target.classList.contains('fa-times')) {
-      areaHover.style.backgroundImage = "url('error.png')";
+      areaHover.style.backgroundImage = "url('./img/error.png')";
     } else if (event.target.classList.contains('fa-check')) {
-      areaHover.style.backgroundImage = "url('ok.png')";
+      areaHover.style.backgroundImage = "url('./img/ok.png')";
     }else if (event.target.classList.contains('fa-times-circle')) {
       areaHover.style.backgroundImage = "";
       areaHover.style.opacity = 0.5;
@@ -102,18 +102,18 @@ var ajustesAreaTablero = function(area) {
   var _self = this;
 
   function cambiaHover(event) {
-    console.log('salud');
+    //console.log('salud');
     if (event.target.classList.contains('fa-times')) {
-      areaHover.style.backgroundImage = "url('error.png')";
+      areaHover.style.backgroundImage = "url('./img/error.png')";
       areaHover.style.opacity = 0.5;
     } else if (event.target.classList.contains('fa-check')) {
-      areaHover.style.backgroundImage = "url('ok.png')";
+      areaHover.style.backgroundImage = "url('./img/ok.png')";
       areaHover.style.opacity = 0.5;
     } else if (event.target.classList.contains('fa-circle')) {
-      areaHover.style.backgroundImage = "url('circle.png')";
+      areaHover.style.backgroundImage = "url('./img/circle.png')";
       areaHover.style.opacity = 0.8;
     } else if (event.target.classList.contains('fa-square')) {
-      areaHover.style.backgroundImage = "url('square.png')";
+      areaHover.style.backgroundImage = "url('./img/square.png')";
       areaHover.style.opacity = 0.5;
     }else if (event.target.classList.contains('fa-times-circle')) {
       areaHover.style.backgroundImage = "";

@@ -10,7 +10,7 @@
 //})();
 
 
-console.log("width:",myWidth,"height",myHeight);
+//console.log("width:",myWidth,"height",myHeight);
 
 var titlePlantilla = document.getElementById('title');
 titlePlantilla.style.display = 'none';
@@ -22,7 +22,7 @@ function recalculaAlturaPictogramas(){
 
   pictogramas.forEach(function(element){
     element.style.height = ((element.clientWidth*110)/100) +"px";
-    console.log(element.style.height,element);
+    //console.log(element.style.height,element);
   });
   
   function alturaPictograma(picto){
@@ -30,7 +30,7 @@ function recalculaAlturaPictogramas(){
     var altura = 15;
     var pictoHover;
     for (var i = 0; i<elemsPicto.length; i++) {
-      console.log('elemento',elemsPicto[i].scrollHeight);
+      //console.log('elemento',elemsPicto[i].scrollHeight);
       if(elemsPicto[i].classList.contains('pictogramaHover')){
         pictoHover = elemsPicto[i];
       }else{
@@ -42,31 +42,7 @@ function recalculaAlturaPictogramas(){
     }*/
     return altura;
   }
-}/*
-var pictogramas = Array.prototype.slice.call(document.querySelectorAll('.pictograma'));
-
-pictogramas.forEach(function(element){
-  element.style.height = ((element.clientWidth*110)/100) +"px";
-  console.log(element.style.height);
-});
-
-function alturaPictograma(picto){
-  var elemsPicto = Array.prototype.slice.call(picto.children);
-  var altura = 15;
-  var pictoHover;
-  for (var i = 0; i<elemsPicto.length; i++) {
-    console.log('elemento',elemsPicto[i].scrollHeight);
-    if(elemsPicto[i].classList.contains('pictogramaHover')){
-      pictoHover = elemsPicto[i];
-    }else{
-      altura += elemsPicto[i].scrollHeight;
-    }
-  }
-  /*if(pictoHover){
-    pictoHover.style.height = altura+"px";
-  }
-  return altura;
-}*/
+}
 
 recalculaAlturaPictogramas();
 
@@ -127,14 +103,14 @@ function colocaElemento(event){
   var posY = event.interaction.curCoords.client.y;
   var dropZone = event.target;
   
-  console.log("posx:",posX,"posy:",posY, "dropzone", dropZone);
+  //console.log("posx:",posX,"posy:",posY, "dropzone", dropZone);
   var elementoClonado = elemento.cloneNode(true); 
   
   var anchoPicto = elemento.offsetWidth;
   var altoPicto = elemento.offsetHeight;
   elementoClonado.style.width = anchoPicto+"px";
   elementoClonado.style.height = altoPicto+"px";
-  console.log('holaaaaaaaaa', elementoClonado.style.height)
+  //console.log('holaaaaaaaaa', elementoClonado.style.height)
   var posicionZone = dropZone.getBoundingClientRect();
   
   elementoClonado.style.left=(posX - (anchoPicto/2)-posicionZone.left)+"px";
@@ -142,7 +118,7 @@ function colocaElemento(event){
   
   var despVer = 566*100/myHeight;
   elementoClonado.style.position="absolute";
-  console.log("posfortop:",elementoClonado.style.top,"posforleft:",elementoClonado.style.left);
+  //console.log("posfortop:",elementoClonado.style.top,"posforleft:",elementoClonado.style.left);
   noMover(elementoClonado);
   dropZone.appendChild(elementoClonado);
   
@@ -155,10 +131,10 @@ function colocaElementoAjustado(event){
   var posX = event.interaction.curCoords.client.x;
   var posY = event.interaction.curCoords.client.y;
   var dropZone = event.target;
-  console.log('elemento', elemento);
-  console.log('dropZone', dropZone);
+  //console.log('elemento', elemento);
+  //console.log('dropZone', dropZone);
   
-  console.log("posx:",posX,"posy:",posY);
+  //console.log("posx:",posX,"posy:",posY);
   var elementoClonado = elemento.cloneNode(true); 
   
   var anchoPicto = elemento.offsetWidth;
@@ -176,14 +152,14 @@ function colocaElementoAjustado(event){
   }
   //elementoClonado.style.width = anchoZona+"px";
  // elementoClonado.style.height = altoZona+"px";
-  console.log('holaaaaaaaaa', elementoClonado.style.height)
+  //console.log('holaaaaaaaaa', elementoClonado.style.height)
   var posicionZone = dropZone.getBoundingClientRect();
   
   elementoClonado.style.left= 0 +"px";
   elementoClonado.style.top= 0 +"px";
   
   elementoClonado.style.position="absolute";
-  console.log("posfortop:",elementoClonado.style.top,"posforleft:",elementoClonado.style.left);
+  //console.log("posfortop:",elementoClonado.style.top,"posforleft:",elementoClonado.style.left);
   noMover(elementoClonado);
   dropZone.appendChild(elementoClonado);
   

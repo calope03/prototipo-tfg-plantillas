@@ -15,9 +15,9 @@ function ocultaPaneles() {
 function muestraAjustes(event) {
   var panelDerecho = document.getElementById('panelDerecha');
   var classTarget = event.target.classList;
-  console.log('classtarget', classTarget);
+  //console.log('classtarget', classTarget);
   ocultaPaneles();
-  console.log(ajustes);
+  //console.log(ajustes);
   if (ajustes) {
     ajustes.stop(true);
   }

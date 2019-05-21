@@ -168,7 +168,7 @@ function listaPlantillasPublicas() {
 }
 
 function opciones(event) {
-  console.log(event);
+  //console.log(event);
   switch (event.target.dataset.action) {
     case "duplicar":
       duplicar(event.target.parentNode.dataset.id);
@@ -217,7 +217,7 @@ function readSingleFile(e) {
 }
 
 function cargarDatosImportados(contents) {
-  console.log(contents)
+  //console.log(contents)
   for(var element in contents){
     let elemento = contents[element].element;
     localStorage.setItem(elemento.id, JSON.stringify(elemento));
@@ -231,7 +231,7 @@ function exportarTableros(){
     elementoDescargar[element.id]={element}
   });
   descargaElemento(elementoDescargar,'tableros');
-  console.log('exportar tableros',elementoDescargar);
+  //console.log('exportar tableros',elementoDescargar);
 }
 
 function exportarPlantillas(){
@@ -252,7 +252,7 @@ function descargaElemento(elemento,nombre){
   link.download = nombre+'.json';	
   link.click();	
   window.URL.revokeObjectURL(link.href);	
-  console.log('descargando');
+  //console.log('descargando');
 }
 
 function tableroPublico(id) {
@@ -264,7 +264,7 @@ function tableroPublico(id) {
       elemento.id = guid();
       elemento.tipo = "tablero";
       localStorage.setItem(elemento.id, JSON.stringify(elemento));
-      console.log(snapshot.val());
+      //console.log(snapshot.val());
     },
     errorObject => {
       console.log(`Fallo en lectura de datos: ${errorObject.code}`);
@@ -281,13 +281,13 @@ function tableroPrivado(id) {
       let elemento = snapshot.val();
       //elemento.id = guid();
       localStorage.setItem(elemento.id, JSON.stringify(elemento));
-      console.log(snapshot.val());
+      //console.log(snapshot.val());
     },
     errorObject => {
       console.log(`Fallo en lectura de datos: ${errorObject.code}`);
     }
   );
-  console.log(elemento);
+  //console.log(elemento);
 }
 
 function plantillaPrivada(id) {
@@ -298,13 +298,13 @@ function plantillaPrivada(id) {
       let elemento = snapshot.val();
       //elemento.id = guid();
       localStorage.setItem(elemento.id, JSON.stringify(elemento));
-      console.log(snapshot.val());
+      //console.log(snapshot.val());
     },
     errorObject => {
       console.log(`Fallo en lectura de datos: ${errorObject.code}`);
     }
   );
-  console.log(elemento);
+  //console.log(elemento);
 }
 
 function utilizarComoTablero(id) {

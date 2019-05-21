@@ -9,7 +9,7 @@ inputBusquedaSlctr.addEventListener('keyup', buscar);
 btnBusquedaSlctr.addEventListener('click', buscarOcerrar);
 
 function buscarOcerrar(event){
-  console.log(event);
+  //console.log(event);
   if(btnBusquedaSlctr.classList.contains('search')){
     let textoBusqueda = inputBusquedaSlctr.value;
     ajaxHandler('https://api.arasaac.org/api/pictograms/es/search/'+textoBusqueda, listarResultados);
@@ -44,7 +44,7 @@ function listarResultados(data){
 }
 
 function renderPicto(element){
-    console.log(element);
+    //console.log(element);
     return `<div id="box-one1" class = "altura pictograma draggable col-md-4">
               <img class = "picto" src="https://api.arasaac.org/api/pictograms/${element.idPictogram}"></img>
               <p class = "picto">${element.keywords[0].keyword}</p>

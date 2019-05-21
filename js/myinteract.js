@@ -4,9 +4,9 @@ interact(".draggable").draggable({
   onmove: dragMoveListener,
 
   onend: function(event) {
-    console.log("terminando de arratrar", event);
+    //console.log("terminando de arratrar", event);
     if (!event.dropzone) {
-      console.log("no deberias moverte");
+      //console.log("no deberias moverte");
       noMover(event.target);
     }
   }
@@ -52,7 +52,7 @@ interact(".dropzone")
       event.target.classList.remove("drop-target");
     },
     ondrop: function(event) {
-      console.log("event", event);
+      //console.log("event", event);
       //Pictograma
       if (
         event.relatedTarget.classList.contains("draggable") &&
@@ -103,7 +103,7 @@ interact(".dropzone")
   })
   .on("tap", function(event) {
     muestraAjustes(event);
-    console.log(event.type, event.target);
+    //console.log(event.type, event.target);
   });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -164,11 +164,11 @@ interact(".draggado")
 
     target.setAttribute("data-x", x);
     target.setAttribute("data-y", y);
-    console.log("hola");
+    //console.log("hola");
   })
   .on("tap", function(event) {
     muestraAjustes(event);
-    console.log(event.type, event.target);
+    //console.log(event.type, event.target);
   });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -229,11 +229,11 @@ interact(".textDraggado")
 
     target.setAttribute("data-x", x);
     target.setAttribute("data-y", y);
-    console.log("hola");
+    //console.log("hola");
   })
   .on("tap", function(event) {
     muestraAjustes(event);
-    console.log(event.type, event.target);
+    //console.log(event.type, event.target);
   });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -291,7 +291,7 @@ interact(".rectdraggable")
     },
     ondrop: function(event) {
       //event.relatedTarget.textContent = 'Dropped';
-      console.log("event", event);
+      //console.log("event", event);
       //Pictograma
       if (
         event.relatedTarget.classList.contains("draggable") &&
@@ -301,14 +301,6 @@ interact(".rectdraggable")
         creaPicto(event);
         noMover(event.relatedTarget);
       } 
-      //Area
-      /*else if (
-        event.relatedTarget.classList.contains("draggable") &&
-        event.relatedTarget.classList.contains("newArea")
-      ) {
-        creaArea(event);
-        noMover(event.relatedTarget);
-      }*/
       //Texto 
       else if (
         event.relatedTarget.classList.contains("draggable") &&
@@ -361,7 +353,7 @@ interact(".rectdraggable")
   })
   .on("tap", function(event) {
     muestraAjustes(event);
-    console.log(event.type, event.target);
+    //console.log(event.type, event.target);
   });
 
 /*------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -417,7 +409,7 @@ interact(".figdragada")
   })
   .on("tap", function(event) {
     muestraAjustes(event);
-    console.log(event.type, event.target);
+    //console.log(event.type, event.target);
   });
 
 /*
@@ -510,14 +502,14 @@ interact(".pictoDraggado")
     }
   })
   .on("resizemove", function(event) {
-    console.log("asdfsdfasdf", event);
+    //console.log("asdfsdfasdf", event);
 
     var target = event.target,
       x = parseFloat(target.getAttribute("data-x")) || 0,
       y = parseFloat(target.getAttribute("data-y")) || 0;
 
-    console.log("element", target.offsetHeight);
-    console.log("nuevo", event.rect.height);
+   // console.log("element", target.offsetHeight);
+    //console.log("nuevo", event.rect.height);
 
     ////__________________________________________________________________________REVISAR
     textFit(target.children[1]);
@@ -536,5 +528,5 @@ interact(".pictoDraggado")
     target.setAttribute("data-y", y);
 
     //target.style.fontSize = "smaller";
-    console.log("hola");
+    //console.log("hola");
   });

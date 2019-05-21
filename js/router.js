@@ -6,7 +6,7 @@ function hashActual () {
 window.addEventListener("hashchange", function(event){
     listaByHash();
    
-    console.log(hashActual())
+    //console.log(hashActual())
 }, false);
 
 

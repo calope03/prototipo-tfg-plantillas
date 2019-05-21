@@ -13,21 +13,21 @@ document.getElementById('buttonsUpandDown').addEventListener('mousedown', subirO
 
 function subirObajar(event){
     if(event.target.classList.contains("btnUp")){
-        console.log('subiendo');
+        //console.log('subiendo');
         window.scrollBy({
             top: -100,
             left: 0,
             behavior: 'smooth'
           });
     }else if(event.target.classList.contains("btnDown")){
-        console.log('bajajndo');
+        //console.log('bajajndo');
         window.scrollBy({
             top: 100,
             left: 0,
             behavior: 'smooth'
           });
     }
-    console.log(event);
+    //console.log(event);
 }
 /*
 scroll({

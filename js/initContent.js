@@ -5,7 +5,7 @@ function hashActual() {
 }
 
 function contentPlantilla() {
-    console.log("cargando opciones plantilla nueva");
+    //console.log("cargando opciones plantilla nueva");
   document.getElementById("content").innerHTML = `
     <!--
         Panel derecha, buscador, y demas elementos
@@ -32,7 +32,7 @@ function contentPlantilla() {
           </div>
 
           <div id="box-one4" class="altura newPicto draggable col-md-4">
-            <img class="picto" src="plus.png" />
+            <img class="picto" src="./img/plus.png" />
             <div class="picto">Nuevo</div>
             <div class="pictogramaHover"></div>
           </div>
@@ -321,7 +321,7 @@ Ajustes texto
         <div class="row col-md-8 rowColores">
           <div class="col-md-12">
             Color fondo:
-            <input id="color-fondo-figura" class="colorButton" type="color" value="#d2d2d2/>
+            <input id="color-fondo-figura" class="colorButton" type="color" value="#d2d2d2"/>
           </div>
         </div>
         <div class="row col-md-12 justify-content-between">

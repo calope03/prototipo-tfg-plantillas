@@ -10,41 +10,13 @@ var ajustesTexto = function(area) {
     var colorTexto = document.getElementById("color-texto");
     var nombreAreaField = document.getElementById("nombreTexto");
     var visibleONo = document.getElementById("customCheck5");
-    //var pictoOriginal = pictogramaPadre.cloneNode(true);
     var panelDerecho = document.getElementById("panelDerecha");
-    //var seleccionHover = document.getElementById('seleccionHover');
     var botonCerrar = document.getElementById("botonCerrarTexto");
     var botonEliminar = document.getElementById("botonEliminarTexto");
     var _self = this;
-    //console.log(pictoHijos);
-    /*
-      var dropzone = document.getElementById("dropzone");
-      var panelDerecho = document.getElementById('panelDerecha');
-      var dropZoneOriginal = dropzone.cloneNode(false);
-      var panelAjustes = document.getElementById('panelDerechaAjustes');
-      */
-  
-    /* function aceptarOCancelar(evento){
-        //console.log(evento);
-        if(evento.isTrusted){
-          var clases = evento.target.classList;
-          if(clases.contains('btn-success')){
-              panelAjustes.style.display = 'none';
-              panelDerecho.style.display = 'block';
-              _self.stop(false);
-          }else if(clases.contains('btn-danger')){
-              
-              panelAjustes.style.display = 'none';
-              panelDerecho.style.display = 'block';
-              console.log('no',evento);
-              _self.stop(true);
-          }
-          
-        }
-      }*/
-  
+    
     function cambiaTitulo(evento) {
-      console.log(evento);
+      //console.log(evento);
       areaPadre.innerText= evento.target.value;
     }
   
@@ -72,27 +44,8 @@ var ajustesTexto = function(area) {
       } else {
         areaPadre.dataset.editable = "false";
       }
-      console.log("hooooola");
+      //console.log("hooooola");
     }
-    /*
-      function cambiaHover(event){
-        console.log('salud');
-        if(event.target.classList.contains('fa-times')){
-          pictoHover.style.backgroundImage="url('error.png')";
-          event.target.classList.add('fa-check','text-success');
-          event.target.classList.remove('fa-times','text-danger');
-          
-          //pictoHover.style.backgroundSize = "cover";
-          
-        }else if(event.target.classList.contains('fa-check')){
-          pictoHover.style.backgroundImage="url('ok.png')";
-          event.target.classList.remove('fa-check', 'text-success');
-          event.target.classList.add('fa-times','text-danger');
-          
-          //pictoHover.style.backgroundSize = "cover";
-          console.log('salud');
-        }
-      }*/
   
     function cerrar() {
       panelAjustes.style.display = "none";
@@ -133,15 +86,7 @@ var ajustesTexto = function(area) {
       colorFondo.removeEventListener("change", cambiaColorFondo);
       areaPadre.classList.remove("myShadow");
   
-      /*if(cancelar){
-          console.log(pictogramaPadre);
-          let padre =pictogramaPadre.parentNode;
-          if(padre){
-            padre.replaceChild(pictoOriginal,pictogramaPadre);
-          }
-          
-        }*/
-      console.log("parando picto ");
+      //console.log("parando picto ");
     };
   };
   
@@ -156,7 +101,7 @@ var ajustesTexto = function(area) {
     var _self = this;
 
     function cambiaTitulo(evento) {
-      console.log(evento);
+      //console.log(evento);
       areaPadre.innerText= evento.target.value;
     }
 
