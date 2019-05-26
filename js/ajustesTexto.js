@@ -84,6 +84,7 @@ var ajustesTexto = function(area) {
       // nombrePictoField.value = pictoText.innerText;
       colorBorde.removeEventListener("change", cambiaColorBorde);
       colorFondo.removeEventListener("change", cambiaColorFondo);
+      nombreAreaField.removeEventListener("keyup", cambiaTitulo);
       areaPadre.classList.remove("myShadow");
   
       //console.log("parando picto ");
@@ -121,6 +122,7 @@ var ajustesTexto = function(area) {
   
     this.stop = function() {
       botonCerrar.removeEventListener("click", cerrar);
+      nombreAreaField.removeEventListener("keyup", cambiaTitulo);
       areaPadre.classList.remove("myShadow");
     };
   };
