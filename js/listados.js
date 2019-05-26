@@ -34,7 +34,7 @@ function listaPlantillasPrivadas() {
     <div class="card my-3 h-100" data-id="${element.id}">
         <div class="row h-100">
           <div class="col-md-4 h-100">
-            <img src=${element.miniatura} class="img-fluid d-block">
+            <img src="${element.miniatura}" class="img-fluid d-block">
           </div>
           <div class="col-md-8 px-3">
               <div class="row card-block px-3 justify-content-around" data-id="${element.id}">
@@ -67,7 +67,7 @@ function listaTablerosPrivados() {
     <div class="card my-3 h-100" data-id="${element.id}">
         <div class="row h-100">
           <div class="col-md-4 h-100">
-            <img src=${element.miniatura} class="img-fluid d-block">
+            <img src="${element.miniatura}" class="img-fluid d-block">
           </div>
           <div class="col-md-8 px-3">
               <div class="row card-block px-3 justify-content-around" data-id="${
@@ -101,7 +101,7 @@ function listaTablerosPrublicos() {
         <div class="card my-3 h-100" data-id="${element.id}">
             <div class="row h-100">
               <div class="col-md-4 h-100">
-                <img src=${element.miniatura} class="img-fluid d-block">
+                <img src="${element.miniatura}" class="img-fluid d-block">
               </div>
               <div class="col-md-8 px-3">
                   <div class="row card-block px-3 justify-content-around" data-id="${
@@ -138,7 +138,7 @@ function listaPlantillasPublicas() {
         <div class="card my-3 h-100" data-id="${element.id}">
             <div class="row h-100">
               <div class="col-md-4 h-100">
-                <img src=${element.miniatura} class="img-fluid d-block">
+                <img src="${element.miniatura}" class="img-fluid d-block">
               </div>
               <div class="col-md-8 px-3">
                   <div class="row card-block px-3 justify-content-around" data-id="${
